@@ -19,7 +19,7 @@ li{color:red}
 ```
 ul li{color:red}
 ``` 
-###부모 자식 선택자
+### 부모 자식 선택자
 - ul 바로 밑에있는 li 만 선택
 ```
 ul>li{color:red}
@@ -28,6 +28,25 @@ ul>li{color:red}
 - 둘다 선택
 ```
 li,ul{color:red}
+```
+
+### 속성 선택자
+- 지정된 어트리뷰트를 갖는 모든 요소를 선택
+```
+ul[attr] { color: red; }
+```
+
+
+###  인접 형제 선택자
+-  li 바로 뒤 에있는 ul를 선택
+```
+li+ul{color:red}
+```
+
+### 일반 형제 선택자
+- li 뒤 에있는 ul를 모두 선택
+```
+li~ul{color:red}
 ```
 
 ### 가상 클래스 선택자
@@ -77,3 +96,5 @@ h1{
 - CSS우선순위 순서 : style속성 > id선택자 > class선택자 > 태그선택자
 <br> !important 를넣으면 우선순위 제일높아짐 
 
+### css reset
+- Eric Meyer’s “Reset CSS” 2.0 https://meyerweb.com/eric/tools/css/reset/ 
