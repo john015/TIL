@@ -126,7 +126,7 @@ b 넣으면 브렌치를 생성하면서 전환할수있음
 
 
 
-### git clone https://github.com/git/git.git(깃원격저장소주소) exp(복제될 디렉토리이름)
+### git clone https://github.com/git/git.git(깃원격저장소주소) (복제될 디렉토리이름)
 ->로컬저장소로 원격저장소를 불러옴 
 
 ### git remote add origin https://github.com/git/git.git(깃원격저장소주소)
