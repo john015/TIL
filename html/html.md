@@ -11,7 +11,9 @@ gte : 크거나 같다(greater than equal) - 예) [if gte ie 7] ie7 보다 크�
 & : 그리고(and) - 예) [if (gte ie 7)&(lt ie 9)] ie7 이상이고 ie9 미만이라면
 | : 또는(or) - 예) [if (ie 7)|(ie 8)] ie7 이거나 ie8 이라면
 
-```
-<!--[if lt IE 9]> <script src="./src/demo.js"> <![endif]--> //ie 9미만
-<!--[if lte IE 9]> <script src="./src/demo.js"> <![endif]--> //ie 9이하
+```html
+<!--[if lt IE 9]> <script src="./src/demo.js"> <![endif]-->
+//ie 9미만
+<!--[if lte IE 9]> <script src="./src/demo.js"> <![endif]-->
+//ie 9이하
 ```

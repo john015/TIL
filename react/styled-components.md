@@ -1,4 +1,4 @@
-### 기본문법
+# 기본문법
 
 sass 와동일
 
@@ -12,7 +12,7 @@ const Button = styled.button`
 `
 ```
 
-### injectGlobal (styled-components v4에서 deprecated)
+## injectGlobal (styled-components v4에서 deprecated)
 
 전역 css 선언시 사용
 
@@ -30,7 +30,7 @@ body{
 `
 ```
 
-### mixin, extend, Extra Attribute
+## mixin, extend, Extra Attribute
 
 ```javascript
 import { css } from 'styled-components' //import
@@ -91,7 +91,7 @@ const Container = styled.div`
 export default App
 ```
 
-### typescript displayName 설정
+## typescript displayName 설정
 
 - https://github.com/Igorbek/typescript-plugin-styled-components
 - https://github.com/AustinBrunkhorst/react-app-rewire-styled-components-typescript
