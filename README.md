@@ -1,1 +1,1 @@
-배운거 정리
+Today i learned

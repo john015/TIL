@@ -1,8 +1,6 @@
-## 색깔 참조 사이트
+## 로딩중 svg 이미지
 
-로딩중 svg 이미지
-
-```
+```javascript
     [v-cloak]>* {
         display: none;
     }
@@ -24,21 +22,18 @@
 
 ## Vuex
 
-        helper 함수  <methods>
-    [vue]                [vuex]
 
-동기 메소드(methods) > mutations
-비동기 메소드(created) > actions
+#### vue, vuex 비교
+| vue          | vuex      |
+| ------------ | --------- |
+| methods      | mutations |
+| created(비동기) | actions   |
+| computed     | getters   |
+| data         | state     |
 
-       helper 함수 <computed>
-        data      >    state
-     computed   >    getters
+#### mutations
+vue 에서 mutations 호출시 this.\$store.commit('이름', 인자)
 
-mutations
-vue 에서 mutations 호출시 this.$store.commit('이름', 인자)
-
-vuex 에서 state 호출시 state.[state 이름]
-
-actions
-vuex 에서 mutations 호출시 commit(뮤테이션이름,{파라미터})
-vue components 에서 호출시 this.$store.dispatch
+#### actions
+vuex 에서 mutations 호출시 commit(mutationName,{파라미터})
+vue components 에서 호출시 this.\$store.dispatch

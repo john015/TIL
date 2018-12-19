@@ -14,5 +14,4 @@ gte : 크거나 같다(greater than equal) - 예) [if gte ie 7] ie7 보다 크�
 ```
 <!--[if lt IE 9]> <script src="./src/demo.js"> <![endif]--> //ie 9미만
 <!--[if lte IE 9]> <script src="./src/demo.js"> <![endif]--> //ie 9이하
-
 ```
