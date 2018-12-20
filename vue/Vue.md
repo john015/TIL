@@ -1,6 +1,6 @@
 ## 로딩중 svg 이미지
 
-```javascript
+```css
     [v-cloak]>* {
         display: none;
     }
