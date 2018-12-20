@@ -1,3 +1,23 @@
+## Infinite scroll
+
+```javascript
+_.throttle(() => {
+  // 사용자의 화면에 보여지는 높이
+  const { innerHeight } = window
+  // body의 화면에 보이지 않는 부분까지 포함한 높이
+  const { scrollHeight } = document.body
+  // 스크롤된 높이 ie의 경우는 document.body.scrollTop으로 구해야함
+  const scrollTop =
+    (document.documentElement && document.documentElement.scrollTop) ||
+    document.body.scrollTop
+
+  // body 전체높이 - 화면에 보여지는 높이 - 스크롤된 높이가 80보다 작으면 데이터 추가
+  if (scrollHeight - innerHeight - scrollTop < 80) {
+    // data fetch 로직
+  }
+}, 100)
+```
+
 ## javascript typecheck 할때
 
 ```javascript

@@ -30,7 +30,7 @@ SELECT datname FROM pg_database;
 \c database_name
 ```
 
-##테이블 목록 출력
+## 테이블 목록 출력
 
 ```sh
   \dt
