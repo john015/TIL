@@ -39,10 +39,14 @@ ps. vm.$nextTick를 사용하면 전체가 렌더링된 상태를 보장할 수 
 data가 변하여 data를 변경시키기 전에 실행된다. rerendering 전의 data를 얻을 수 있고 이 훅에서 data를 변경해도 rerendering은 실행되지 않는다.
 
 **updated**
+data가 변하여 rerendering이 일어난 후에 실행된다 여기서 상태를 변경하면 무한루프에 빠질 수 있다. mounted와 마찬가지로 모든 하위 컴포넌트가 업데이트된 상태를 보장하지는 않는다. 
+ps. vm.$nextTick를 사용하면 전체가 렌더링된 상태를 보장할 수 있다. 
 
+**beforeDestroy**
+Destroy되기 직전에 호출된다
 
-
-
+**destroyed**
+Destroy된 후에 호출된다
 
 
 

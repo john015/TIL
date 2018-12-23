@@ -4,6 +4,12 @@
 postgres -D /usr/local/var/postgres
 ```
 
+## 서버가 계속 켜져있을때 중지
+
+```sh
+pg_ctl stop -mf -w -D /usr/local/var/postgres
+```
+
 ## Postgre SQL shell 진입
 
 ```sh
