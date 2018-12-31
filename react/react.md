@@ -39,7 +39,7 @@ yarn add eslint-config-airbnb
 
 **getSnapshotBeforeUpdate(prevProps, prevState)**
 
-- DOM 변화가 일어나기 직전의 DOM 상태를 가져옴 리턴 값은 componentDidUpdate 에서 3 번째 파라미터로 감
+- DOM 변화가 일어나기 직전의 DOM 상태를 가져옴 리턴 값은 componentDidUpdate 에서 3 번째 아규먼트로 감
 
 **componentDidUpdate(prevProps, prevState, snapshot)**
 

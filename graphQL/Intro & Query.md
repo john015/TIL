@@ -1,4 +1,4 @@
-# introduction
+# Introduction
 
 GraphQL 은 API를 위한 쿼리 언어이며 타입 시스템을 사용하여 쿼리를 실행하는 서버사이드 런타임입니다
 
