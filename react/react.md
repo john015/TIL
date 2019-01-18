@@ -1,28 +1,3 @@
-## eslint 와 prettier 연동및 eslint airbnb sytle setting
-
-**콘솔**
-
-```
-// eslint 와 prettier 연동
-yarn add --dev prettier-eslint
-// eslint airbnb 스타일
-yarn add eslint-config-airbnb
-
-```
-
-**.eslintrc**
-
-```
-{
-"parser": "babel-eslint",
-"extends": "airbnb",
-"plugins": ["react", "jsx-a11y", "import"],
-"rules": {
-"react/jsx-filename-extension": 0
-}
-}
-```
-
 ## react 16.3 이후 라이프 싸이클
 
 **componentDidMount**
@@ -81,4 +56,29 @@ yarn add eslint-config-airbnb
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,tsx,ts}"
     ]
   }
+```
+
+## eslint 와 prettier 연동및 eslint airbnb sytle setting
+
+**콘솔**
+
+```
+// eslint 와 prettier 연동
+yarn add --dev prettier-eslint
+// eslint airbnb 스타일
+yarn add eslint-config-airbnb
+
+```
+
+**.eslintrc**
+
+```
+{
+"parser": "babel-eslint",
+"extends": "airbnb",
+"plugins": ["react", "jsx-a11y", "import"],
+"rules": {
+"react/jsx-filename-extension": 0
+}
+}
 ```

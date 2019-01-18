@@ -41,7 +41,8 @@ difference 랑 비슷하지만 마지막 아규먼트로 iteratee(루프의 기�
 //객체의 x 값을 기준으로 비교 => [{ 'x': 2 }]
 ```
 
-##\_.differenceWith
+## \_.differenceWith
+
 3 번째아규먼트로 lodash 함수를 사용해서 differenceBy 처럼 사용함
 
 ```javascript
@@ -51,7 +52,8 @@ _.differenceWith(objects, [{ x: 1, y: 2 }], _.isEqual)
 // => [{ 'x': 2, 'y': 1 }]
 ```
 
-##\_.findIndex
+## \_.findIndex
+
 해당 규칙에 해당하는 인덱스를 앞부터 시작해서 반환함
 
 ```javascript
@@ -83,7 +85,8 @@ var users = [
 // => 2
 ```
 
-##\_.findLastIndex(
+## \_.findLastIndex(
+
 해당 규칙에 해당하는 인덱스를 뒤부터 시작해서 반환함
 
 ```javascript
@@ -115,5 +118,6 @@ var users = [
 // => 0
 ```
 
-##Todo
+## Todo
+
 sorted까지
