@@ -1,4 +1,4 @@
-# mobx Basic
+# mobx Basices
 
 ## observable
 
@@ -17,7 +17,7 @@ Observable State를 변경할때 사용
 
 비동기로 Observable State를 변경할때 사용
 
-# mobx-react Basic
+# mobx-react Basices
 
 ## observer
 
@@ -55,7 +55,7 @@ class MyComponent extends React.Component<IProps, {}> {
   render() {
     const { name, countryCode } = this.props;
     const { userStore, router } = this.injected;
-    ...
+
   }
 }
 ```
