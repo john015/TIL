@@ -56,6 +56,12 @@
 
 <hr />
 
+### CS
+
+- [Big-O](https://github.com/john015/TIL/blob/master/cs/big-o.md)
+
+<hr />
+
 ### Algorithm
 
 - [Algorithm](https://github.com/john015/TIL/blob/master/algorithm/algorithm.md)
