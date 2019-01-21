@@ -4,12 +4,16 @@ https://yeun.github.io/open-color/
 
 https://material.io/tools/color/
 
-https://flatuicolors.com/palette/defo
+https://flatuicolors.com/palette/defo/
 
-## recompose 정리 사이트
+## react recompose 정리 사이트
 
-https://merong.city/p/react-hoc
+https://merong.city/p/react-hoc/
 
-## input transition animation
+## input transition animation codepen
 
-https://codepen.io/rm/pen/ldhon
+https://codepen.io/rm/pen/ldhon/
+
+## javascript performance test
+
+https://jsperf.com/

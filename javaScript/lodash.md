@@ -1,14 +1,15 @@
-Lodash Methods들중 괜찮아 보이는거 정리
+Lodash Methods들 중 괜찮아 보이는거 정리
+lodash/fp의 경우는 iteratee를 첫번째 아규먼트가 아니라 마지막 아규먼트로 받음
 
 ## \_.chunk
 
 2 번째 아규먼트로 받은 숫자만큼 배열을 나눠줌
 
 ```javascript
-\_.chunk(['a', 'b', 'c', 'd'], 2);
+\_.chunk(['a', 'b', 'c', 'd'], 2)
 // => [['a', 'b'], ['c', 'd']]
 
-\_.chunk(['a', 'b', 'c', 'd'], 3);
+\_.chunk(['a', 'b', 'c', 'd'], 3)
 // => [['a', 'b', 'c'], ['d']]
 ```
 
