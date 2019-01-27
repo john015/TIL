@@ -1,7 +1,6 @@
 # SMACSS
 
-- 범주화로 패턴화 하고자 하는 방법론이다.
-- 기본(base), 레이아웃(layout), 모듈(module), 상태(state), 테마(theme) 다섯가지의 범주를 제시한다.
+- 기본(base), 레이아웃(layout), 모듈(module), 상태(state), 테마(theme) 다섯가지의 범주로 구분한다.
 - !important를 쓰지 않는다.
 
 ## Base
@@ -82,5 +81,70 @@ button ... {
 }
 .theme-red {
   color: red;
+}
+```
+
+# BEM
+
+- block--element\_\_modifier 규칙으로 작명한다.
+- 여러단어의 조합은 하이픈(-)으로 연결하여 작명한다.
+
+## Block(블록)
+
+- 재사용 할 수 있는 기능적으로 독립적인 페이지 구성 요소
+- 목적에 맞게 결정해야 한다.(logo, form, etc...)
+- 블록은 환경에 영향을 받지 않아야 한다. 즉, 여백이나 위치를 설정하면 안된다.
+- 블록은 중첩해서 작성 할 수 있다.
+
+```css
+.form {
+  color: blue;
+}
+.header {
+  font-size: 20px;
+}
+.footer {
+  color: red;
+}
+```
+
+## Element(요소)
+
+- 블록안에서 특정 기능을 담당하는 부분
+- Element는 중첩해서 작성 할 수 있다.
+- 모든 블록에서 Element는는 필수가 아닌 선택적으로 사용한다
+
+```css
+.form__label {
+  font-weight: bold;
+}
+.header__title {
+  color: white;
+}
+.footer__image {
+  margin: 10px;
+}
+```
+
+## Modifier(수식어)
+
+- 블록이나 요소의 모양, 상태
+- 수식어는 단독으로 사용할 수 없다.
+- 수식어에는 boolean 타입과 key-value 타입이 있다.
+- boolean 타입: 값이 true 라고 가정한다. (form\_\_button-—disabled)
+- key-value 타입 : key, value를 하이픈으로 연결하여 표시한다. (form\_\_button--color-red)
+
+```css
+.form__label--disabled {
+  opacity: 0.4;
+}
+.header__title--color-gray {
+  color: gray;
+  font-size: 32px;
+}
+.footer__image--size-big {
+  width: 400px;
+  height: 350px;
+  margin: 20px;
 }
 ```
