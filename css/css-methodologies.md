@@ -148,3 +148,26 @@ button ... {
   margin: 20px;
 }
 ```
+
+# OOCSS
+
+## 기본 규칙
+
+- 반복적인 시각적 코드(background, border, etc..)을 별도의 스킨으로 정의하여 중복 코드를 줄인다.
+- 위치에 의존적인(부모 자식, 형제 자매 셀렉터 등) 스타일을 정의하지 않는다 (.object h2)
+
+## 네이밍 방법
+
+- 짧고 간결하게 작성한다.
+- 동작과 형태가 예상 가능하도록 명확하게 작성한다.
+- 어떻게 생겼는지 보다는 어떤 목적인지 알 수 있도록 작성한다.
+- 지나치게 구체적 이지 않게 일반적으로 사용 가능 하도록 작성한다.
+
+```html
+<!-- 기존 방식 -->
+<button class="google_btn">Google Login</button>
+<button class="github_btn">Github login</button>
+<!-- OOCSS 방식 -->
+<button class="btn google">Facebook</button>
+<button class="btn github">Twitter</button>
+```
