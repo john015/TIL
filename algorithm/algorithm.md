@@ -1,6 +1,6 @@
 ## 이분 검색
 
-함수의 첫번째 아규먼트로 받은 배열에서 두번째 아큐먼트로 받은 value의 index를 찾아서 반환 없을시 -1 반환
+함수의 첫번째 아규먼트로 받은 배열에서 두번째 아규먼트로 받은 value의 index를 찾아서 반환 없을시 -1 반환
 
 ```javascript
 function binarySearch(arr, value) {
