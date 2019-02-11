@@ -63,15 +63,12 @@
 
 <hr />
 
-### CS
-
-- [Big-O](https://github.com/john015/TIL/blob/master/cs/big-o.md)
-
-<hr />
-
 ### Algorithm
 
-- [Algorithm](https://github.com/john015/TIL/blob/master/algorithm/algorithm.md)
+- [Big-O](https://github.com/john015/TIL/blob/master/algorithm/big-o.md)
+- [이진 탐색](https://github.com/john015/TIL/blob/master/algorithm/binary-search.md)
+- [삽입 정렬](https://github.com/john015/TIL/blob/master/algorithm/insertion-sort.md)
+- [선택 정렬](https://github.com/john015/TIL/blob/master/algorithm/selection-sort.md)
 
 <hr />
 
