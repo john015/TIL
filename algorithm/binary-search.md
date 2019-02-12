@@ -6,6 +6,7 @@
 
 ```javascript
 // s = startIdx, e = endIdx, m = middleIdx
+
 function binarySearch(arr, value) {
   function solveFn(s, e) {
     if (s > e) {

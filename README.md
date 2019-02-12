@@ -4,6 +4,22 @@
 
 <hr />
 
+### Algorithm
+
+- [Big-O](https://github.com/john015/TIL/blob/master/algorithm/big-o.md)
+- [이진 탐색](https://github.com/john015/TIL/blob/master/algorithm/binary-search.md)
+- [삽입 정렬](https://github.com/john015/TIL/blob/master/algorithm/insertion-sort.md)
+- [선택 정렬](https://github.com/john015/TIL/blob/master/algorithm/selection-sort.md)
+- [버블 정렬](https://github.com/john015/TIL/blob/master/algorithm/bubble-sort.md)
+
+<hr />
+
+### RegExp
+
+- [RegExp](https://github.com/john015/TIL/blob/master/regExp/regExp.md)
+
+<hr />
+
 ### JavaScript
 
 - [JavaScript](https://github.com/john015/TIL/blob/master/javaScript/javaScript.md)
@@ -22,12 +38,6 @@
 ### Vue
 
 - [Vue](https://github.com/john015/TIL/blob/master/vue/Vue.md)
-
-<hr />
-
-### RegExp
-
-- [RegExp](https://github.com/john015/TIL/blob/master/regExp/regExp.md)
 
 <hr />
 
@@ -60,15 +70,6 @@
 ### Django
 
 - [Django](https://github.com/john015/TIL/blob/master/django/django.md)
-
-<hr />
-
-### Algorithm
-
-- [Big-O](https://github.com/john015/TIL/blob/master/algorithm/big-o.md)
-- [이진 탐색](https://github.com/john015/TIL/blob/master/algorithm/binary-search.md)
-- [삽입 정렬](https://github.com/john015/TIL/blob/master/algorithm/insertion-sort.md)
-- [선택 정렬](https://github.com/john015/TIL/blob/master/algorithm/selection-sort.md)
 
 <hr />
 

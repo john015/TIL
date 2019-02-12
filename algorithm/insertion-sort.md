@@ -6,7 +6,7 @@
 
 공간 복잡도: O(1)
 
-```javascript 
+```javascript
 // 오름차순
 function ascInsertionSort(array) {
   let j
