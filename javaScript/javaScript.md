@@ -112,6 +112,16 @@ console.log(obj.sum.call(window, 0, 100)) //180
 console.log(obj.sum.apply(window, [0, 100])) //180
 ```
 
+## throttle vs debounce
+
+throttle: 함수가 호출된 후 일정 시간이 지나기 전에 다시 호출되지 않도록 하는 것
+
+debounce: 연속되어 호출되는 함수 중 호출된 마지막 함수만 호출하도록 하는 것
+
+throttle은 맨처음 함수가 실행된후 일정 시간전 까진 다시 호출되지 않지만 debounce는 일정 시간동안 호출되지 않아야지 호출된 마지막 함수가 실행된다
+
+throttle은 스크롤 이벤트 처리시 주로 사용하고 debounce는 ajax 검색에 주로 사용한다
+
 # Tip
 
 ## javascript typecheck 할때
