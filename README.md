@@ -12,6 +12,7 @@
 - [선택 정렬](https://github.com/john015/TIL/blob/master/algorithm/selection-sort.md)
 - [버블 정렬](https://github.com/john015/TIL/blob/master/algorithm/bubble-sort.md)
 - [합병 정렬](https://github.com/john015/TIL/blob/master/algorithm/merge-sort.md)
+- [퀵 정렬](https://github.com/john015/TIL/blob/master/algorithm/quick-sort.md)
 
 <hr />
 
