@@ -32,10 +32,10 @@ function quickSort(array, left = 0, right = array.length - 1) {
   return array
 }
 
-function swap(arr, left, right) {
-  const temp = arr[left]
-  arr[left] = arr[right]
-  arr[right] = temp
+function swap(arr, a, b) {
+  const temp = arr[a]
+  arr[a] = arr[b]
+  arr[b] = temp
 }
 
 function partition(array, left, right) {

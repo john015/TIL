@@ -13,6 +13,8 @@
 - [버블 정렬](https://github.com/john015/TIL/blob/master/algorithm/bubble-sort.md)
 - [합병 정렬](https://github.com/john015/TIL/blob/master/algorithm/merge-sort.md)
 - [퀵 정렬](https://github.com/john015/TIL/blob/master/algorithm/quick-sort.md)
+- [계수 정렬](https://github.com/john015/TIL/blob/master/algorithm/counting-sort.md)
+- [힙 정렬](https://github.com/john015/TIL/blob/master/algorithm/heap-sort.md)
 
 <hr />
 
