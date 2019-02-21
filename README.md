@@ -20,8 +20,9 @@
 
 ### 자료구조
 
-- [스택](https://github.com/john015/TIL/blob/master/data-structure/stack.md)
 - [연결 리스트](https://github.com/john015/TIL/blob/master/data-structure/linked-list.md)
+- [스택](https://github.com/john015/TIL/blob/master/data-structure/stack.md)
+- [큐](https://github.com/john015/TIL/blob/master/data-structure/queue.md)
 
 <hr />
 
