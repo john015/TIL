@@ -4,7 +4,7 @@
 
 queue에 데이터를 추가하는걸 enqueue라고 부르고 데이터를 꺼낼때 dequeue이라고 부른다
 
-queue에는 제일 위 데이터를 가리키는 head와 맨 끝 데이터를 가리키는 rear이 있습니다.
+queue에는 제일 위 데이터를 가리키는 head와 맨 끝 데이터를 가리키는 rear이 있다
 
 ```javascript
 function CreateNode(data) {
