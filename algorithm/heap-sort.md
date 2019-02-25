@@ -1,5 +1,11 @@
 ## 힙 정렬(heap sort)
 
+힙 정렬은 [힙(Heap)](https://github.com/john015/TIL/blob/master/data-structure/heap.md) 자료구조를 기반으로한 정렬 방식이다
+
+시간 복잡도: O(nlog(n))
+
+공간 복잡도: O(1)
+
 ```javascript
 class Heap {
   constructor(arr = []) {

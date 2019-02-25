@@ -1,4 +1,6 @@
-## Queue
+# Queue
+
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/gq/2014/02/Queue.png"/>
 
 가장 먼저 추가된 항목이 가장 먼저 제거되는 FIFO(First In First Out) 형식의 자료 구조
 
