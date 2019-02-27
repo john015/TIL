@@ -1,6 +1,6 @@
 # Tree
 
-그래프의 한종류로써 회로가 없고 서로 다른 두 노드를 잇는 길이 하나뿐이다
+그래프의 한종류로써 서로 다른 두 노드를 잇는 길이 하나뿐인 자료구조이다
 
 계층적 관계를 표현하는 비선형 자료구조이다
 
@@ -30,4 +30,4 @@
 
 ## Graph vs Tree
 
-<img src='https://gmlwjd9405.github.io/images/data-structure-graph/graph-vs-tree.png'>
+<img src='https://user-images.githubusercontent.com/32455422/53474355-30ddad00-3ab0-11e9-8ff0-e01a1fab6928.png'>
