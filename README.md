@@ -15,6 +15,7 @@
 - [퀵 정렬](https://github.com/john015/TIL/blob/master/algorithm/quick-sort.md)
 - [계수 정렬](https://github.com/john015/TIL/blob/master/algorithm/counting-sort.md)
 - [힙 정렬](https://github.com/john015/TIL/blob/master/algorithm/heap-sort.md)
+- [동적 계획법](https://github.com/john015/TIL/blob/master/algorithm/dynamic-programming.md)
 
 <hr />
 
@@ -23,8 +24,10 @@
 - [연결 리스트](https://github.com/john015/TIL/blob/master/data-structure/linked-list.md)
 - [스택](https://github.com/john015/TIL/blob/master/data-structure/stack.md)
 - [큐](https://github.com/john015/TIL/blob/master/data-structure/queue.md)
+- [그래프](https://github.com/john015/TIL/blob/master/data-structure/graph.md)
 - [트리](https://github.com/john015/TIL/blob/master/data-structure/tree.md)
 - [힙](https://github.com/john015/TIL/blob/master/data-structure/heap.md)
+- [기타](https://github.com/john015/TIL/blob/master/data-structure/etc.md)
 
 <hr />
 
