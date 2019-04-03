@@ -24,37 +24,38 @@ stack에는 제일 위 데이터를 가리키는 top가 있다
 - 실행 취소 (undo)
 
 ```javascript
-function CreateNode(data) {
+function Node(data) {
   this.data = data
   this.next = null
 }
-
 class Stack {
   constructor() {
     this.top = null
-    this.count = 0
   }
-
   push(data) {
-    const node = new CreateNode(data)
-    node.next = this.top
-    this.top = node
-    this.count++
+    const n = new Node(data)
+    n.next = this.top
+    this.top = n
   }
 
   pop() {
-    // stack에 data가 없을때
     if (!this.top) {
-      throw new Error('stack underflow!')
+      throw new Error('stack underflow')
     }
-    const data = this.top.data
-    this.top = this.top.next
-    this.count--
-    return data
+    const item = this.top
+    this.top = item.next
+    return item.data
   }
 
-  stackTop() {
+  peek() {
+    if (!this.top) {
+      throw new Error('stack underflow')
+    }
     return this.top.data
+  }
+
+  isEmpty() {
+    return !this.top
   }
 }
 
