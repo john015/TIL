@@ -6,7 +6,7 @@
 
 queue에 데이터를 추가하는걸 enqueue라고 부르고 데이터를 꺼낼때 dequeue이라고 부른다
 
-queue에는 제일 위 데이터를 가리키는 head와 맨 끝 데이터를 가리키는 rear이 있다
+queue에는 제일 위 데이터를 반환하는 peek과 queue가 비어있는지 불리언으로 반환하는 isEmpty 메소드가 있다
 
 ```javascript
 function CreateNode(data) {
@@ -17,7 +17,6 @@ class Queue {
   constructor() {
     this.head = null
     this.rear = null
-    this.count = 0
   }
 
   enqueue(data) {
@@ -30,14 +29,13 @@ class Queue {
       this.rear.next = node
     }
     this.rear = node
-    this.count++
   }
 
   dequeue() {
     if (!this.head) {
-      throw new Error('data가 없습니다')
+      throw new Error('queue에 data가 없습니다')
     }
-    const data = this.head.data
+    const item = this.head.data
     // queue에 data가 1개밖에 없을때
     if (this.head.next === null) {
       this.rear = null
@@ -46,12 +44,15 @@ class Queue {
     } else {
       this.head = this.head.next
     }
-    this.count--
-    return data
+    return item
   }
 
-  front() {
-    return this.head && this.head.data
+  peek() {
+    return this.head.data
+  }
+
+  isEmpty() {
+    return !this.head
   }
 }
 
