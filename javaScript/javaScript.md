@@ -166,3 +166,14 @@ Function.prototype.customBind = function(obj, ...args) {
   }
 }
 ```
+
+## 숫자 천단위마다 콤마 찍기
+
+```javascript
+const num = 10203040
+const num2 = 10203040.12345
+
+console.log(num.toLocaleString()) // 10,203,040
+console.log(num2.toLocaleString()) // 기본으로 소수점 3자리에서 끊김 10,203,040.123
+console.log(num2.toLocaleString(undefined, { maximumFractionDigits: 5 })) // 10,203,040.12345
+```
