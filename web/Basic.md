@@ -36,13 +36,13 @@
 
 ## ARIA와 screenreader이란?
 
-- ARIA는 (Accessible Rich Internet Applications)이란 웹페이지를 작성할 때 장애인이 웹페이지를 잘 식별할 수 있도록 하는 접근성 명세 이다.
+- ARIA(Accessible Rich Internet Applications)이란 웹페이지를 작성할 때 장애인이 웹페이지를 잘 식별할 수 있도록 하는 접근성 명세 이다.
 - ARIA 속성들은 [링크](https://github.com/lezhin/accessibility/blob/master/aria/README.md#html)를 참고
 - screenreader란 시각장애인이 컴퓨터를 사용할 때 나타나는 정보들을 음성으로 출력해주는 프로그램이다.
 
 ## CSS 애니메이션과 JavaScript 애니메이션의 차이점
 
-- 간단한 애니메이션의 경우 CSS 애니메이션은 사용하기 쉽지만 JS 애니메이션보다 성능이 더안좋다.
+- 간단한 애니메이션의 경우 CSS 애니메이션은 사용하기 쉽지만 JS 애니메이션보다 성능이 더 안좋다.
 - 복잡한 에니메이션의 경우 CSS 애니메이션으로는 구현하기어렵고 JS 애니메이션을 사용해야한다.
 
 ## CORS란?
@@ -50,3 +50,10 @@
 - CORS(Cross Origin Resource Sharing)란 서로 다른 도메인끼리 http Request을 가능하게하는 표준 규약이다.
 - 기본적으로 Same Origin Policy에 의해 동일한 도메인끼리만 http Request가 가능하지만, CORS를 사용하게 된다면 다른 도메인으로 HTTP Request가 가능해진다.
 - 이를 해결하기 위해선 여러가지 방법이 있는데, 프록시 서버를 사용하거나 JSONP방식을 사용하거나 서버측에서 http header에 Access control값을 설정하면 된다.
+
+## i18n 지원하는 방법
+
+- 웹페이지를 언어별로 작성한다음 보여준다(비추천)
+- html tag의 dataset에 언어별 텍스트를 넣어놓고 보여준다.
+- JSON파일에 언어별 텍스트를 입력해놓고 해당 JSON파일 값을 읽어서 보여준다.
+- i18n 라이브러리를 사용해서 보여준다(react-intl, react-i18next, etc..)
