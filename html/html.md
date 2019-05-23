@@ -22,6 +22,29 @@
 - 또한 데이터에 유효기간이 없고, localStorage를 설정한 도메인에서만 설정한 값을 읽을 수 있고 다른 도메인에서는 못 읽는다.
 - sessionStorage는 localStorage와 동일하지만 sessionStorage에 저장된 데이터는 세션이 종료되면(해당탭이 종료)지워진다.
 
+## \<script\> vs \<script async\> vs \<script defer\>
+
+- 일반적으로 브라우저는 \<script\> tag를 만나면 웹 페이지 렌더링을 잠시 중단하고 script를 파싱한뒤 실행한다.
+- 따라서 크기가 큰 script을 불러올 경우 웹 페이지 렌더링이 지연된다.
+- async와 defer 속성을 사용하게 되면 브라우저는 렌더링을 중단 하지않고 렌더링과 동시에 스크립트를 파싱한다.
+- async와 defer의 차이점은 async의 경우 script를 다 파싱하는 즉시 실행하며 defer는 렌더링이 모두 완료된 뒤 script를 실행합니다.
+
+## img tag의 srcset 속성이란?
+
+- srcset은 화면 해상도에 따라서 반응형 이미지를 제공하기 위한 속성이다.
+- ie와 오페라 미니를 제외하고 모든 브라우저가 지원한다.
+
+  ```html
+  <!--
+  width가 640px보다 큰경우 33.3vw을 기준으로 반응형 이미지를 제공하고 작은경우
+  100vw을 기준으로 반응형 이미지를 제공함 <-->
+  <img
+    src="small.jpg"
+    srcset="big.jpg 1024w, medium.jpg 640w, small.jpg 320w"
+    sizes="(min-width: 640px) 33.3vw, 100vw"
+  />
+  ```
+
 ## IE 조건부 주석
 
 ```html
