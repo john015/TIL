@@ -11,6 +11,7 @@
 ## 커스텀 데이터 속성(data-\*)이란?
 
 - HTML에서 기본적으로 제공되는 속성이 아닌, 개발자가 임의의 속성을 추가하고자 할 때 사용된다.
+- 주로 DOM에 데이터를 저장하고자 사용하며 JavaScript Framework들이 대중화되고선 잘 사용 하지않는다.
 - 커스텀 데이터 속성은 html tag 상에서 별다른 작용을 하지 않는다.
 
 ## 쿠키(Cookies) vs 세션저장소(sessionStorage) vs 로컬저장소(localStorage)

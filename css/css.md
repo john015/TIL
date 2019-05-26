@@ -96,18 +96,35 @@ li:hover{color:red}
 <h1
   style="width: 300px; height: 150px; background-image: url('/logo.png'); text-indent: -9999;"
 >
-  네이버
+  logo
 </h1>
 
 <!-- 대체 텍스트요소의 width와 height를 0으로 설정하는 방식 -->
 <h1 style="width: 300px; height: 150px; background-image: url('/logo.png');">
-  <span style="width: 0px; height: 0px;">네이버</span>
+  <span style="width: 0px; height: 0px;">logo</span>
 </h1>
 ```
 
 ## 일반적으로 보이지 않고 스크린 리더에서만 보이게 하는법
 
-- 1. display:none;
-- 2. visibility:hidden;
-- 3. width: 0; height: 0;
-- 4. text-indent: -9999;
+- display:none;
+- visibility:hidden;
+- width: 0; height: 0;
+- text-indent: -9999;
+- position; absolute; left: -99999px;
+
+## @media print이란?
+
+- 인쇄하면에서 스타일을 지정하기 위해선 미디어쿼리의 print 속성을 사용하여 스타일을 지정할 수 있다.
+
+## 가상 요소 셀랙터(Pseudo-Element Selector)란?
+
+- pseudo-element Selector란 element의 특정 부분을 스타일하는데 사용한다.
+
+  | pseudo-element | Description                                                                      |
+  | -------------- | -------------------------------------------------------------------------------- |
+  | ::first-letter | 콘텐츠의 첫글자를 선택한다.                                                      |
+  | ::first-line   | 콘텐츠의 첫줄을 선택한다. BFC에만 적용할 수 있다.                                |
+  | ::after        | 콘텐츠의 뒤에 위치하는 공간을 선택한다. 일반적으로 content 속성과 같이 사용된다. |
+  | ::before       | 콘텐츠의 앞에 위치하는 공간을 선택한다. 일반적으로 content 속성과 같이 사용된다. |
+  | ::selection    | 드래그한 콘텐츠를 선택한다. iOS Safari 등 일부 브라우저에서 동작 안한다.         |
