@@ -128,3 +128,14 @@ li:hover{color:red}
   | ::after        | 콘텐츠의 뒤에 위치하는 공간을 선택한다. 일반적으로 content 속성과 같이 사용된다. |
   | ::before       | 콘텐츠의 앞에 위치하는 공간을 선택한다. 일반적으로 content 속성과 같이 사용된다. |
   | ::selection    | 드래그한 콘텐츠를 선택한다. iOS Safari 등 일부 브라우저에서 동작 안한다.         |
+
+## \* { box-sizing: border-box; }의 장점은?
+
+- element의 크기(width, height)를 설정하면 컨텐츠의 표시영역을 입력한 크기값과 동일하게 보여준다.
+- 그래서 padding 값이나 border 값이 늘어나면 element의 크기가 의도한것보다 커지는 문제가 발생할 수 있다.
+- box-sizing: border-box;로 설정하게 되면 padding 값이나 border 값이 늘어나도 element의 크기가 변하지 않으며 컨텐츠의 표시영역이 줄어들어 일관된 사이즈를 유지할 수 있습니다.
+
+## 반응형(Responsive) 디자인 vs 적응형(Adaptive) 디자인
+
+- 반응형 웹 디자인은 mediaquery를 사용해 화면 해상도를 감지한뒤 화면 크기에 맞게 디자인을 하는것이다.
+- 적응형 웹 디자인은 서버또는 브라우저에서 기기나 해상도를 감지한뒤 화면 크기에 맞는 디자인이 적용된 페이지로 리다이렉션 시키는것이다.
