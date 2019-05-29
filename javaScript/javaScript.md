@@ -125,13 +125,77 @@ throttle은 스크롤 이벤트 처리시 주로 사용하고 debounce는 ajax �
 
 ## 이벤트 위임(Event Delegation)이란?
 
-- 이벤트 위임(Event Delegation)이란 다수의 자식 엘리먼트에 각각 이벤트 핸들러를 바인딩하는 대신 부모 요소에 이벤트 핸들러를 바인딩하는 방법입니다.
-- 부모 Element에 이벤트 리스너를 바인딩 한 후 이벤트 버블링을 통해 전달받은 event 인자를 통해 event가 트리거된 Element를 확인합니다.
+- 이벤트 위임(Event Delegation)이란 다수의 자식 엘리먼트에 각각 이벤트 핸들러를 바인딩하는 대신 부모 요소에 이벤트 핸들러를 바인딩하는 방법이다.
+- 부모 Element에 이벤트 리스너를 바인딩 한 후 이벤트 버블링을 통해 전달받은 event 인자를 통해 event가 트리거된 Element를 확인한다.
 
 ## AMD와 CommonJS란?
 
 - 둘다 모두 ES2015 module system이 등장하기 전까지 JavaScript에 기본적으로 존재하지 않는 module system을 구현하는 방법이다.
 - CommonJS는 동기식으로 모듈을 로드하지만 AMD(Asynchronous Module Definition 비동기식 모듈 정의)는 비동기식으로 모듈을 로드한다.
+
+## null vs undefined vs undeclared
+
+### null
+
+- null은 프로그래머가 의도적으로 변수에 값이 없음을 표현하고 싶을 때 할당하는 값이다.
+- 또한 객체 참조 링크를 끊기 위해서도 사용할 수 있다, 해당 객체 변수를 null로 변경하면 가비지 컬렉션이 실행되며 해당 객체값을 메모리에서 제거한다.
+
+### undefined
+
+- 선언만 되어지고 특정 값이 할당되지 않는 경우 javascript 엔진에 의해 자동으로 할당되는 값이다.
+- 특별히 할당된 값이 없는 경우 다른 언어들처럼 null이 아니고 undefiend가 할당된다.
+- 또한 객체가 소유하지 않은 프로퍼티에 접근하게 될 경우에도 undefined가 반환된다.
+
+### undeclared
+
+- undeclared 변수란 선언하지 않은 식별자에 값을 할당한 변수이다.
+- 예를 들어 undeclaredVar = ‘foo’ 와 같이 var, let, const keyword를 사용하지 않고 선언된 변수이다.
+- undeclared 변수는 글로벌 변수로 생성 된다.
+
+### null vs undefiend
+
+- null은 프로그래머가 할당하는 것이며 변수에 값이 없음을 표현하고 싶을 때 사용한다.
+- 반면 undefined는 javascript 엔진에 의해 자동으로 할당된다.
+
+## 클로저(Closure)란?
+
+- 클로저란 내부함수가 외부함수의 context에 접근하는것을 말한다.
+- 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 내부함수의 지역변수에 접근할 수 없으며, 외부함수의 지역변수는 외부함수의 호출이 끝나도 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는 특성이있다.
+- 클로저는 반환된 내부함수가 자신이 선언됐을 때의 환경(Lexical environment)인 스코프를 기억하여 자신이 선언됐을 때의 환경(스코프) 밖에서 호출되어도 자신이 선언됐을 때의 환경(스코프)에 접근할 수 있는 함수이다.
+
+```javascript
+function generateCounter() {
+  let count = 0
+  return () => ++count
+}
+
+const counter = generateCounter()
+counter() // 1
+counter() // 2
+```
+
+## Host Object vs Native Object
+
+- 호스트 객체(Host object)는 브라우저 환경에서 제공하는 window, XmlHttpRequest, HTMLElement 등의 DOM 노드 객체와 같이 호스트 환경에 정의된 객체를 말한다.
+- 브라우저에서 동작하는 환경과 브라우저 외부에서 동작하는 환경의 자바스크립트(Node.js)는 다른 호스트 객체를 사용할 수 있다. ex) window, document, location, history, XMLHttpRequest, querySelectorAll, ...
+- 네이티브 객체(Native Object)는 ECMAScript 명세서에 정의된 object로 Javascript의 모든 엔진에 구현된 표준객체이다.
+- ex) Date, Math, parseInt, eval, ...
+
+## 기능 검출(feature detection) vs 기능 추론(feature inference)
+
+- 기능 검출은 자바스크립트를 호출하여 기능 X가 브라우저에 존재하는지 확인하는것이다.
+
+```javascript
+  if('localStorage' in window)
+```
+
+- 기능 추론도 기능 검출처럼 브라우저가 특정 기능을 지원하는지 체크하는 것이다. 하지만 'A기능을 지원하면 B기능도 지원할 것이다.'라는 추론이 바탕이 된다(비권장)
+
+```javascript
+if ('localStorage' in window) {
+  sessionStorage.add('foo', 'bar') // localstorage가 있으면 sessionStorage도 있을것으로 기능 추론
+}
+```
 
 # Snippets
 
