@@ -46,6 +46,20 @@
   />
   ```
 
+## 속성(Attribute) vs 요소(property)
+
+### attribute
+
+- Attribute는 HTML 요소의 추가적인 정보를 표현하고 이름=”값”으로 표현된다
+- 예를 들어 <div class="my-class"></div> 를 보면 class라는 attribute에 ‘my-class’라는 값이 할당 된것이다.
+
+### property
+
+- Property는 attribute에 대한 HTML DOM 트리 내부에서의 표현이다
+- DOM안에서의 표현이기 때문에 위 예제에서 property는 className이며 값으로 [‘my-class’]를 가지게 됩니다.
+
+둘을 비교하였을 때 Attributes는 HTML 문서에 있는 것이고 properties는 HTML DOM 트리에 있는 것입니다.
+
 ## IE 조건부 주석
 
 ```html
