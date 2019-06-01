@@ -249,6 +249,24 @@ if ('localStorage' in window) {
 - 브라우저에 모든 리소스(img, style, script, etc...) 가 로드 되었을 때
 - 모든 리소스가 로드된 시점이기에, 로드된 image 사이즈와 같은 것들을 얻을 수 있다.
 
+## ==(동등 연산자) vs ===(일치 연산자)
+
+- 동등 연산자은 비교하는 두 변수의 type이 다르면 형변환을 한뒤 비교한다.
+- 일치 연산자는 비교하는 두 변수의 type이 달라도 무시하고 비교한다.
+
+## Strict Mode란?
+
+- Strict Mode는 ECMAScript 버전 5에서 새로 추가되었으며 "use strict;" 을 입력하면 해당 스코프의 다음 구문들부터 적용된다.
+- 이전 버전의 JavaScript 인터프리터들은 use strict구문을 무시한다.
+- Strict Mode에서는 암묵적 전역 변수 선언, 변수 함수 매개변수의 삭제, 매개변수 이름의 중복, with 문을 사용 하면 에러가 발생한다.
+- 또한 일반 함수안에서 this를 호출하면 global객체가 return되는 대신, undefined가 return 된다.
+- Strict Mode는 IE10이상부터 지원한다.
+
+## SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법
+
+- SPA프로젝트의 경우 싱글 페이지이기 때문에 SPA프로젝트 크롤링이 가능한 구글을 제외하고 네이버, 다음, 네이트등의 포털사이트에서 검색결과가 나타나지않는다.
+- SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(검색엔진 노출이 필요한 페이지들을 배포시점에서 렌더링해서 정적인 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수있다.
+
 # Snippets
 
 ## Infinite scroll
