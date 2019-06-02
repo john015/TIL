@@ -10,7 +10,7 @@
 
 ## 참조형 타입 vs 원시형 타입
 
-- 원시형 타입은 숫자(Number), 불리언(Boolean), null, undefined, 문자열(String)이 있고,
+- 원시형 타입은 숫자(Number), 불리언(Boolean), null, undefined, 문자열(String), Symbol이 있고,
 
 - 참조형 타입은 객체(Object), 배열(Array), 함수(function), 정규 표현식(regExp)등이 있다.
 
@@ -267,48 +267,37 @@ if ('localStorage' in window) {
 - SPA프로젝트의 경우 싱글 페이지이기 때문에 SPA프로젝트 크롤링이 가능한 구글을 제외하고 네이버, 다음, 네이트등의 포털사이트에서 검색결과가 나타나지않는다.
 - SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(검색엔진 노출이 필요한 페이지들을 배포시점에서 렌더링해서 정적인 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수있다.
 
-# Snippets
+## Promise의 장단점
 
-## Infinite scroll
+### 장점
+
+- 콜백 헬을 벗어날 수 있다.
+- 메소드 체이닝을 통한 연속적인 코드 작성이 가능하다.
+- Promise.all을 사용해서 동시에 여러개의 비동기 코드를 처리할 수 있다.
+
+### 단점
+
+- ES2015를 지원하지 않는 이전 브라우저(ie)에서 사용하기 위해서는 polyfill을 로드해야한다.
+
+## immutable value vs mutable value
+
+- 원시(primitive) 타입 값들은 변경 불가능한 값(immutable value)이며 원시 타입 이외의 모든 값들은 객체(Object) 타입이다. 객체 타입은 변경 가능한 값(mutable value)이다.
+- 원시 타입 값들은 메모리에 저장되면 프로그래머가 의도적으로 값을 삭제하거나 재할당 하지않는이상 않는이상 메모리에 저장된 값이 변경되지않는다.
 
 ```javascript
-_.throttle(() => {
-  // 사용자의 화면에 보여지는 높이
-  const { innerHeight } = window
-  // body의 화면에 보이지 않는 부분까지 포함한 높이
-  const { scrollHeight } = document.body
-  // 스크롤된 높이 ie의 경우는 document.body.scrollTop으로 구해야함
-  const scrollTop =
-    (document.documentElement && document.documentElement.scrollTop) ||
-    document.body.scrollTop
+const statement = 'I am an immutable value' // string은 immutable value
+const slicedStr = statement.slice(8, 17)
 
-  // body 전체높이 - 화면에 보여지는 높이 - 스크롤된 높이가 80보다 작으면 데이터 추가
-  if (scrollHeight - innerHeight - scrollTop < 80) {
-    // data fetch 로직
-  }
-}, 100)
+console.log(otherStr) // 'immutable'
+console.log(statement) // 'I am an immutable value' 원본값은 변경되지 않음
 ```
 
-## customBind
+- 하지만 객체 타입값들은 메모리에 저장된 값이 변경될수있다.
 
 ```javascript
-Function.prototype.customBind = function(obj, ...args) {
-  if (obj == null) {
-    obj = this
-  }
-  return (...closureFnArgs) => {
-    this.apply(obj, args.concat(closureFnArgs))
-  }
-}
-```
+const arr = []
+console.log(arr) // []
 
-## 숫자 천단위마다 콤마 찍기
-
-```javascript
-const num = 10203040
-const num2 = 10203040.12345
-
-console.log(num.toLocaleString()) // 10,203,040
-console.log(num2.toLocaleString()) // 기본으로 소수점 3자리에서 끊김 10,203,040.123
-console.log(num2.toLocaleString(undefined, { maximumFractionDigits: 5 })) // 10,203,040.12345
+const arr2 = arr.push(2) // Array.prototype.push 메소드는 실행 후 arr의 length를 반환
+console.log(arr) // [1] 원본 arr이 변경됌
 ```

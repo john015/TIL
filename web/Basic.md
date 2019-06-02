@@ -57,3 +57,19 @@
 - html tag의 커스텀 데이터 속성에 언어별 텍스트를 넣어놓고 보여준다.
 - JSON파일에 언어별 텍스트를 입력해놓고 해당 JSON파일 값을 읽어서 보여준다.
 - i18n 라이브러리를 사용해서 보여준다(react-intl, react-i18next, etc..)
+
+## Synchronous vs Asynchronous vs Blocking vs NonBlocking
+
+### Blocking/NonBlocking은 호출되는 함수가 바로 리턴하느냐 마느냐가 관심사
+
+- 호출되는 함수의 작업 완료를 호출한 함수가 신경쓰면 Synchronous
+- 호출되는 함수의 작업 완료를 호출된 함수가 신경쓰면 Asynchronous
+
+### Synchronous/Asynchronous는 호출되는 함수의 작업 완료 여부를 누가 신경쓰냐가 관심사
+
+- 바로 리턴하지 않으면 Blocking
+- 바로 리턴하면 NonBlocking
+
+<img src="http://i.imgur.com/gKDoKbs.png">
+
+- [참고](https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/)
