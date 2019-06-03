@@ -45,6 +45,8 @@
 ### JavaScript
 
 - [JavaScript](https://github.com/john015/TIL/blob/master/javaScript/javaScript.md)
+- [EventLoop](https://github.com/john015/TIL/blob/master/javaScript/event-loop.md)
+- [Snippets](https://github.com/john015/TIL/blob/master/javaScript/snippets.md)
 - [Lodash](https://github.com/john015/TIL/blob/master/javaScript/lodash.md)
 
 <hr />
