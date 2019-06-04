@@ -301,3 +301,54 @@ console.log(arr) // []
 const arr2 = arr.push(2) // Array.prototype.push 메소드는 실행 후 arr의 length를 반환
 console.log(arr) // [1] 원본 arr이 변경됌
 ```
+
+## 함수 선언식 vs 함수 표현식
+
+- 함수 선언식은 함수 호이스팅이 되지만 함수 표현식은 변수 호이스팅이된다.
+- 함수 선언식은 브라우저가 자바스크립트를 해석할 때 스코프의 맨 위로 끌어 올려져 해석된다.
+- 함수 표현식은 var 키워드를 사용하여 선언하면 선언만 스코프의 맨 위로 끌어올려지고 할당은 나중에되고, let이나 const 키워드로 선언하면 호이스팅이 일어나지않는다.
+
+```javascript
+fn1() // throw Error
+fn2() // 2
+
+// 함수 표현식
+const fn1 = function() {
+  return 1
+}
+
+// 함수 선언식
+function fn2() {
+  return 2
+}
+```
+
+## var vs let vs const
+
+- var로 선언된 변수는 함수 레벨 스코프를 가지고 let, const로 선언된 변수는 블록 레벨 스코프를 가진다.
+- 또한 var는 변수 호이스팅이 일어나 변수의 선언이 스코프의 맨위로 올라가게된다.
+- var 변수가 선언되기 전에 읽어도 에러가 발생하지 않지만, let과 const로 선언한 변수를 읽으면 에러가 발생한다.
+- var를 사용하여 선언한 변수는 다시 선언해도 에러가 발생하지 않지만 ‘let’과 ‘const’는 에러가 발생합니다.
+- var와 let로 선언된 변수는 값을 재할당할 수 있지만 const로 선언된 변수는 재할당 될수없다.
+
+## Element.getBoundingClientRect란?
+
+- 요소의 크기와 viewport에서의 상대적인 위치를 객체에 담아서 반환하는 메소드.
+- browser support: ie9+
+
+## requestAnimationFrame
+
+- requestAnimationFrame이란 모니터의 주사율에 맞게 에니메이션을 표현할때 사용한다 requestAnimationFrame의 콜백함수는 초당 최대 모니터의 주사율만큼 호출된다.
+- 또한 대부분의 최신 브라우저에서 브라우저를 백그라운드로 돌리게되면 requestAnimationFrame은 멈추게된다.
+
+```javascript
+let count = 0
+const el = document.querySelector('.counter')
+function counter() {
+  if (count >= 1000) return
+  count++
+  el.textContent = count
+  requestAnimationFrame(counter)
+}
+requestAnimationFrame(counter)
+```
