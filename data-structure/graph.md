@@ -65,12 +65,47 @@ DPS는 그래프에서 모든 노드를 방문하고자 할 때 주로 사용하
 
 ### 깊이 우선 탐색(Depth first search)
 
-DFS는 a노드를 방문한 뒤 a와 인접한 노드를 차례로 순회하는 방식이다 a와 이웃한 노드 b를 방문하기전에 a와 인접한 모든 노드들을 다 방문해야한다
+- DFS는 a노드를 방문한 뒤 a와 인접한 노드를 차례로 순회하는 방식이다 a와 이웃한 노드 b를 방문하기전에 a와 인접한 모든 노드들을 다 방문해야한다
+
+- DPS는 Stack 이나 재귀를 활용해서 탐색한다.
+- Stack을 사용해서 탐색하는 방법은 첫번째 버텍스를 스택에 집어넣는다.
+- 그이후 pop을 한뒤 pop을한 버텍스의 인접한 버텍스들중 방문하지않은 버텍스를 스택에 push하고 한번 방문한 버텍스들을 visited list에 저장해서 2번 방문하지 않게한다 이방법을 반복한다.
+- DPS를 사용하면 그래프에서 싸이클이있는지 쉽게 확인할 수 있다(visited list에 중복된 버텍스가 있으면 싸이클이 있음)
+
+```javascript
+Stack.push(0) // 첫번째 버텍스 push
+
+while (Stack) {
+  current = Stack.pop() // Stack을 pop
+
+  // pop한 버텍스의 인접한 버텍스들 순회
+  adjacencyList[current].map(neighbor => {
+    if (!visited[neighbor]) Stack.push(neighbor) // visited list 에 이웃 버텍스가 없을시 Stack에 push
+  })
+  visited.push(current) // visited list에 pop한 버텍스 push
+}
+```
 
 ### 너비 우선 탐색(Breadth first search)
 
-BFS는 a노드를 방문한 뒤 a와 이웃한 노드들을 차례로 순회하는 방식이다 a노드의 이웃 노드를 모두 방문한 다음에 이웃의 이웃 노드들을 방문한다
+- BFS는 a노드를 방문한 뒤 a와 이웃한 노드들을 차례로 순회하는 방식이다 a노드의 이웃 노드를 모두 방문한 다음에 이웃의 이웃 노드들을 방문한다
+- BPS는 Queue을 사용해서 탐색한다.
+- BFS는 Stack을 사용하는 DFS와 같지만 Stack대신 Queue를 사용한다
+
+```javascript
+Queue.push(0) // 첫번째 버텍스 push
+
+while (Queue) {
+  current = Queue.shift() // Queue을 dequeue
+
+  // pop한 버텍스의 인접한 버텍스들 순회
+  adjacencyList[current].map(neighbor => {
+    if (!visited[neighbor]) Queue.push(neighbor) // visited list 에 이웃 버텍스가 없을시 Queue에 push
+  })
+  visited.push(current) // visited list에 pop한 버텍스 push
+}
+```
 
 ### 양방향 탐색(Bidirectional search)
 
-양방향 탐색은 출발지와 도착지 사이에 최단 경로를 찾을 때 주로 사용된다 기본적으로 출발지와 도착지 두 노드에서 동시에 너비 우선 탐색을 수행한 뒤, 두 탐색 지점이 충돌하는 경우에 경로를 찾는 방식이다.
+- 양방향 탐색은 출발지와 도착지 사이에 최단 경로를 찾을 때 주로 사용된다 기본적으로 출발지와 도착지 두 노드에서 동시에 너비 우선 탐색을 수행한 뒤, 두 탐색 지점이 충돌하는 경우에 경로를 찾는 방식이다.
