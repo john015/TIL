@@ -121,7 +121,12 @@
 
 <hr />
 
+### restfulApi
+
+- [restfulApi](https://github.com/john015/TIL/blob/master/restfulApi/restfulApi.md)
+
+<hr />
+
 ### Other
 
-- [restAPI](https://github.com/john015/TIL/blob/master/other/restApi.md)
 - [Site](https://github.com/john015/TIL/blob/master/other/site.md)
