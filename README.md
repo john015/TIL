@@ -42,26 +42,25 @@
 
 <hr />
 
-### JavaScript
+### 프로그래밍 패러다임
 
-- [JavaScript](https://github.com/john015/TIL/blob/master/javaScript/javaScript.md)
-- [EventLoop](https://github.com/john015/TIL/blob/master/javaScript/event-loop.md)
-- [Snippets](https://github.com/john015/TIL/blob/master/javaScript/snippets.md)
-- [Lodash](https://github.com/john015/TIL/blob/master/javaScript/lodash.md)
-
-<hr />
-
-### React
-
-- [React](https://github.com/john015/TIL/blob/master/react/react.md)
-- [Mobx](https://github.com/john015/TIL/blob/master/react/mobx.md)
-- [Styled-components](https://github.com/john015/TIL/blob/master/react/styled-components.md)
+- [객체지향 프로그래밍](https://github.com/john015/TIL/blob/master/programming-paradigm/oop.md)
+- [함수형 프로그래밍](https://github.com/john015/TIL/blob/master/programming-paradigm/FP.md)
+- [OOP vs FP](https://github.com/john015/TIL/blob/master/programming-paradigm/oop-vs-fp.md)
 
 <hr />
 
-### Vue
+### 디자인 패턴
 
-- [Vue](https://github.com/john015/TIL/blob/master/vue/Vue.md)
+- [MVC](https://github.com/john015/TIL/blob/master/design-pattern/mvc.md)
+- [MVP](https://github.com/john015/TIL/blob/master/design-pattern/mvp.md)
+- [MVVM](https://github.com/john015/TIL/blob/master/design-pattern/mvvm.md)
+
+<hr />
+
+### restfulApi
+
+- [restfulApi](https://github.com/john015/TIL/blob/master/restfulApi/restfulApi.md)
 
 <hr />
 
@@ -84,15 +83,26 @@
 
 <hr />
 
-### 객체지향 프로그래밍
+### JavaScript
 
-- [객체지향 프로그래밍](https://github.com/john015/TIL/blob/master/oop/oop.md)
+- [JavaScript](https://github.com/john015/TIL/blob/master/javaScript/javaScript.md)
+- [EventLoop](https://github.com/john015/TIL/blob/master/javaScript/event-loop.md)
+- [Snippets](https://github.com/john015/TIL/blob/master/javaScript/snippets.md)
+- [Lodash](https://github.com/john015/TIL/blob/master/javaScript/lodash.md)
 
 <hr />
 
-### 함수형 프로그래밍
+### React
 
-- [함수형 프로그래밍](https://github.com/john015/TIL/blob/master/functional-programing/FP.md)
+- [React](https://github.com/john015/TIL/blob/master/react/react.md)
+- [Mobx](https://github.com/john015/TIL/blob/master/react/mobx.md)
+- [Styled-components](https://github.com/john015/TIL/blob/master/react/styled-components.md)
+
+<hr />
+
+### Vue
+
+- [Vue](https://github.com/john015/TIL/blob/master/vue/Vue.md)
 
 <hr />
 
@@ -118,12 +128,6 @@
 ### GraphQL
 
 - [Intro & Query](https://github.com/john015/TIL/blob/master/graphQL/Intro%20%26%20Query.md)
-
-<hr />
-
-### restfulApi
-
-- [restfulApi](https://github.com/john015/TIL/blob/master/restfulApi/restfulApi.md)
 
 <hr />
 
