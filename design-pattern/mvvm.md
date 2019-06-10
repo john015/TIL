@@ -2,9 +2,13 @@
 
 <img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/1OLd/image/0biW4YNB0bAVV4zzOuNBsdV0Fz8.png" />
 
-- MVVM는 model view viewModel의 약자로 목적과 model, view의 역할은 다른 디자인 패턴들과 동일하지만 Controller대신 viewModel을 사용한다 또한 action이 view를 통해 들어오게된다.
+- MVVM는 model view viewModel의 약자로 목적과 model, view의 역할은 다른 디자인 패턴들과 동일하지만 Controller대신 viewModel을 사용한다.
 - viewModel이란 특정 View를 표현하기 위해 만든 Model이다 그로인해 View는 ViewModel만을 고려한다.
 - view와 viewModel은 binding되어 있어 viewModel이 변경되면 해당하는 ViewModel을 이용하는 View가 자동으로 업데이트된다.
+- View-ViewModel 관계는 One-to-Many 관계이다.
+- ViewModel은 View 의 존재를 모른다.
+- View는 Model 의 존재를 모른다.
+- ViewModel은 Model 을 업데이트한다.
 
 ## flow
 
