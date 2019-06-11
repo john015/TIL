@@ -34,7 +34,10 @@
 ### 네트워크
 
 - [네트워크](https://github.com/john015/TIL/blob/master/network/network.md)
-  <hr />
+- [GET vs POST](https://github.com/john015/TIL/blob/master/network/get%20vs%20post.md)
+- [TCP vs UDP](https://github.com/john015/TIL/blob/master/network/tcp%20vs%20udp.md)
+
+<hr />
 
 ### RegExp
 
