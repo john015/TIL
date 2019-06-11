@@ -46,7 +46,7 @@
 
 - [객체지향 프로그래밍](https://github.com/john015/TIL/blob/master/programming-paradigm/oop.md)
 - [함수형 프로그래밍](https://github.com/john015/TIL/blob/master/programming-paradigm/FP.md)
-- [OOP vs FP](https://github.com/john015/TIL/blob/master/programming-paradigm/oop-vs-fp.md)
+- [OOP vs FP](https://github.com/john015/TIL/blob/master/programming-paradigm/oop%20vs%20fp.md)
 
 <hr />
 
