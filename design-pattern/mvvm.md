@@ -17,5 +17,3 @@
 - Model은 ViewModel이 요청한 데이터처리를 한뒤 응답한다.
 - ViewModel은 응답 받은 데이터를 가공해서 저장한다.
 - View는 ViewModel과의 Data Binding으로 인해 자동으로 갱신된다.
-
-https://brunch.co.kr/@oemilk/113
