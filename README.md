@@ -37,6 +37,7 @@
 - [GET vs POST](https://github.com/john015/TIL/blob/master/network/get%20vs%20post.md)
 - [TCP vs UDP](https://github.com/john015/TIL/blob/master/network/tcp%20vs%20udp.md)
 - [HTTP vs HTTPS](https://github.com/john015/TIL/blob/master/network/http%20vs%20https.md)
+- [웹통신의 큰 흐름](https://github.com/john015/TIL/blob/master/network/web-communication-flow.md)
 
 <hr />
 
