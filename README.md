@@ -31,6 +31,12 @@
 
 <hr />
 
+### OS
+
+- [Process vs Thread](https://github.com/john015/TIL/blob/master/os/process%20vs%20thread.md)
+
+<hr />
+
 ### 네트워크
 
 - [네트워크](https://github.com/john015/TIL/blob/master/network/network.md)
