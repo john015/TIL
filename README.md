@@ -34,6 +34,8 @@
 ### OS
 
 - [Process vs Thread](https://github.com/john015/TIL/blob/master/os/process%20vs%20thread.md)
+- [멀티 스레드](https://github.com/john015/TIL/blob/master/os/multi-thread.md)
+- [스케줄러](https://github.com/john015/TIL/blob/master/os/scheduler.md)
 
 <hr />
 
