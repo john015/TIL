@@ -6,7 +6,7 @@
 - 생성자 함수로 호출시 this는 새로 생성될 객체를 가리킴.
 - 전역에서 this에 접근할경우 전역객체를 가리킴.
 - strict mode에서는 암묵적으로 this가 window 또는 global로 할당될경우 undefined가 된다.
-- arrow function에서 this를 호출할 경우 this는 상위 객체를
+- arrow function에서 this를 호출할 경우 this는 상위 객체를 가리킴.
 
 ## 참조형 타입 vs 원시형 타입
 
