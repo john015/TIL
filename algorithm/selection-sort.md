@@ -7,42 +7,38 @@
 공간 복잡도: O(1)
 
 ```javascript
+function swap(arr, target1, target2) {
+  const temp = arr[target1]
+  arr[target1] = arr[target2]
+  arr[target2] = temp
+}
+
 // 오름차순
-function ascSelectionSort(array) {
-  const length = array.length
-  for (let i = 0; i < length - 1; i++) {
-    let minIndex = i
-    // 최솟값의 위치를 찾음
-    for (let j = i + 1; j < length; j++) {
-      if (array[j] < array[minIndex]) {
-        minIndex = j
+function ascSelectionSort(arr) {
+  arr.map((_, idx) => {
+    let minIdx = idx
+    arr.slice(idx + 1).map((val, i) => {
+      if (val < arr[minIdx]) {
+        minIdx = i + idx + 1
       }
-    }
-    // 최솟값을 앞으로 두 수를 서로 바꿔줌
-    const temp = array[minIndex]
-    array[minIndex] = array[i]
-    array[i] = temp
-  }
-  return array
+    })
+    swap(arr, idx, minIdx)
+  })
+  return arr
 }
 
 //내림차순
-function descSelectionSort(array) {
-  const length = array.length
-  for (let i = 0; i < length - 1; i++) {
-    let maxIndex = i
-    // 최댓값의 위치를 찾음
-    for (let j = i + 1; j < length; j++) {
-      if (array[j] > array[maxIndex]) {
-        maxIndex = j
+function descSelectionSort(arr) {
+  arr.map((_, idx) => {
+    let maxIdx = idx
+    arr.slice(idx + 1).map((val, i) => {
+      if (val > arr[maxIdx]) {
+        maxIdx = i + idx + 1
       }
-    }
-    // 최댓값을 앞으로 두 수를 서로 바꿔줌
-    const temp = array[maxIndex]
-    array[maxIndex] = array[i]
-    array[i] = temp
-  }
-  return array
+    })
+    swap(arr, idx, maxIdx)
+  })
+  return arr
 }
 
 ascSelectionSort([5, 1, 4, 7, 2, 6, 8, 3]) // [1, 2, 3, 4, 5, 6, 7, 8]

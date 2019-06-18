@@ -36,13 +36,10 @@ class Queue {
       throw new Error('queue에 data가 없습니다')
     }
     const item = this.head.data
-    // queue에 data가 1개밖에 없을때
-    if (this.head.next === null) {
+    this.head = this.head.next
+    // queue에 data가 없을때
+    if (!this.head) {
       this.rear = null
-      this.head = null
-      // queue에 data가 1개이상 일때
-    } else {
-      this.head = this.head.next
     }
     return item
   }
