@@ -37,6 +37,7 @@
 - [멀티 스레드](https://github.com/john015/TIL/blob/master/os/multi-thread.md)
 - [스케줄러](https://github.com/john015/TIL/blob/master/os/scheduler.md)
 - [프로세스 동기화](https://github.com/john015/TIL/blob/master/os/process-sync.md)
+- [프로세스 동기화](https://github.com/john015/TIL/blob/master/os/memory.md)
 
 <hr />
 
