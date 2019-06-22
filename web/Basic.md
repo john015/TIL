@@ -50,6 +50,24 @@
 - CORS(Cross Origin Resource Sharing)란 서로 다른 도메인끼리 http Request을 가능하게하는 표준 규약이다.
 - 기본적으로 Same Origin Policy에 의해 동일한 도메인끼리만 http Request가 가능하지만, CORS를 사용하게 된다면 다른 도메인으로 HTTP Request가 가능해진다.
 - 이를 해결하기 위해선 여러가지 방법이 있는데, 프록시 서버를 사용하거나 JSONP방식을 사용하거나 서버측에서 http header에 Access control값을 설정하면 된다.
+- 보통 서버측에서 데이터의 http header에 Access control값을 설정하는걸 권장한다.
+
+|           HTTP Header            |          Description           |
+| :------------------------------: | :----------------------------: |
+|   Access-Control-Allow-Origin    |     접근 가능한 `url` 설정     |
+| Access-Control-Allow-Credentials |    접근 가능한 `쿠키` 설정     |
+|   Access-Control-Allow-Headers   |    접근 가능한 `헤더` 설정     |
+|   Access-Control-Allow-Methods   | 접근 가능한 `http method` 설정 |
+
+```javascript
+res.header('Access-Control-Allow-Origin', '*')
+res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, PATCH')
+res.header(
+  'Access-Control-Allow-Headers',
+  'Origin, X-Requested-With, Content-Type, Accept'
+)
+res.header('Access-Control-Allow-Credentials', true)
+```
 
 ## i18n 지원하는 방법
 
@@ -57,6 +75,27 @@
 - html tag의 커스텀 데이터 속성에 언어별 텍스트를 넣어놓고 보여준다.
 - JSON파일에 언어별 텍스트를 입력해놓고 해당 JSON파일 값을 읽어서 보여준다.
 - i18n 라이브러리를 사용해서 보여준다(react-intl, react-i18next, etc..)
+
+## 크로스 브라우징 지원하는법
+
+polyfill이나 babel을 사용하거나 ie8이하를 지원해야한다면 기능 검출(feature detection)를 해서 하위브라우저를 지원해준다.
+
+```javascript
+function addHandler(el, type, handler) {
+  // chrome
+  if (el.addEventListener) {
+    el.addEventListener(type, handler)
+    return
+  }
+  // ie
+  if (el.attachEvent) {
+    el.attachEvent('on' + type, handler)
+    return
+  }
+  // old broswer
+  element['on' + type] = handler
+}
+```
 
 ## Synchronous vs Asynchronous vs Blocking vs NonBlocking
 
