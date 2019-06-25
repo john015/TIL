@@ -1,6 +1,6 @@
 # 기본문법
 
-sass 와동일
+sass와 동일
 
 ```javascript
 const Button = styled.button`
@@ -28,6 +28,27 @@ body{
   font-size: 30px;
 }
 `
+```
+
+## createGlobalStyle
+
+v4 버전이후 전역 css 선언시 사용
+
+```javascript
+import { createGlobalStyle } from 'styled-components'
+const GlobalStyle = createGlobalStyle`
+  html {
+    color: red;
+  }
+`
+export default function App() {
+  return (
+    <div>
+      <GlobalStyle />
+      This is my app!
+    </div>
+  )
+}
 ```
 
 ## mixin, extend, Extra Attribute
