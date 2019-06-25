@@ -128,6 +128,10 @@ li:hover{color:red}
   | ::after        | 콘텐츠의 뒤에 위치하는 공간을 선택한다. 일반적으로 content 속성과 같이 사용된다. |
   | ::before       | 콘텐츠의 앞에 위치하는 공간을 선택한다. 일반적으로 content 속성과 같이 사용된다. |
   | ::selection    | 드래그한 콘텐츠를 선택한다. iOS Safari 등 일부 브라우저에서 동작 안한다.         |
+  
+## box model이란?
+
+- 기본값인 content-box의 경우는 element의 width나 height를 설정할 경우 해당 element의 content width | height 값을 설정하기때문에 element의 padding값이 설정되어있을경우 원하는 width랑 다를수있습니다. 그렇기때문에 padding의 영향을 안받을려면 box-sizing: border-box;로 설정하여야 한다.
 
 ## \* { box-sizing: border-box; }의 장점은?
 
