@@ -86,6 +86,12 @@
 
 <hr />
 
+### 웹 보안
+
+- [XSS](https://github.com/john015/TIL/blob/master/web-security/xss.md)
+
+<hr />
+
 ### HTML
 
 - [HTML](https://github.com/john015/TIL/blob/master/html/html.md)
