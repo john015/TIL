@@ -70,6 +70,7 @@
 - [MVC](https://github.com/john015/TIL/blob/master/design-pattern/mvc.md)
 - [MVP](https://github.com/john015/TIL/blob/master/design-pattern/mvp.md)
 - [MVVM](https://github.com/john015/TIL/blob/master/design-pattern/mvvm.md)
+- [Flux](https://github.com/john015/TIL/blob/master/design-pattern/flux.md)
 
 <hr />
 
