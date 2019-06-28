@@ -104,6 +104,7 @@
 
 - [CSS](https://github.com/john015/TIL/blob/master/css/css.md)
 - [CSS 방법론](https://github.com/john015/TIL/blob/master/css/css-methodologies.md)
+- [flex](https://github.com/john015/TIL/blob/master/css/flexbox.md)
 
 <hr />
 
