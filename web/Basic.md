@@ -126,6 +126,24 @@ function addHandler(el, type, handler) {
 - Universal Web App을 사용하면 초기 렌더링속도문제를 해결할 수 있고, SEO문제도 해결할 수 있다.
 - 하지만 서버에 트래픽이 증가하고, 작성할 코드가 많아진다.
 
+## 브라우저의 layout, painting, compositing
+
+### layout(reflow)
+
+레이아웃 너비, 높이, 왼쪽 또는 상단 위치 등 요소의 기하학적 형태에 영향을 주는 'layout' 속성을 변경하면 브라우저가 다른 모든 요소를 확인하고 페이지에 대해 '리플로우'를 수행해야 합니다. 영향을 받은 영역이 있으면 다시 페인트해야 하고 최종적으로 페인트한 요소는 다시 합성해야 합니다.
+
+### painting
+
+페이지의 레이아웃에 영향을 주지 않는 배경 이미지, 텍스트 색상 또는 그림자 등의 'paint only' 속성을 변경하면, 브라우저가 레이아웃을 건너뛰되 페인트 작업은 여전히 수행합니다.
+
+### compositing
+
+레이아웃과 페인트가 필요 없는 속성을 변경하면 브라우저가 합성 단계로 건너뜁니다.
+
+이 최종 버전은 앱의 수명 주기에서 애니메이션이나 스크롤처럼 많은 부담을 주는 시점에 가장 이상적이고 비용이 가장 적게 드는 버전입니다.
+
+ps. 주어진 CSS 속성을 변경하는 위의 세 가지 버전 중 어느 버전이 트리거될지 알고 싶은 경우 [CSS 트리거](https://csstriggers.com/)를 참조하세요.
+
 ## Synchronous vs Asynchronous vs Blocking vs NonBlocking
 
 ### Synchronous/Asynchronous는 호출되는 함수의 작업 완료 여부를 누가 신경쓰냐가 관심사
