@@ -139,9 +139,9 @@ function addHandler(el, type, handler) {
 
 ### compositing
 
-레이아웃과 페인트가 필요 없는 속성을 변경하면 브라우저가 합성 단계로 건너뜁니다.
+transform, opacity등의 속성을 변경하면 composite작업만 수행합니다.
 
-이 최종 버전은 앱의 수명 주기에서 애니메이션이나 스크롤처럼 많은 부담을 주는 시점에 가장 이상적이고 비용이 가장 적게 드는 버전입니다.
+각 painting된 레이어들을 병합한후 화면을 출력합니다.
 
 ps. 주어진 CSS 속성을 변경하는 위의 세 가지 버전 중 어느 버전이 트리거될지 알고 싶은 경우 [CSS 트리거](https://csstriggers.com/)를 참조하세요.
 
