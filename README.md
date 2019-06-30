@@ -114,6 +114,7 @@
 - [JavaScript](https://github.com/john015/TIL/blob/master/javaScript/javaScript.md)
 - [EventLoop](https://github.com/john015/TIL/blob/master/javaScript/event-loop.md)
 - [Snippets](https://github.com/john015/TIL/blob/master/javaScript/snippets.md)
+- [성능 최적화](https://github.com/john015/TIL/blob/master/javaScript/performance-optimize.md)
 - [Lodash](https://github.com/john015/TIL/blob/master/javaScript/lodash.md)
 
 <hr />
