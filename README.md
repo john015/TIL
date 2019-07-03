@@ -116,6 +116,7 @@
 - [Snippets](https://github.com/john015/TIL/blob/master/javaScript/snippets.md)
 - [DOM](https://github.com/john015/TIL/blob/master/javaScript/dom.md)
 - [성능 최적화](https://github.com/john015/TIL/blob/master/javaScript/performance-optimize.md)
+- [hidden-class](https://github.com/john015/TIL/blob/master/javaScript/hidden-class.md)
 - [Lodash](https://github.com/john015/TIL/blob/master/javaScript/lodash.md)
 
 <hr />
