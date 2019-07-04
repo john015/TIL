@@ -68,6 +68,19 @@ DOM 트리는 문서 마크업의 속성과 관계를 포함하지만, 렌더링
 - DOM 트리와 렌더 트리의 노드는 서로 1:1로 대응되지 않는다.
 - DOM 트리의 구성원 가운데 일부 노드(<head>, <title>, <script> 등)는 화면에 표현되는 노드가 아니므로 DOM 트리의 구성원이지만 렌더 트리의 구성원은 아닙니다.
 
+### Layer Tree 생성(모던 브라우저에서 진행)
+
+- 렌더링에 사용될 최종 Layer들을 계산 해서 생성 하는 과정
+
+#### 레이어가 생성되는 조건
+
+1. 페이지에서 root 객체이다.
+2. CSS Position 프로퍼티가 relative or absolute이다.
+3. CSS filter 프로퍼티를 가지고있다.
+4. CSS 3D Transform, animations 프로퍼티를 가지고있다.
+5. canvas나 video 태그 엘리먼트다.
+6. will-change 프로퍼티를 가지고있다.
+
 ### Render Tree 배치 - reflow
 
 - 지금까지의 과정을 요약하면, 브라우저가 화면에 표시할 노드와 해당 노드의 스타일을 계산하면서, 하나의 그룹으로 묶어서 렌더링 트리를 만든 것이다.
@@ -78,8 +91,13 @@ DOM 트리는 문서 마크업의 속성과 관계를 포함하지만, 렌더링
 
 - UI 백엔드에서 렌더 트리의 각 노드를 순회하며 각 노드를 화면의 픽셀로 나타내는 작업이다.
 
-또한 브라우저는 동기(Synchronous)적으로 HTML, CSS, Javascript을 처리한다.
+### Composite Layers(모던 브라우저에서 진행)
 
-script 태그나 link 태그를 만나면 HTML파싱이 중단되고 CSS나 JS파싱이 진행된다.
+- Compositing은 레이어들을 합성하여 1개의 bitmap으로 만드는 과정이다.
+- 각 layer 별로 paint를 한다.
+
+ps. 브라우저는 동기(Synchronous)적으로 HTML, CSS, Javascript을 처리한다.
+
+따라서 script 태그나 link 태그를 만나면 HTML파싱이 중단되고 CSS나 JS파싱이 진행된다.
 
 위치에 따라 블로킹이 발생하여 DOM의 생성이 지연될 수 있다.
