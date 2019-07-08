@@ -2,83 +2,11 @@
 
 힙 정렬은 [힙(Heap)](https://github.com/john015/TIL/blob/master/data-structure/heap.md) 자료구조를 기반으로한 정렬 방식이다
 
+최대 힙이면 오름차순 정렬이 되며, 최소 힙이면 내림차순 정렬이 된다.
+
+root node와 맨 아래 노드를 스와핑을 한뒤 스와핑한 root node를 배제하고 맨 아래 노드를 siftDown 진행하는 방식을 반복해서 더이상 스와핑할 수 없으면 정렬이 완료된다.
+
 시간 복잡도: O(nlog(n))
 
 공간 복잡도: O(1)
 
-```javascript
-class Heap {
-  constructor(arr = []) {
-    this.arr = []
-    arr.forEach((val, i) => {
-      this.arr[i] = val
-      this.reheapUp(i)
-    })
-  }
-
-  reheapUp(idx) {
-    if (!idx) {
-      return
-    }
-    const parent = parseInt((idx - 1) / 2)
-    if (this.arr[idx] > this.arr[parent]) {
-      this.swap(idx, parent)
-      this.reheapUp(parent)
-    }
-  }
-
-  reheapDown(idx) {
-    let left = 0
-    let right = 0
-    let large
-    if (idx * 2 + 1 < this.arr.length) {
-      left = this.arr[idx * 2 + 1]
-      if (idx * 2 + 2 < this.arr.length - 1) {
-        right = this.arr[idx * 2 + 2]
-      }
-      if (left > right) {
-        large = idx * 2 + 1
-      } else {
-        large = idx * 2 + 2
-      }
-      if (this.arr[idx] < this.arr[large]) {
-        this.swap(idx, large)
-        this.reheapDown(large)
-      }
-    }
-  }
-
-  insert(number) {
-    const last = this.arr.length
-    this.arr[last] = number
-    this.reheapUp(last)
-  }
-
-  delete() {
-    if (this.arr.length === 0) {
-      return false
-    }
-    const del = this.arr[0]
-    this.arr[0] = this.arr.pop()
-    this.reheapDown(0)
-    return del
-  }
-
-  sort() {
-    const sortedArr = new Array(this.arr.length).fill(0)
-    return sortedArr.map(() => this.delete())
-  }
-
-  swap(target1, target2) {
-    const temp = this.arr[target1]
-    this.arr[target1] = this.arr[target2]
-    this.arr[target2] = temp
-  }
-}
-
-const heap = new Heap([1, 2, 3])
-heap.insert(10)
-heap.insert(5)
-heap.insert(7)
-heap.sort() // [ 10, 7, 5, 3, 2, 1 ]
-```
