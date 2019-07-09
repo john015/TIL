@@ -52,7 +52,9 @@
 
 ### 중위 순회
 
-중회 순회는 왼쪽 가지, 현재 노드, 오른쪽 가지 순서로 노드를 방문하고 출력하는 방법을 말한다
+중위 순회는 왼쪽 가지, 현재 노드, 오른쪽 가지 순서로 노드를 방문하고 출력하는 방법을 말한다.
+
+이진 검색 트리(BST)에서 중위 순회를 하면 O(n)의 시간으로 sort할 수 있다.
 
 ```javascript
 function inOrderTraversal(node) {
@@ -66,7 +68,7 @@ function inOrderTraversal(node) {
 
 ### 전위 순회
 
-중회 순회는 현재 노드, 왼쪽 가지, 오른쪽 가지 순서로 노드를 방문하고 출력하는 방법을 말한다
+전위 순회는 현재 노드, 왼쪽 가지, 오른쪽 가지 순서로 노드를 방문하고 출력하는 방법을 말한다
 
 ```javascript
 function preOrderTraversal(node) {
@@ -80,7 +82,7 @@ function preOrderTraversal(node) {
 
 ### 후위 순회
 
-중회 순회는 왼쪽 가지, 오른쪽 가지, 현재 노드 순서로 노드를 방문하고 출력하는 방법을 말한다
+후위 순회는 왼쪽 가지, 오른쪽 가지, 현재 노드 순서로 노드를 방문하고 출력하는 방법을 말한다
 
 ```javascript
 function postOrderTraversal(node) {
@@ -96,9 +98,7 @@ function postOrderTraversal(node) {
 
 ## 이진 탐색 트리
 
-이진 탐색 트리는 모든 노드에서 "모든 왼쪽 자식들 <= n < 모든 오른쪽 자식들"이라는 정의가 모든 노드 n에 대해서 참인 트리를 말한다
-
-바로 아래 자식뿐만 아니라 내 밑에 있는 모든 자식 노드들에 대해서 참이어야 한다.
+[이진 탐색 트리](https://github.com/john015/TIL/blob/master/data-structure/bst.md)
 
 ## Graph vs Tree
 
