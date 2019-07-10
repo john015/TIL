@@ -8,12 +8,12 @@
 
 - 데이터를 제거할 때 가장 위의 루트 노드를 제거하고 힙의 마지막 노드를 가져와서 힙을 재구성한다
 
-시간 복잡도 = 힙을 생성할 때: O(nlogn)   최대, 최소값을 구할 때: O(1)
-
+시간 복잡도 = 힙을 생성할 때: O(nlogn) 최대, 최소값을 구할 때: O(1)
 
 ## 종류
 
 ### 최대 힙(max heap)
+
 ![max heap img](https://camo.githubusercontent.com/cf3c66d0d2ed67af70a8bc500fc215526d266a0d/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f332f33382f4d61782d486561702e737667)
 
 부모 노드의 값이 자식 노드의 값보다 크거나 같은 힙
@@ -27,10 +27,10 @@
 ```javascript
 // 최대 힙
 class Heap {
-  constructor(arr = []) {
-    this.arr = []
-    arr.map((val, i) => {
-      this.arr[i] = val
+  constructor(list = []) {
+    this.list = []
+    list.map((val, i) => {
+      this.list[i] = val
       this.heapify(i)
     })
   }
@@ -40,7 +40,7 @@ class Heap {
       return
     }
     const parent = parseInt((idx - 1) / 2)
-    if (this.arr[idx] > this.arr[parent]) {
+    if (this.list[idx] > this.list[parent]) {
       this.swap(idx, parent)
       this.heapify(parent)
     }
@@ -50,13 +50,13 @@ class Heap {
     let left = 0
     let right = 0
     let large
-    if (idx * 2 + 1 < this.arr.length) {
-      left = this.arr[idx * 2 + 1]
-      if (idx * 2 + 2 < this.arr.length - 1) {
-        right = this.arr[idx * 2 + 2]
+    if (idx * 2 + 1 < this.list.length) {
+      left = this.list[idx * 2 + 1]
+      if (idx * 2 + 2 < this.list.length - 1) {
+        right = this.list[idx * 2 + 2]
       }
       large = idx * 2 + (left > right ? 1 : 2)
-      if (this.arr[idx] < this.arr[large]) {
+      if (this.list[idx] < this.list[large]) {
         this.swap(idx, large)
         this.siftDown(large)
       }
@@ -64,29 +64,29 @@ class Heap {
   }
 
   insert(number) {
-    const last = this.arr.length
-    this.arr[last] = number
+    const last = this.list.length
+    this.list[last] = number
     this.heapify(last)
   }
 
   delete() {
-    if (!this.arr.length) {
+    if (!this.list.length) {
       return false
     }
-    const del = this.arr[0]
-    this.arr[0] = this.arr.pop()
+    const del = this.list[0]
+    this.list[0] = this.list.pop()
     this.siftDown(0)
     return del
   }
 
   swap(indexOne, indexTwo) {
-    const temp = this.arr[indexOne]
-    this.arr[indexOne] = this.arr[indexTwo]
-    this.arr[indexTwo] = temp
+    const temp = this.list[indexOne]
+    this.list[indexOne] = this.list[indexTwo]
+    this.list[indexTwo] = temp
   }
 
   peek() {
-    return this.arr
+    return this.list
   }
 }
 
