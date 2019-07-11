@@ -70,19 +70,45 @@ DPS는 그래프에서 모든 노드를 방문하고자 할 때 주로 사용하
 - DPS는 Stack 이나 재귀를 활용해서 탐색한다.
 - Stack을 사용해서 탐색하는 방법은 첫번째 버텍스를 스택에 집어넣는다.
 - 그이후 pop을 한뒤 pop을한 버텍스의 인접한 버텍스들중 방문하지않은 버텍스를 스택에 push하고 한번 방문한 버텍스들을 visited list에 저장해서 2번 방문하지 않게한다 이방법을 반복한다.
-- DPS를 사용하면 그래프에서 싸이클이있는지 쉽게 확인할 수 있다(visited list에 중복된 버텍스가 있으면 싸이클이 있음)
+- DPS를 사용하면 그래프에서 싸이클이있는지 쉽게 확인할 수 있다(visited list에 중복된 버텍스가 있으면 그래프에 싸이클이 있음)
 
 ```javascript
-Stack.push(0) // 첫번째 버텍스 push
+// 재귀활용 트리 dfs
+function dfs(node) {
+    if(!node) {
+        return 
+    }
+    console.log(node.val)
+    dfs(node.left)
+    dfs(node.right)
+}
 
-while (Stack) {
-  current = Stack.pop() // Stack을 pop
+// stack 활용 트리 dfs
+function dfs2(root) {
+  const stack = [root]
+  while(stack.length) {
+    const current = stack.pop()
+    if(current) {
+      console.log(current.val)
+      stack.push(current.right, current.left)
+    }
+  }
+}
 
-  // pop한 버텍스의 인접한 버텍스들 순회
-  adjacencyList[current].map(neighbor => {
-    if (!visited[neighbor]) Stack.push(neighbor) // visited list 에 이웃 버텍스가 없을시 Stack에 push
-  })
-  visited.push(current) // visited list에 pop한 버텍스 push
+// stack 활용 graph dfs
+function dfs3(root, adjacencyList) {
+  const stack = [root]
+  const visited = []
+  while(stack.length) {
+    const current = stack.pop()
+    if(current) {
+      console.log(current.val)
+      adjacencyList[current].map(neighbor => {
+        if (!visited[neighbor]) stack.push(neighbor)
+      })
+      visited.push(current)
+    }
+  }
 }
 ```
 
@@ -93,16 +119,32 @@ while (Stack) {
 - BFS는 Stack을 사용하는 DFS와 같지만 Stack대신 Queue를 사용한다
 
 ```javascript
-Queue.push(0) // 첫번째 버텍스 push
+// 트리 bfs
+function bfs(root) {
+  const queue = [root]
+  while(queue.length) {
+    const current = queue.shift()
+    if(current) {
+      console.log(current.val)
+      queue.push(current.left, current.right)
+    }
+  }
+}
 
-while (Queue) {
-  current = Queue.shift() // Queue을 dequeue
-
-  // pop한 버텍스의 인접한 버텍스들 순회
-  adjacencyList[current].map(neighbor => {
-    if (!visited[neighbor]) Queue.push(neighbor) // visited list 에 이웃 버텍스가 없을시 Queue에 push
-  })
-  visited.push(current) // visited list에 pop한 버텍스 push
+// graph bfs
+function bfs2(root, adjacencyList) {
+  const queue = [root]
+  const visited = []
+  while(queue.length) {
+    const current = queue.shift()
+    if(current) {
+      console.log(current.val)
+      adjacencyList[current].map(neighbor => {
+        if (!visited[neighbor]) queue.push(neighbor)
+      })
+      visited.push(current)
+    }
+  }
 }
 ```
 
