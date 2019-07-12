@@ -17,6 +17,7 @@
 - [힙 정렬](https://github.com/john015/TIL/blob/master/algorithm/heap-sort.md)
 - [동적 계획법](https://github.com/john015/TIL/blob/master/algorithm/dynamic-programming.md)
 - [백트래킹](https://github.com/john015/TIL/blob/master/algorithm/backtracking.md)
+- [다엑스트라 알고리즘](https://github.com/john015/TIL/blob/master/algorithm/dijkstra.md.md)
 
 <hr />
 
