@@ -24,6 +24,7 @@
 ### 자료구조
 
 - [연결 리스트](https://github.com/john015/TIL/blob/master/data-structure/linked-list.md)
+- [해시테이블](https://github.com/john015/TIL/blob/master/data-structure/hashtable.md)
 - [스택](https://github.com/john015/TIL/blob/master/data-structure/stack.md)
 - [큐](https://github.com/john015/TIL/blob/master/data-structure/queue.md)
 - [그래프](https://github.com/john015/TIL/blob/master/data-structure/graph.md)
