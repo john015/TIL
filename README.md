@@ -168,4 +168,4 @@
 ### Other
 
 - [비트 연산자](https://github.com/john015/TIL/blob/master/other/bitwise-operator.md)
-- [Site](https://github.com/john015/TIL/blob/master/other/site.md)
+- [useful site](https://github.com/john015/TIL/blob/master/other/useful-site.md)
