@@ -40,8 +40,7 @@
 
 ```javascript
 // 단일 연결 리스트
-
-function CreateNode(data) {
+function Node(data) {
   this.data = data
   this.next = null
 }
@@ -50,36 +49,28 @@ class LinkedList {
   constructor() {
     this.head = null
     this.tail = null
-    this.length = 0
   }
 
   add(data) {
-    const node = new CreateNode(data)
-    // node가 아에 없을때 head에 node추가
+    const node = new Node(data)
     if (!this.head) {
       this.head = node
       this.tail = node
-      this.length++
       return
     }
-    // 기존에 node가 있을때 node 추가
     this.tail.next = node
     this.tail = node
-    this.length++
   }
 
   remove(idx) {
-    // head를 삭제할 때
+    if (!this.head) {
+      throw new error('linked-list에 데이터가 존재하지 않습니다.')
+    }
     if (idx === 0) {
-      let willRemoveHead = this.head
-      this.head = willRemoveHead.next
-      // node가 1개뿐일때 0번째 index의 node를 삭제했을때 tail도 같이 삭제
-      if (!this.head.next) {
-        this.tail = null
-      }
+      this.head = this.head.next
+      if (!this.head) this.tail = null
       return
     }
-    // 그냥 node를 삭제할 때
     let current = this.head
     let before
     let count = 0
@@ -89,18 +80,18 @@ class LinkedList {
       count++
     }
     if (idx !== count) {
-      throw new Error('해당 idx에 해당하는 Node를 찾을 수 없습니다')
+      return
     }
-    // 삭제할 노드가 마지막 노드가 아닐때
-    if (current.next) {
-      before.next = current.next
-      // 삭제할 노드가 마지막 노드일때
-    } else {
-      before.next = null
-    }
+    before.next = current.next
   }
 
   find(idx) {
+    if (!this.head) {
+      throw new Error('linked-list에 데이터가 존재하지 않습니다.')
+    }
+    if (idx === 0) {
+      return this.head.data
+    }
     let current = this.head
     let count = 0
     while (count < idx && current.next) {
@@ -108,7 +99,9 @@ class LinkedList {
       count++
     }
     if (idx !== count) {
-      throw new Error('해당 idx에 해당하는 Node를 찾을 수 없습니다')
+      throw new Error(
+        'linked-list에 해당 idx 해당하는 데이터가 존재하지 않습니다.'
+      )
     }
     return current.data
   }

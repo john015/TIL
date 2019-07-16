@@ -147,7 +147,7 @@ li:hover{color:red}
 
 ## positon vs translate
 
-translate를 사용해서 엘리먼트의 위치를 변경하면 reflow(layout)가 일어나지고 composite만 일어나지만 left/right/top/bottom을 사용하여 위치를 변경하면 reflow(layout)가 일어난다.
+translate를 사용해서 엘리먼트의 위치를 변경하면 composite만 일어나지만 left/right/top/bottom을 사용하여 위치를 변경하면 reflow(layout)가 일어난다.
 
 ## reflow를 피하거나 최소화하는 방법
 
