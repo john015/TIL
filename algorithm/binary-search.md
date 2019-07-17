@@ -6,7 +6,7 @@
 
 ```javascript
 // s = startIdx, e = endIdx, m = middleIdx
-
+// dp
 function binarySearch(arr, value) {
   return recur (s, e) {
     if (s > e) {
@@ -24,5 +24,20 @@ function binarySearch(arr, value) {
     }
     return -1
   }(0, arr.length - 1)
+}
+
+function binarySearch2(arr, val) {
+  let start = 0
+  let end = arr.length - 1
+  while(start <= end) {
+    const middle = Math.floor((start + end) / 2)
+    if(arr[middle] === val) return middle
+    if(arr[middle] > val) {
+      end = middle - 1
+    } else {
+      start = middle + 1
+    }
+  }
+  return - 1
 }
 ```

@@ -8,7 +8,7 @@
 
 - 데이터를 제거할 때 가장 위의 루트 노드를 제거하고 힙의 마지막 노드를 가져와서 힙을 재구성한다
 
-시간 복잡도 = 힙을 생성할 때: O(nlogn) 최대, 최소값을 구할 때: O(1)
+시간 복잡도 = 힙을 생성할 때: O(nlogn) 데이터를 삽입, 제거할 때: O(logn) 최대, 최소값을 구할 때: O(1)
 
 ## 종류
 
@@ -26,57 +26,64 @@
 
 ```javascript
 // 최대 힙
+function swap(arr, indexOne, indexTwo) {
+  const temp = arr[indexOne]
+  arr[indexOne] = arr[indexTwo]
+  arr[indexTwo] = temp
+}
+
 class Heap {
   constructor(list = []) {
-    this.list = []
-    list.map((val, i) => {
-      this.list[i] = val
-      this.heapify(i)
-    })
+    this.list = list
+
+    for (let i = Math.floor(list.length / 2); i >= 0; i--) {
+      this.siftDown(i, list.length)
+    }
   }
 
   heapify(idx) {
-    if (!idx) {
-      return
-    }
-    const parent = parseInt((idx - 1) / 2)
+    const parent = Math.floor((idx - 1) / 2)
     if (this.list[idx] > this.list[parent]) {
       this.swap(idx, parent)
       this.heapify(parent)
     }
   }
 
-  siftDown(idx) {
-    let left = 0
-    let right = 0
-    let large
-    if (idx * 2 + 1 < this.list.length) {
-      left = this.list[idx * 2 + 1]
-      if (idx * 2 + 2 < this.list.length - 1) {
-        right = this.list[idx * 2 + 2]
-      }
-      large = idx * 2 + (left > right ? 1 : 2)
-      if (this.list[idx] < this.list[large]) {
-        this.swap(idx, large)
-        this.siftDown(large)
-      }
+  siftDown(idx, length) {
+    const left = idx * 2 + 1
+    const right = idx * 2 + 2
+    let largest = idx
+
+    if (left < length && this.list[left] > this.list[largest]) {
+      largest = left
+    }
+    if (right < length && this.list[right] > this.list[largest]) {
+      largest = right
+    }
+    if (idx !== largest) {
+      this.swap(largest, idx)
+      this.siftDown(largest, length)
     }
   }
 
-  insert(number) {
-    const last = this.list.length
-    this.list[last] = number
-    this.heapify(last)
+  insert(data) {
+    const length = this.list.length
+    this.list[length] = data
+    this.heapify(length)
   }
 
   delete() {
     if (!this.list.length) {
       return false
     }
-    const del = this.list[0]
+    const item = this.list[0]
     this.list[0] = this.list.pop()
-    this.siftDown(0)
-    return del
+    this.siftDown(0, this.list.length)
+    return item
+  }
+
+  peek() {
+    return this.list
   }
 
   swap(indexOne, indexTwo) {
@@ -84,15 +91,11 @@ class Heap {
     this.list[indexOne] = this.list[indexTwo]
     this.list[indexTwo] = temp
   }
-
-  peek() {
-    return this.list
-  }
 }
 
-const heap = new Heap([1, 2, 3])
+const heap = new Heap([1, 2, 3, 4, 9, 6, 7, 8, 0])
+heap.insert(99)
 heap.insert(10)
-heap.insert(5)
-heap.insert(7)
-heap.peek() // [ 10, 5, 7, 1, 3, 2 ]
+heap.delete()
+heap.peek() // [ 10, 9, 7, 4, 8, 6, 3, 1, 0, 2 ]
 ```
