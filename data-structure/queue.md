@@ -8,6 +8,44 @@ queue에 데이터를 추가하는걸 enqueue라고 부르고 데이터를 꺼�
 
 queue에는 제일 위 데이터를 반환하는 peek과 queue가 비어있는지 불리언으로 반환하는 isEmpty 메소드가 있다
 
+## Queue로 Stack만들기
+
+- 1. mainQueue와 subQueue를 만든다
+- 2. 데이터가 push가 되면 mainQueue의 데이터를 dequeue해서 subQueue에 enqueue한다
+- 3. mainQueue에 데이터를 enQueue한다
+- 4. 다시 subQueue에서 dequueue해서 mainQueue에 enQueue한다
+- 5. pop은 mainQueue에서 deQueue한다
+
+```javascript
+class MyStack {
+  constructor() {
+    this.mainQueue = []
+    this.subQueue = []
+  }
+
+  push(data) {
+    while (this.mainQueue.length) {
+      this.subQueue.push(this.mainQueue.shift())
+    }
+    this.mainQueue.push(data)
+    while (this.subQueue.length) {
+      this.mainQueue.push(this.subQueue.shift())
+    }
+  }
+  pop() {
+    return this.mainQueue.shift()
+  }
+  top() {
+    return this.mainQueue[0]
+  }
+  isEmpty() {
+    return !this.mainQueue.length
+  }
+}
+```
+
+## 구현
+
 ```javascript
 function CreateNode(data) {
   this.data = data
@@ -55,3 +93,13 @@ class Queue {
 
 const queue = new Queue()
 ```
+
+queue
+4  
+ 3
+3 2
+2 1
+1
+
+2
+1

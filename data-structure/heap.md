@@ -26,12 +26,6 @@
 
 ```javascript
 // 최대 힙
-function swap(arr, indexOne, indexTwo) {
-  const temp = arr[indexOne]
-  arr[indexOne] = arr[indexTwo]
-  arr[indexTwo] = temp
-}
-
 class Heap {
   constructor(list = []) {
     this.list = list
