@@ -22,6 +22,44 @@ stack에는 제일 위 데이터를 가리키는 top가 있다
 - 재귀 알고리즘
 - 웹 브라우저 방문기록 (뒤로가기, 앞으로 가기)
 - 실행 취소 (undo)
+-
+
+## Stack으로 Queue만들기
+
+- 1. mainStack와 subStack를 만든다
+- 2. 데이터가 enqueue가 되면 mainStack의 데이터를 pop해서 subStack에 push한다
+- 3. subStack에 enqueue할 데이터를 push한다
+- 4. 다시 subStack에서 데이터들을 pop해서 mainStack에 push한다
+
+```javascript
+class Queue {
+  constructor() {
+    this.mainStack = []
+    this.subStack = []
+  }
+
+  push(data) {
+    while (this.mainStack.length) {
+      this.subStack.push(this.mainStack.shift())
+    }
+    this.subStack.push(data)
+    while (this.subStack.length) {
+      this.mainStack.push(this.subStack.shift())
+    }
+  }
+  pop() {
+    return this.mainStack.shift()
+  }
+  peak() {
+    return this.mainStack[this.mainStack.length - 1]
+  }
+  isEmpty() {
+    return !this.mainStack.length
+  }
+}
+```
+
+## 구현
 
 ```javascript
 function Node(data) {
