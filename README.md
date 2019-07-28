@@ -30,6 +30,7 @@
 - [그래프](https://github.com/john015/TIL/blob/master/data-structure/graph.md)
 - [트리](https://github.com/john015/TIL/blob/master/data-structure/tree.md)
 - [힙](https://github.com/john015/TIL/blob/master/data-structure/heap.md)
+- [트라이](https://github.com/john015/TIL/blob/master/data-structure/trie.md)
 - [기타](https://github.com/john015/TIL/blob/master/data-structure/etc.md)
 
 <hr />
