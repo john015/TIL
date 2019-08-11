@@ -14,7 +14,7 @@ function ascBubbleSort(array) {
   // 순차적으로 비교하기 위한 반복문
   for (let i = 0; i < array.length - 1; i++) {
     // 끝까지 돌았을 때 다시 처음부터 비교하기 위한 반복문
-    for (let j = 0; j < array.length - 1 - i; j++) {
+    for (let j = 0; j < array.length - i; j++) {
       // array[j]값이 arrat[j + 1]값보다 크면 변경
       if (array[j] > array[j + 1]) {
         // 두 수를 서로 바꿔줌
