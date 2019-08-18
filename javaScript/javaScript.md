@@ -1,6 +1,5 @@
 <details>
 <summary>Index</summary>
-
 - [this](#this)
 - [참조형 타입 vs 원시형 타입](#참조형-타입-vs-원시형-타입)
 - [Lexical scope란?](#lexical-scope란)
@@ -20,7 +19,7 @@
 - [load event vs DOMContentLoaded event](#load-event-vs-domcontentloaded-event)
 - [==(동등 연산자) vs ===(일치 연산자)](#동등-연산자-vs-일치-연산자)
 - [Strict Mode란?](#strict-mode란)
-- [SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법](#spa프로젝트에서-seosearch-engine-optimization를-하는법)
+- [SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법](#spa프로젝트에서-seosearch-engine-optimization를-하는법)
 - [Promise의 장단점](#promise의-장단점)
 - [immutable value vs mutable value](#immutable-value-vs-mutable-value)
 - [함수 선언식 vs 함수 표현식](#함수-선언식-vs-함수-표현식)
@@ -292,7 +291,7 @@ if ('localStorage' in window) {
 - 또한 일반 함수안에서 this를 호출하면 global객체가 return되는 대신, undefined가 return 된다.
 - Strict Mode는 IE10이상부터 지원한다.
 
-## SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법
+## SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법
 
 - SPA프로젝트의 경우 싱글 페이지이기 때문에 SPA프로젝트 크롤링이 가능한 구글을 제외하고 네이버, 다음, 네이트등의 포털사이트에서 검색결과가 나타나지않는다.
 - SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(검색엔진 노출이 필요한 페이지들을 배포시점에서 렌더링해서 정적인 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수있다.

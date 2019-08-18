@@ -1,10 +1,40 @@
+<details>
+<summary>Index</summary>
+
+- [플래그](#플래그)
+- [특수 문자](#특수-문자)
+  - [^](#)
+  - [\$](#)
+  - [\*](#)
+  - [+](#)
+  - [?](#)
+  - [.](#)
+  - [(x)](#x)
+  - [x(?=y)](#xy)
+  - [x(?!y)](#xy)
+  - [x|y](#xy)
+  - [{n}](#n)
+  - [{n,m}](#nm)
+  - [[xyz]](#xyz)
+  - [[^xyz]](#xyz)
+  - [[^xyz]](#xyz-1)
+  - [\b](#b)
+  - [\d](#d)
+  - [\D](#d)
+  - [\s](#s)
+  - [\S](#s)
+  - [\w](#w)
+  - [\W](#w)
+- [Reference](#reference)
+
+  </details>
 
 # 플래그
 
-| Flag | Meaning          |
-| ---- | ---------------- |
+| Flag | Meaning                       |
+| ---- | ----------------------------- |
 | i    | 대소문자를 구별하지 않고 검색 |
-| g    | 문자열 내의 모든 패턴을 검색 |
+| g    | 문자열 내의 모든 패턴을 검색  |
 | m    | 문자열의 행이 바뀌더라도 검색 |
 
 # 특수 문자
@@ -20,7 +50,7 @@ console.log(regexp.test('http://test.com')) // true
 console.log(regexp.test('010-1234-5678')) // false
 ```
 
-## $
+## \$
 
 특정 단어로 끝나는지 검사
 
@@ -31,7 +61,7 @@ console.log(regexp.test('index.html')) // true
 console.log(regexp.test(test.mp4)) // false
 ```
 
-## *
+## \*
 
 앞의 표현식이 0회 이상 연속으로 반복되는 부분과 대응
 
@@ -80,7 +110,7 @@ console.log(regexp.test('oysho')) // false
 'x'에 대응되는것을 capture, capture된값은 exec나 match methods가 return하는 배열에 포함됨
 
 ```javascript
-const regexp =  /^(good).+/
+const regexp = /^(good).+/
 console.log(regexp.exec('goodbye')) // ["goodbye", "good"]
 console.log(regexp.exec('goo')) // null
 ```
@@ -176,7 +206,7 @@ console.log(regexp.test('melon')) // true
 다른 '단어 문자'(\w와 동일)가 앞이나 뒤에 등장하지 않는 위치에 대응
 
 ```javascript
-const regexp = /moon\b/ 
+const regexp = /moon\b/
 console.log(regexp.test('honeymoon')) // true
 console.log(regexp.test('moonster')) // false
 console.log(regexp.test('moon star')) // true
@@ -187,7 +217,7 @@ console.log(regexp.test('moon star')) // true
 숫자 문자에 대응. [0-9]와 동일
 
 ```javascript
-const regexp = /\d/ 
+const regexp = /\d/
 console.log(regexp.test('1')) // true
 console.log(regexp.test('1st')) // true
 console.log(regexp.test('first')) // false
@@ -198,7 +228,7 @@ console.log(regexp.test('first')) // false
 숫자 문자가 아닌 문자에 대응. [^0-9]와 동일
 
 ```javascript
-const regexp = /\d/ 
+const regexp = /\d/
 console.log(regexp.test('1')) // false
 console.log(regexp.test('1st')) // true
 console.log(regexp.test('first')) // true
@@ -209,7 +239,7 @@ console.log(regexp.test('first')) // true
 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 포함한 문자에 대응
 
 ```javascript
-const regexp = /\s/ 
+const regexp = /\s/
 console.log(regexp.test('firstGoal')) // false
 console.log(regexp.test('first goal')) // true
 ```
@@ -219,7 +249,7 @@ console.log(regexp.test('first goal')) // true
 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 제외한 하나의 공백 문자에 대응
 
 ```javascript
-const regexp = /\S/ 
+const regexp = /\S/
 console.log(regexp.test(' ')) // false
 console.log(regexp.test('first goal')) // true
 ```
@@ -229,22 +259,20 @@ console.log(regexp.test('first goal')) // true
 밑줄 문자를 포함한 영숫자 문자에 대응. [A-Za-z0-9_] 와 동일
 
 ```javascript
-const regexp = /\w/ 
+const regexp = /\w/
 console.log(regexp.test('안녕하세요')) // false
 console.log(regexp.test('first')) // true
 ```
 
 ## \W
 
-단어 문자가 아닌 문자에 대응. [^A-Za-z0-9_] 와 동일합니다.
+단어 문자가 아닌 문자에 대응. [^a-za-z0-9_] 와 동일합니다.
 
 ```javascript
-const regexp = /\W/ 
+const regexp = /\W/
 console.log(regexp.test('안녕하세요')) // true
 console.log(regexp.test('first')) // false
 ```
-
-
 
 # Reference
 

@@ -1,3 +1,16 @@
+<details>
+<summary>Index</summary>
+
+- [doctype이란?](#doctype이란)
+- [표준모드(standards mode) vs 호환모드(quirks mode)](#표준모드standards-mode-vs-호환모드quirks-mode)
+- [커스텀 데이터 속성(data-\*)이란?](#커스텀-데이터-속성data-이란)
+- [쿠키(Cookies) vs 세션저장소(sessionStorage) vs 로컬저장소(localStorage)](#쿠키cookies-vs-세션저장소sessionstorage-vs-로컬저장소localstorage)
+- [script vs script async vs script defer](#script-vs-script-async-vs-script-defer)
+- [img tag의 srcset 속성이란?](#img-tag의-srcset-속성이란)
+- [속성(Attribute) vs 요소(property)](#속성attribute-vs-요소property)
+- [IE 조건부 주석](#ie-조건부-주석)
+  </details>
+
 ## doctype이란?
 
 - HTML의 버전을 명시하는 tag
@@ -23,7 +36,7 @@
 - 또한 데이터에 유효기간이 없고, localStorage를 설정한 도메인에서만 설정한 값을 읽을 수 있고 다른 도메인에서는 못 읽는다.
 - sessionStorage는 localStorage와 동일하지만 sessionStorage에 저장된 데이터는 세션이 종료되면(해당탭이 종료)지워진다.
 
-## \<script\> vs \<script async\> vs \<script defer\>
+## script vs script async vs script defer
 
 - 일반적으로 브라우저는 \<script\> tag를 만나면 웹 페이지 렌더링을 잠시 중단하고 script를 파싱한뒤 실행한다.
 - 따라서 크기가 큰 script을 불러올 경우 웹 페이지 렌더링이 지연된다.

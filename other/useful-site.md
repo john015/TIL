@@ -19,3 +19,4 @@
 
 - [JS performance test](https://jsperf.com/)
 - [Atomic design + BEM 정리](https://medium.com/@LaunchingDream/abem-5ceb36b8f027)
+- [Git 영어 커밋 메시지 사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)
