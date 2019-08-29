@@ -1,8 +1,8 @@
-# FlexBox
+# Grid
 
-## Flex 컨테이너 선언
+## Grid 컨테이너 선언
 
-display 속성을 flex나 inline-grid으로 설정합니다.
+display 속성을 Grid나 inline-grid으로 설정합니다.
 
 ```css
 .parent {
