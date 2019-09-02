@@ -163,7 +163,8 @@
 
 ### GraphQL
 
-- [Intro & Query](https://github.com/john015/TIL/blob/master/graphQL/Intro%20%26%20Query.md)
+- [Intro](https://github.com/john015/TIL/blob/master/graphQL/Intro.md)
+- [Query](https://github.com/john015/TIL/blob/master/graphQL/Query.md)
 
 <hr />
 
