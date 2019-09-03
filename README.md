@@ -165,6 +165,7 @@
 
 - [Intro](https://github.com/john015/TIL/blob/master/graphQL/Intro.md)
 - [Query](https://github.com/john015/TIL/blob/master/graphQL/Query.md)
+- [Mutation](https://github.com/john015/TIL/blob/master/graphQL/Mutation.md)
 
 <hr />
 
