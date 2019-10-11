@@ -1,3 +1,11 @@
+## React
+
+- [setState는 뭘 해야되는지 어떻게 알까요?](https://overreacted.io/ko/how-does-setstate-know-what-to-do/)
+- [UI 런타임으로서의 React](https://overreacted.io/ko/react-as-a-ui-runtime/)
+- [함수형 컴포넌트와 클래스, 어떤 차이가 존재할까?](https://overreacted.io/ko/how-are-function-components-different-from-classes/)
+- [useEffect 완벽 가이드](https://rinae.dev/posts/a-complete-guide-to-useeffect-ko)
+
+
 ## color
 
 - [open-color](https://yeun.github.io/open-color/)
@@ -17,6 +25,7 @@
 
 ## other
 
+- [댄 아브라모프 블로그](https://overreacted.io/)
 - [JS performance test](https://jsperf.com/)
 - [Atomic design + BEM 정리](https://medium.com/@LaunchingDream/abem-5ceb36b8f027)
 - [Git 영어 커밋 메시지 사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)
