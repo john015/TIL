@@ -128,6 +128,7 @@
 ### React
 
 - [React](https://github.com/john015/TIL/blob/master/react/react.md)
+- [함수형 컴포넌트 vs 클래스 컴포넌트](https://github.com/john015/TIL/blob/master/react/functional-component-vs-class-component.md)
 - [Mobx](https://github.com/john015/TIL/blob/master/react/mobx.md)
 - [Styled-components](https://github.com/john015/TIL/blob/master/react/styled-components.md)
 - [Redux-saga](https://github.com/john015/TIL/blob/master/react/redux-saga.md)
