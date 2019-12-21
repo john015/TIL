@@ -24,6 +24,8 @@
 - [immutable value vs mutable value](#immutable-value-vs-mutable-value)
 - [함수 선언식 vs 함수 표현식](#함수-선언식-vs-함수-표현식)
 - [var vs let vs const](#var-vs-let-vs-const)
+- [Set, Map이란?](#set-map이란)
+- [for of vs for in](#for-of-vs-for-in)
 - [Element.getBoundingClientRect란?](#elementgetboundingclientrect란)
 - [requestAnimationFrame](#requestanimationframe)
 
@@ -360,6 +362,29 @@ function fn2() {
 - var를 사용하여 선언한 변수는 다시 선언해도 에러가 발생하지 않지만 ‘let’과 ‘const’는 에러가 발생합니다.
 - var와 let로 선언된 변수는 값을 재할당할 수 있지만 const로 선언된 변수는 재할당 될수없다.
 
+## Set, Map이란?
+
+- 둘다 ES6에 추가됐으며, set은 array와 비슷하고 map은 object와 비슷하다.
+
+### Map vs Object
+
+- Object의 키에는 String과 Symbol을 사용할 수 있지만, Map은 함수, 객체, 원시 자료형 등 어떤 값도 사용할 수 있습니다.
+- Map의 키는 삽입순으로 정렬되지만 Object의 키는 그렇지 않습니다. 따라서 Map을 순회하면 키를 삽입한 순서대로 반환합니다
+- Map의 크기는 size 속성으로 쉽게 얻을 수 있지만 Object의 속성 수는 직접 판별해야 합니다.
+- Map은 바로 순회할 수 있지만, Object를 순회하려면 어떤 방법이든 키의 배열을 얻고, 그 배열을 순회해야 합니다.
+- Object는 프로토타입을 가지므로, 주의하지 않으면 키가 충돌할 수 있습니다.
+- 잦은 키의 추가와 제거가 필요한 시나리오에서는 Map이 더 빠릅니다.
+
+### Set vs Array
+
+- Array는 중복된 값을 가질 수 있지만, Set은 중복된 값을 가질 수 없습니다.
+
+## for of vs for in
+- for in은 해당 컬렉션의 key값을 얻을 수 있고, for of는 value값을 얻을 수 있다.
+- for in은 객체의 열거 가능한(Enumerable)프로퍼티의 값이 true인 프로퍼티만 순회한다.
+- object.prototype.propertyIsEnumerable(propertyName)을 사용해서 해당 프로퍼티가 열거 가능한지 확인할 수 있다.
+- for of은 컬렉션에서 [Symbol.iterator]값의 이터레이터를 끝까지 순회한다.
+
 ## Element.getBoundingClientRect란?
 
 - 요소의 크기와 viewport에서의 상대적인 위치를 객체에 담아서 반환하는 메소드.
@@ -381,3 +406,6 @@ function counter() {
 }
 requestAnimationFrame(counter)
 ```
+
+
+
