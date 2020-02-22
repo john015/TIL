@@ -175,4 +175,5 @@
 
 - [비트 연산자](https://github.com/john015/TIL/blob/master/other/bitwise-operator.md)
 - [그레이 코드](https://github.com/john015/TIL/blob/master/other/gray-code.md)
-- [useful site](https://github.com/john015/TIL/blob/master/other/useful-site.md)
+- [useful sites](https://github.com/john015/TIL/blob/master/other/useful-sites.md)
+- [useful articles](https://github.com/john015/TIL/blob/master/other/useful-articles.md)
