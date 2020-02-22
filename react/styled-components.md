@@ -112,6 +112,18 @@ const Container = styled.div`
 export default App
 ```
 
+## styled-components 동작 방식
+
+- Tagged Template Literal을 파싱해서 문자열과 표현식을 분리시키고 함수인 표현식에는 props를 전달해서 스타일을 만든다.
+
+- 고유한 componentId와 스타일을 더한 뒤 MurmurHash 알고리즘을 이용해 className을 만든다.
+
+- 앞서 생성한 스타일을 stylis 라이브러리를 이용해 유효한 css로 변경시킨다.
+
+- 미리 추가해놓은 head안 style 태그에 생성한 css를 삽입한다.
+
+- 컴포넌트의 className에 componentId와 생성한 className을 넣어준 뒤 렌더링 한다.
+
 ## typescript displayName 설정
 
 - https://github.com/Igorbek/typescript-plugin-styled-components

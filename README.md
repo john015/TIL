@@ -75,6 +75,7 @@
 - [MVP](https://github.com/john015/TIL/blob/master/design-pattern/mvp.md)
 - [MVVM](https://github.com/john015/TIL/blob/master/design-pattern/mvvm.md)
 - [Flux](https://github.com/john015/TIL/blob/master/design-pattern/flux.md)
+- [Atomic-design](https://github.com/john015/TIL/blob/master/design-pattern/atomic-design.md)
 
 <hr />
 
@@ -128,12 +129,12 @@
 ### React
 
 - [함수형 컴포넌트 vs 클래스 컴포넌트](https://github.com/john015/TIL/blob/master/react/functional-component-vs-class-component.md)
+- [Next.js](https://github.com/john015/TIL/blob/master/react/nextjs.md)
 - [life cycle](https://github.com/john015/TIL/blob/master/react/life-cycle.md)
 - [react hooks](https://github.com/john015/TIL/blob/master/react/react-hooks.md)
 - [Mobx](https://github.com/john015/TIL/blob/master/react/mobx.md)
 - [Styled-components](https://github.com/john015/TIL/blob/master/react/styled-components.md)
 - [Redux-saga](https://github.com/john015/TIL/blob/master/react/redux-saga.md)
-- [Atomic-design](https://github.com/john015/TIL/blob/master/react/atomic-design.md)
 
 <hr />
 
