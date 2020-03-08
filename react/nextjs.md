@@ -1,3 +1,12 @@
+<details>
+<summary>Index</summary>
+
+- [Next.js란?](#nextjs란)
+- [getInitialProps](#getinitialprops)
+- [Routing](#routing)
+
+</details>
+
 ## Next.js란?
 
 - `Next.js`는 react application에서 `Isomorphic Rendering`을 쉽게 해주는 React framwork입니다.
@@ -8,13 +17,11 @@
 ## getInitialProps
 
 `getInitialProps` 함수는 `pages` 디렉토리 안에 있는 컴포넌트에서만 사용할 수 있는 스태틱 메소드입니다.
+`Next.js`는 컴포넌트가 `getInitialProps`나 `getServerProps` 함수를 사용하고 있으면 build타임에서 ssr이 적용되게 빌드합니다.
 
-`Next.js`는 컴포넌트가 `getInitialProps`나 `getServerProps` 함수를 사용하고 있으면 build타임에서 ssr이 적용되게 빌드합니다. 
+`getInitialProps` 함수의 인자로는 `context`객체가 전달되는데 해당 객체는 `pathname`, `query`, `req(ssr only)`, `res(ssr only)`, `err` 등의 프로퍼티를 갖고 있습니다.
 
-`getInitialProps` 함수의 인자로는 `context`객체가 전달되는데 해당 객체는 `pathname`, `query`, `req(ssr only)`, `res(ssr only)`, `err`등의 프로퍼티를 갖고 있습니다.
-
-`getInitialProps` 함수의 리턴 값은 해당 컴포넌트의 인자로 전달됩니다.
-
+`getInitialProps` 함수의 리턴 값은 해당 컴포넌트의 첫 번째 인자로 전달됩니다.
 
 ```javascript
 import fetch from 'isomorphic-unfetch'
@@ -31,3 +38,54 @@ Page.getInitialProps = async ctx => {
 
 export default Page
 ```
+
+## Routing
+
+`pages` 디렉토리 안에 파일을 생성하면 자동으로 파일명에 해당하는 주소로 접속할 수 있습니다.
+
+- `pages/index.js` → `/`
+- `pages/blog/first-post.js` → `/blog/first-post`
+- `pages/blog/[id].js` → `/blog/[id]`
+- `pages/blog/[...all].js` → `/blog/*`
+
+### Dynamic Routing
+
+만약 동적으로 라우팅을 해야할 경우 파일명을 `[id]`와 같이 대괄호로 묶어서 생성하면 다이나믹 라우팅 기능을 이용할 수 있습니다.
+
+해당 `id` 값은 `router` 객체나 `context` 객체의 `query` 파라미터로 조회할 수 있습니다.
+
+`Link` 컴포넌트에서 다이나믹 라우팅을 사용할려면 `href` prop에 파일명을 넣고 `as` prop에 이동할 주소를 넣어야합니다. 굳이 `href`를 넘겨주는 이유는 `Next.js`가 사전에 컴포넌트를 `preload` 하기위해 넘겨줘야 합니다.
+
+```javascript
+import Link from 'next/link'
+
+const index = () => (
+  <Link href="/blog/[id]" as="/blog/test-post">
+    test-post link
+  </Link>
+)
+```
+
+위 예시의 `pages/blog/first-post.js`와 `pages/blog/[id].js`처럼 미리 정의된 주소가 동적 라우팅 주소에도 해당 될 수 있을 경우, 미리 정의된 주소(`first-post.js`)가 우선 순위를 갖습니다.
+
+또한 라우트 파라미터와 쿼리 파라미터가 동일하다면 라우트 파라미터가 우선 순위를 갖습니다.
+
+```javascript
+import Router from 'next/router'
+
+// query 파라미터의 프로퍼티로는 2가 아니라 "second-post"가 들어감
+// push메소드는 첫 번째 인자로 href를 받고 두 번째 인자로 as 마지막 세 번째 인자로 option를 받습니다
+Router.push('/blog/[id]', '/blog/second-post?id=2')
+```
+
+### Shallow Routing
+
+동일한 `pathname`에서 리렌더링 하지않고 쿼리 스트링만 바꾸고 싶을 때는 `Router.push`메소드에 `shallow` 옵션을 `true`로 전달하면 `Shallow Routing`을 진행합니다.
+
+```javascript
+import Router from 'next/router'
+
+Router.push('/blog/first-post?id=5', null, { shallow: true })
+```
+
+`Shallow Routing`을 할 경우 `getInitialProps` 함수는 실행되지 않습니다.

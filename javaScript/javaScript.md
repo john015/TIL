@@ -1,5 +1,6 @@
 <details>
 <summary>Index</summary>
+
 - [this](#this)
 - [참조형 타입 vs 원시형 타입](#참조형-타입-vs-원시형-타입)
 - [Lexical scope란?](#lexical-scope란)
@@ -380,6 +381,7 @@ function fn2() {
 - Array는 중복된 값을 가질 수 있지만, Set은 중복된 값을 가질 수 없습니다.
 
 ## for of vs for in
+
 - for in은 해당 컬렉션의 key값을 얻을 수 있고, for of는 value값을 얻을 수 있다.
 - for in은 객체의 열거 가능한(Enumerable)프로퍼티의 값이 true인 프로퍼티만 순회한다.
 - object.prototype.propertyIsEnumerable(propertyName)을 사용해서 해당 프로퍼티가 열거 가능한지 확인할 수 있다.
@@ -406,6 +408,3 @@ function counter() {
 }
 requestAnimationFrame(counter)
 ```
-
-
-
