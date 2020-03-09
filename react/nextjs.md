@@ -4,6 +4,9 @@
 - [Next.js란?](#nextjs란)
 - [getInitialProps](#getinitialprops)
 - [Routing](#routing)
+- [Dynamic Import](#dynamic-import)
+- [Custom Error Page](#custom-error-page)
+- [_app과 _document의 차이점](#_app과-_document의-차이점)
 
 </details>
 
@@ -89,3 +92,36 @@ Router.push('/blog/first-post?id=5', null, { shallow: true })
 ```
 
 `Shallow Routing`을 할 경우 `getInitialProps` 함수는 실행되지 않습니다.
+
+## Dynamic Import
+
+`Dynamic Import` 를 할려면 `next/dynamic` 모듈에서 `default export`된 `dynamic` 함수를 이용하면 됩니다.
+
+```javascript
+import dynamic from 'next/dynamic'
+
+// default export된 컴포넌트를 다이나믹 임포트
+const DynamicComponent = dynamic(() => import('../components/hello'), {
+  loading: <Loader />
+})
+
+// Hello라는 이름으로 named default된 컴포넌트를 다이나믹 임포트
+const DynamicNamedComponent = dynamic(() =>
+  import('../components/hello').then(module => module.Hello)
+)
+
+function Home() {
+  return (
+    <>
+      <DynamicComponent />
+      <DynamicNamedComponent />
+    </>
+  )
+}
+
+export default Home
+```
+
+## Custom Error Page
+
+## _app과 _document의 차이점
