@@ -2,11 +2,14 @@
 <summary>Index</summary>
 
 - [Next.js란?](#nextjs란)
-- [getInitialProps](#getinitialprops)
+- [getInitialProps(Next.js 9.3 버전이후 부터는 권장 하지않음)](#getinitialpropsnextjs-93-버전이후-부터는-권장-하지않음)
+- [getStaticProps](#getstaticprops)
+- [getStaticPaths](#getstaticpaths)
+- [getServerSideProps](#getserversideprops)
 - [Routing](#routing)
 - [Dynamic Import](#dynamic-import)
 - [Custom Error Page](#custom-error-page)
-- [_app과 _document의 차이점](#_app과-_document의-차이점)
+- [\_app와 \_document의 차이점](#_app와-_document의-차이점)
 
 </details>
 
@@ -17,7 +20,7 @@
 - ssr(Server-Side-rendering)을 하게되면 서버의 리스폰스에 의존해서 페이지를 이동해야하기 때문에 페이지 이동시 fouc가 발생하며 spa에 비해 퍼포먼스가 떨어집니다.
 - Isomorphic Rendering을 하게되면 최초 리퀘스트의 응답은 ssr하고 그이후에는 csr와 동일하게 동작해서 SEO와 UX 모두를 충족할 수 있습니다.
 
-## getInitialProps
+## getInitialProps(Next.js 9.3 버전이후 부터는 권장 하지않음)
 
 `getInitialProps` 함수는 `pages` 디렉토리 안에 있는 컴포넌트에서만 사용할 수 있는 스태틱 메소드입니다.
 `Next.js`는 컴포넌트가 `getInitialProps`나 `getServerProps` 함수를 사용하고 있으면 build타임에서 ssr이 적용되게 빌드합니다.
@@ -41,6 +44,105 @@ Page.getInitialProps = async ctx => {
 
 export default Page
 ```
+
+## getStaticProps
+
+`getInitialProps` 함수는 빌드 타임에 데이터를 가져오고 싶을 때 사용할 수 있습니다
+
+`getInitialProps` 함수는 빌드 될 때 서버 사이드에서 한번만 호출됩니다.
+
+`getServerSideProps, getInitialProps`와 달리 해당 함수를 사용해도 `Next.js`는 페이지를 ssr하지 않습니다.
+
+```javascript
+import fetch from 'node-fetch'
+
+function Blog({ posts }) {
+  return (
+    <ul>
+      {posts.map(post => (
+        <li>{post.title}</li>
+      ))}
+    </ul>
+  )
+}
+
+export async function getStaticProps() {
+  const res = await fetch('https://.../posts')
+  const posts = await res.json()
+
+  return {
+    props: {
+      posts
+    }
+  }
+}
+
+export default Blog
+```
+
+## getStaticPaths
+
+`getStaticPaths` 함수는 다이나믹 라우팅을 하면서 `getStaticProps` 를 사용하는 페이지가 빌드 타임에 어떤 `params`에 해당하는 페이지를 프리 렌더링 할지 결정할려고 사용합니다.
+
+`getStaticPaths` 함수를 사용하는 이유는 `Next.js` 입장에서는 해당 함수를 이용해 `paths`를 전달 해주지 않으면 `params`에 어떤 값이 들어올지 모르기 때문에 프리 렌더링을 하기위해 필수로 사용해야 합니다.
+
+`getStaticPaths` 함수는 `paths`와 `fallback` 프로퍼티를 갖고있는 객체를 리턴해야합니다. 
+
+`fallback` 프로퍼티가 `true`면 `paths` 에 없는 경로에 방문 했을 때 `fallback` 페이지를 보여주고, 백그라운드로 `getStaticProps`와 같이 `params`에 해당 하는 페이지를 생성해서 사용자에게 보여줍니다.
+
+해당 프로퍼티가 `false` 일 경우 `paths` 에 없는 경로에 방문 했을 때 그냥 404 페이지를 보여줍니다.
+
+```javascript
+import fetch from 'node-fetch'
+
+const Post = () => {
+  ...
+}
+
+export async function getStaticPaths() {
+  const res = await fetch('https://.../posts')
+  const posts = await res.json()
+
+  const paths = posts.map(post => ({
+    params: { id: post.id },
+  }))
+
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params }) { 
+  ...
+}
+
+export default Post
+```
+
+
+## getServerSideProps
+
+`getServerSideProps` 함수는 ssr을 할려고 할 때 사용합니다.
+
+`getServerSideProps` 함수는 `getStaticProps` 와 달리 해당 페이지 경로로 리퀘스트가 올 때 마다 호출됩니다.
+
+`getServerSideProps` 함수는 항상 서버 사이드에서만 호출됩니다.
+
+```javascript
+function Page({ data }) {
+  ...
+}
+
+export async function getServerSideProps({ params }) {
+  const res = await fetch(`https://.../${params.id}`)
+  const data = await res.json()
+
+  return { props: { data } }
+}
+
+export default Page
+```
+
+
+
 
 ## Routing
 
@@ -124,4 +226,40 @@ export default Home
 
 ## Custom Error Page
 
-## _app과 _document의 차이점
+### Customizing The 404 Page
+
+기본적으로 `Next.js`가 제공해주는 404 에러 페이지를 커스터마이징 할려면 `/pages` 디렉토리에 `404.js` 파일을 생성하면 됩니다.
+
+```javascript
+// pages/404.js
+export default function Custom404Page() {
+  return <h1>페이지를 찾을 수 없습니다.</h1>
+}
+```
+
+### Customizing The Error Page
+
+404 에러외에도 다양한 에러를 표시해주는 페이지를 커스터마이징 할려면 `/pages` 디렉토리에 `_error.js` 파일을 생성하면 됩니다.
+
+만약 `_error.js`와 `404.js`파일이 둘다 존재하면 `404.js`파일이 우선 순위를 갖습니다.
+
+```javascript
+function Error({ statusCode }) {
+  return (
+    <p>
+      {statusCode
+        ? `An error ${statusCode} occurred on server`
+        : 'An error occurred on client'}
+    </p>
+  )
+}
+
+Error.getInitialProps = ({ res, err }) => {
+  const statusCode = res?.statusCode ?? err?.statusCode ?? 404
+  return { statusCode }
+}
+
+export default Error
+```
+
+## \_app와 \_document의 차이점
