@@ -9,7 +9,7 @@
 - [Routing](#routing)
 - [Dynamic Import](#dynamic-import)
 - [Custom Error Page](#custom-error-page)
-- [\_app와 \_document의 차이점](#_app와-_document의-차이점)
+- [Custom Document](#custom-document)
 
 </details>
 
@@ -86,7 +86,7 @@ export default Blog
 
 `getStaticPaths` 함수를 사용하는 이유는 `Next.js` 입장에서는 해당 함수를 이용해 `paths`를 전달 해주지 않으면 `params`에 어떤 값이 들어올지 모르기 때문에 프리 렌더링을 하기위해 필수로 사용해야 합니다.
 
-`getStaticPaths` 함수는 `paths`와 `fallback` 프로퍼티를 갖고있는 객체를 리턴해야합니다. 
+`getStaticPaths` 함수는 `paths`와 `fallback` 프로퍼티를 갖고있는 객체를 리턴해야합니다.
 
 `fallback` 프로퍼티가 `true`면 `paths` 에 없는 경로에 방문 했을 때 `fallback` 페이지를 보여주고, 백그라운드로 `getStaticProps`와 같이 `params`에 해당 하는 페이지를 생성해서 사용자에게 보여줍니다.
 
@@ -110,13 +110,12 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) { 
+export async function getStaticProps({ params }) {
   ...
 }
 
 export default Post
 ```
-
 
 ## getServerSideProps
 
@@ -140,9 +139,6 @@ export async function getServerSideProps({ params }) {
 
 export default Page
 ```
-
-
-
 
 ## Routing
 
@@ -262,4 +258,67 @@ Error.getInitialProps = ({ res, err }) => {
 export default Error
 ```
 
-## \_app와 \_document의 차이점
+## Custom Document
+
+일반적인 SPA `React.js`앱과 다르게 `Next.js` 앱에서는 `index.html` 파일이 없기때문에
+
+Custom Document는 `Next.js`가 마운트(Server-Side) 되는 지점을 커스터마이징 할려고 사용합니다.
+
+Custom Document는 주로 애플리케이션의 `<html>`, `<body>`, `<head>` 태그를 마크업하는 용도나 서버 사이드 렌더링 환경에서 `css-in-js` 동작을 구현하기 위해 사용합니다.
+
+Custom Document는 `pages/_document.js`경로에 파일을 생성해서 만들 수 있습니다.
+
+주의할 점으로는 custom Document에서는 `<title>` 태그를 가질 수 없고, `Data Fetching`과 `Lifecycle`을 사용할 수 없습니다.
+
+```javascript
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang="ko">
+        <Head>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+            key="viewport"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+
+export default MyDocument
+```
+
+### Custom App
+
+`Next.js`는 페이지를 초기화할 때 `App` 컴포넌트를 사용합니다. 
+
+그래서 `Document`와 달리 `App` 컴포넌트는 페이지가 이동될 때 마다 사용됩니다.
+
+해당 `App` 컴포넌트를 커스터마이징 할려면 `pages/_app.js` 경로에 Custom App를 생성해서 커스터마이징할 수 있습니다.
+
+Custom App는 주로 모든 페이지들의 공용 레이아웃을 정의하거나, Global CSS를 추가할 때 사용합니다.
+
+만약 Custom App에 `getInitialProps` 함수를 사용하면 [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization) 기능이 비활성화 됩니다.
+
+```javascript
+// component: 현재 페이지 컴포넌트
+// pageProps: getInitialProps, getServerSideProps등으로 preloaded된 페이지 props
+function MyApp({ Component, pageProps }) {
+  return (
+    <div>
+      hello world!
+      <Component {...pageProps} />
+    </div>
+  )
+}
+
+export default MyApp
+```
