@@ -27,6 +27,7 @@
 - [var vs let vs const](#var-vs-let-vs-const)
 - [Set, Map이란?](#set-map이란)
 - [for of vs for in](#for-of-vs-for-in)
+- [Array.sort](#arraysort)
 - [Element.getBoundingClientRect란?](#elementgetboundingclientrect란)
 - [requestAnimationFrame](#requestanimationframe)
 
@@ -386,6 +387,15 @@ function fn2() {
 - for in은 객체의 열거 가능한(Enumerable)프로퍼티의 값이 true인 프로퍼티만 순회한다.
 - object.prototype.propertyIsEnumerable(propertyName)을 사용해서 해당 프로퍼티가 열거 가능한지 확인할 수 있다.
 - for of은 컬렉션에서 [Symbol.iterator]값의 이터레이터를 끝까지 순회한다.
+
+## Array.sort
+
+- Array의 내장 prototype 메소드인 `sort`는 실행되는 엔진에 따라 다르지만, `v8` 엔진에서는 `Timsort`를 사용하고 있기 때문에 시간 복잡도는 `O(nlog(n))` 공간 복잡도는 `O(n)` 입니다.
+- `sort`메소드는 인자로 아무것도 안 넘겨줄 경우 오름차순으로 정렬하며, 정렬 순서를 정의하고 싶으면 해당 메소드의 첫 번째 인자로 `compareFunction`를 넘겨주면 됩니다.
+- `compareFunction(a, b)`의 인자로는 비교할 배열의 원소 값 2개가 제공됩니다. 
+- 해당 함수의 리턴 값이 음수면 `a`를 `b`보다 낮은 인덱스로 정렬하고
+- `0` 이면 두 원소의 순서를 변경하지 않고 유지합니다.
+- 양수면 `b`를 `a`보다 낮은 인덱스로 정렬합니다. 
 
 ## Element.getBoundingClientRect란?
 
