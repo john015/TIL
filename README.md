@@ -1,8 +1,10 @@
 # TIL
 
+> 머리 속에 있는 지식이나 새로 알게된 지식을 정리하는 곳
+
 📝 Today I Learned
 
-<hr />
+## Computer science
 
 ### Algorithm
 
@@ -53,13 +55,7 @@
 - [HTTP vs HTTPS](https://github.com/john015/TIL/blob/master/network/http%20vs%20https.md)
 - [웹통신의 큰 흐름](https://github.com/john015/TIL/blob/master/network/web-communication-flow.md)
 
-<hr />
-
-### RegExp
-
-- [RegExp](https://github.com/john015/TIL/blob/master/regExp/regExp.md)
-
-<hr />
+## Common
 
 ### 프로그래밍 패러다임
 
@@ -81,22 +77,28 @@
 
 ### restfulApi
 
-- [restfulApi](https://github.com/john015/TIL/blob/master/restfulApi/restfulApi.md)
+- [restful-api](https://github.com/john015/TIL/blob/master/restfulApi/restfulApi.md)
 
 <hr />
+
+### Git
+
+- [Git-command](https://github.com/john015/TIL/blob/master/git/git.md)
+- [Git-flow](https://github.com/john015/TIL/blob/master/git/git-flow.md)
+
+<hr />
+
+### RegExp
+
+- [RegExp](https://github.com/john015/TIL/blob/master/regExp/regExp.md)
+
+## Web
 
 ### Web
 
 - [Basic](https://github.com/john015/TIL/blob/master/web/Basic.md)
 - [NPM](https://github.com/john015/TIL/blob/master/web/npm.md)
 - [브라우저 동작 원리](https://github.com/john015/TIL/blob/master/web/web-browser-working-flow.md)
-
-<hr />
-
-### 웹 보안
-
-- [XSS](https://github.com/john015/TIL/blob/master/web-security/xss.md)
-- [CRSF](https://github.com/john015/TIL/blob/master/web-security/csrf.md)
 
 <hr />
 
@@ -146,6 +148,21 @@
 
 <hr />
 
+### 웹 보안
+
+- [XSS](https://github.com/john015/TIL/blob/master/web-security/xss.md)
+- [CRSF](https://github.com/john015/TIL/blob/master/web-security/csrf.md)
+
+<hr />
+
+### GraphQL
+
+- [Intro](https://github.com/john015/TIL/blob/master/graphQL/Intro.md)
+- [Query](https://github.com/john015/TIL/blob/master/graphQL/Query.md)
+- [Mutation](https://github.com/john015/TIL/blob/master/graphQL/Mutation.md)
+
+## BackEnd
+
 ### DB
 
 - [MySQL](https://github.com/john015/TIL/blob/master/db/mysql.md)
@@ -159,22 +176,7 @@
 
 <hr />
 
-### Git
-
-- [Git](https://github.com/john015/TIL/blob/master/git/git.md)
-- [Git-flow](https://github.com/john015/TIL/blob/master/git/git-flow.md)
-
-<hr />
-
-### GraphQL
-
-- [Intro](https://github.com/john015/TIL/blob/master/graphQL/Intro.md)
-- [Query](https://github.com/john015/TIL/blob/master/graphQL/Query.md)
-- [Mutation](https://github.com/john015/TIL/blob/master/graphQL/Mutation.md)
-
-<hr />
-
-### Other
+## Other
 
 - [비트 연산자](https://github.com/john015/TIL/blob/master/other/bitwise-operator.md)
 - [그레이 코드](https://github.com/john015/TIL/blob/master/other/gray-code.md)
