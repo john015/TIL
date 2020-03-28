@@ -45,3 +45,24 @@ Simentic Versioning은 주(Major), 부(Minor), 수(Patch) 세 가지 숫자를 �
 그이후 `npm i`나 `yarn` 커맨드를 사용해서 패키지를 설치하면 캐럿이나 틸드를 사용했어도, 해당 lock파일에 명시된 버전으로 설치합니다.
 
 ## dependencies, devDependencies, peerDependencies 차이
+
+### dependencies
+
+`dependencies`는 `production` 환경에서 작동되어야 하는 패키지들입니다.(lodash, react, vue, angular, etc...)
+
+`npm install (package name)` 커맨드로 패키지를 설치하면 `dependencies`에 추가됩니다.
+
+### devDependencies
+
+`devDependencies`는 `development` 환경에서만 작동되는 패키지들입니다.(webpack, babel, typescript, etc..)
+
+`npm install -D (package name)` 커맨드로 패키지를 설치하면 `devDependencies`에 추가됩니다.
+
+`devDependencies`에 해당하는 패키지들은 프로덕션 환경에서는 설치되지 않습니다.
+
+### peerDependencies
+
+내 패키지가 특정 다른 패키지와 함께 사용되도록 개발된 경우 해당 패키지를 `peerDependencies`에 추가해야합니다.(ex. react에 의존하는 라이브러리일 경우 react를 peerDependencies에 추가)
+
+`peerDependencies`에 해당하는 패키지들은 `npm install (my package naem)`시 `node_modules` 디렉토리에 설치되지 않고 해당 패키지가 디펜던시에 없을 때만 에러를 cli상에 표시해줍니다.(npm v3 이전 버전에서는 디펜던시와 같이 설치됩니다)
+
