@@ -37,24 +37,6 @@
 
 <hr />
 
-### OS
-
-- [Process vs Thread](https://github.com/john015/TIL/blob/master/os/process%20vs%20thread.md)
-- [멀티 스레드](https://github.com/john015/TIL/blob/master/os/multi-thread.md)
-- [스케줄러](https://github.com/john015/TIL/blob/master/os/scheduler.md)
-- [프로세스 동기화](https://github.com/john015/TIL/blob/master/os/process-sync.md)
-- [메모리](https://github.com/john015/TIL/blob/master/os/memory.md)
-
-<hr />
-
-### 네트워크
-
-- [네트워크](https://github.com/john015/TIL/blob/master/network/network.md)
-- [GET vs POST](https://github.com/john015/TIL/blob/master/network/get%20vs%20post.md)
-- [TCP vs UDP](https://github.com/john015/TIL/blob/master/network/tcp%20vs%20udp.md)
-- [HTTP vs HTTPS](https://github.com/john015/TIL/blob/master/network/http%20vs%20https.md)
-- [웹통신의 큰 흐름](https://github.com/john015/TIL/blob/master/network/web-communication-flow.md)
-
 ## Common
 
 ### 프로그래밍 패러다임
@@ -170,10 +152,6 @@
 - [PostgreSQL](https://github.com/john015/TIL/blob/master/db/postgreSQL.md)
 
 <hr />
-
-### Django
-
-- [Django](https://github.com/john015/TIL/blob/master/django/django.md)
 
 ## Other
 

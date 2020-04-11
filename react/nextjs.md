@@ -1,17 +1,3 @@
-<details>
-<summary>Index</summary>
-
-- [Next.js란?](#nextjs란)
-- [getInitialProps(Next.js 9.3 버전이후 부터는 권장 하지않음)](#getinitialpropsnextjs-93-버전이후-부터는-권장-하지않음)
-- [getStaticProps](#getstaticprops)
-- [getStaticPaths](#getstaticpaths)
-- [getServerSideProps](#getserversideprops)
-- [Routing](#routing)
-- [Dynamic Import](#dynamic-import)
-- [Custom Error Page](#custom-error-page)
-- [Custom Document](#custom-document)
-
-</details>
 
 ## Next.js란?
 

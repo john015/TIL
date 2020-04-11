@@ -1,29 +1,5 @@
 ## 선택자
 
-### 조상자손 선택자
-
-- ul 안에 모든 il 을 선택
-
-```
-ul li{color:red}
-```
-
-### 부모 자식 선택자
-
-- ul 바로 밑에있는 li 만 선택
-
-```
-ul>li{color:red}
-```
-
-### 동시 선택자
-
-- 둘다 선택
-
-```
-li,ul{color:red}
-```
-
 ### 속성 선택자
 
 - 지정된 어트리뷰트를 갖는 모든 요소를 선택
@@ -37,7 +13,7 @@ ul[attr] { color: red; }
 - li 바로 뒤 에있는 ul 를 선택
 
 ```
-li+ul{color:red}
+li + ul{color:red}
 ```
 
 ### 일반 형제 선택자
@@ -45,7 +21,7 @@ li+ul{color:red}
 - li 뒤 에있는 ul 를 모두 선택
 
 ```
-li~ul{color:red}
+li ~ ul{color:red}
 ```
 
 ### 가상 클래스 선택자
@@ -59,13 +35,9 @@ li~ul{color:red}
 li:hover{color:red}
 ```
 
-### \*선택자
-
-- 모든 엘리먼트들을 다 선택함
-
 ## BFC(Block Formatting contexts) vs IFC(Inline Formatting contexts)
 
-- BFC는 context의 height값 만큼 페이지의 width를 다 차지하고 수직으로 쌓인다.
+- BFC는 context의 width값 만큼 페이지의 width를 다 차지하고 수직으로 쌓인다.
 - IFC는 context의 width만큼 페이지의 width를 차지하고 수평으로 쌓인다.
 
 ## NTH-CHILD(N)과 NTH-OF-TYPE(N)의 차이점
@@ -131,7 +103,7 @@ li:hover{color:red}
 
 ## box model이란?
 
-- 기본값인 content-box의 경우는 element의 width나 height를 설정할 경우 해당 element의 content width/height 값을 설정하기때문에 element의 padding/border값이 설정되어있을경우 원하는 width랑 다를수있다.
+- 기본값인 content-box의 경우는 element의 width나 height를 설정할 경우 해당 element의 content width/height 값을 설정하기때문에 element에 padding/border값이 설정되어있을 경우 원하는 width랑 다를 수 있다.
 - 그렇기때문에 padding의 영향을 안받을려면 box-sizing: border-box;로 설정하여야 한다.
 
 ## \* { box-sizing: border-box; }의 장점은?
@@ -168,14 +140,12 @@ style 객체를 여러번 호출해 스타일 변화를 주지말고 CSS 정의�
 
 위의 내용과 중복되며, reflow 비용을 줄이는 것 이외에 코드 가독성도 높일 수 있다.
 
-### 5. 테이블 레이아웃을 피한다.
-
 ### 6. CSS 하위선택자는 필요한 만큼만 사용한다.
 
-CSS 규칙은 오른쪽에서 왼쪽으로 이동하면서 읽기때문에 불필요한 선택자를 사용하는 것은 성능을 저하시킬 수 있다.
+CSS 샐랙터는 오른쪽에서 왼쪽으로 이동하면서 읽기 때문에 불필요한 선택자를 사용하는 것은 성능을 저하시킬 수 있다.
 
 ## will-change이란
 
 will-change는 변화가 예상되는 요소를 브라우저에게 미리 알려줍니다. 브라우저는 실제 요소가 변화되기 전에 적절하게 최적화를 할 수 있습니다. 큰 비용이 드는 변화도 최적화로 인해 페이지의 반응성을 증가시킬 수 있습니다.
 
-하지만 너무 많은 요소에 will-change요소를 사용하면 오히려 성능이 더 안좋아질수도 있다.
+하지만 너무 많은 요소에 will-change요소를 사용하면 오히려 성능이 더 안좋아질 수 있다.

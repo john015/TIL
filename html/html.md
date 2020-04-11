@@ -1,16 +1,3 @@
-<details>
-<summary>Index</summary>
-
-- [doctype이란?](#doctype이란)
-- [표준모드(standards mode) vs 호환모드(quirks mode)](#표준모드standards-mode-vs-호환모드quirks-mode)
-- [커스텀 데이터 속성(data-\*)이란?](#커스텀-데이터-속성data-이란)
-- [쿠키(Cookies) vs 세션저장소(sessionStorage) vs 로컬저장소(localStorage)](#쿠키cookies-vs-세션저장소sessionstorage-vs-로컬저장소localstorage)
-- [script vs script async vs script defer](#script-vs-script-async-vs-script-defer)
-- [img tag의 srcset 속성이란?](#img-tag의-srcset-속성이란)
-- [속성(Attribute) vs 요소(property)](#속성attribute-vs-요소property)
-- [IE 조건부 주석](#ie-조건부-주석)
-  </details>
-
 ## doctype이란?
 
 - HTML의 버전을 명시하는 tag

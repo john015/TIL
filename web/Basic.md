@@ -1,21 +1,3 @@
-<details>
-<summary>Index</summary>
-
-- [5가지 다른 stylesheet가 있을때, 최적화 하는방법](#5가지-다른-stylesheet가-있을때-최적화-하는방법)
-- [Progressive enhancement vs graceful degradation](#progressive-enhancement-vs-graceful-degradation)
-- [웹사이트에서 assets/resources를 최적화하는 방법](#웹사이트에서-assetsresources를-최적화하는-방법)
-- [브라우저가 한 번에 1개의 도메인에서 내려받을수 있는 resource수](#브라우저가-한-번에-1개의-도메인에서-내려받을수-있는-resource수)
-- [페이지 로드 시간을 줄이는 방법](#페이지-로드-시간을-줄이는-방법)
-- [Flash of Unstyled Content(FOUC)이란? FOUC를 피하기 위한 방법](#flash-of-unstyled-contentfouc이란-fouc를-피하기-위한-방법)
-- [ARIA와 screenreader이란?](#aria와-screenreader이란)
-- [CSS 애니메이션과 JavaScript 애니메이션의 차이점](#css-애니메이션과-javascript-애니메이션의-차이점)
-- [CORS란?](#cors란)
-- [i18n 지원하는 방법](#i18n-지원하는-방법)
-- [크로스 브라우징 지원하는법](#크로스-브라우징-지원하는법)
-- [SPA vs SSR(universal web app)](#spa-vs-ssruniversal-web-app)
-- [브라우저의 layout, painting, compositing](#브라우저의-layout-painting-compositing)
-- [Synchronous vs Asynchronous vs Blocking vs NonBlocking](#synchronous-vs-asynchronous-vs-blocking-vs-nonblocking)
-  </details>
 
 ## 5가지 다른 stylesheet가 있을때, 최적화 하는방법
 

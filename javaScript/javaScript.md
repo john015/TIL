@@ -1,37 +1,3 @@
-<details>
-<summary>Index</summary>
-
-- [this](#this)
-- [참조형 타입 vs 원시형 타입](#참조형-타입-vs-원시형-타입)
-- [Lexical scope란?](#lexical-scope란)
-- [substring vs substr vs slice](#substring-vs-substr-vs-slice)
-- [apply vs call vs bind](#apply-vs-call-vs-bind)
-- [throttle vs debounce](#throttle-vs-debounce)
-- [이벤트 위임(Event Delegation)이란?](#이벤트-위임event-delegation이란)
-- [AMD와 CommonJS란?](#amd와-commonjs란)
-- [null vs undefined vs undeclared](#null-vs-undefined-vs-undeclared)
-- [클로저(Closure)란?](#클로저closure란)
-- [Host Object vs Native Object](#host-object-vs-native-object)
-- [기능 검출(feature detection) vs 기능 추론(feature inference)](#기능-검출feature-detection-vs-기능-추론feature-inference)
-- [AJAX(Asynchronous JavaScript And XML)란?](#ajaxasynchronous-javascript-and-xml란)
-- [JSONP란?](#jsonp란)
-- [“호이스팅(Hoisting)”이란?](#호이스팅hoisting이란)
-- [이벤트 버블링(Event Bubbling)이란?](#이벤트-버블링event-bubbling이란)
-- [load event vs DOMContentLoaded event](#load-event-vs-domcontentloaded-event)
-- [==(동등 연산자) vs ===(일치 연산자)](#동등-연산자-vs-일치-연산자)
-- [Strict Mode란?](#strict-mode란)
-- [SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법](#spa프로젝트에서-seosearch-engine-optimization를-하는법)
-- [Promise의 장단점](#promise의-장단점)
-- [immutable value vs mutable value](#immutable-value-vs-mutable-value)
-- [함수 선언식 vs 함수 표현식](#함수-선언식-vs-함수-표현식)
-- [var vs let vs const](#var-vs-let-vs-const)
-- [Set, Map이란?](#set-map이란)
-- [for of vs for in](#for-of-vs-for-in)
-- [Array.sort](#arraysort)
-- [Element.getBoundingClientRect란?](#elementgetboundingclientrect란)
-- [requestAnimationFrame](#requestanimationframe)
-
-</details>
 
 ## this
 
