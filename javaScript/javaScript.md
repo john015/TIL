@@ -1,10 +1,11 @@
 
 ## this
 
+- this는 함수 선언 시점에 정해지는게 아니라 호출 시점에 정해짐.
 - 일반적으로 함수실행 시점에서 객체의 method이면 부모객체를 가리킴 아니면 전역객체를 가리킴.
-- 생성자 함수로 호출시 this는 새로 생성될 객체를 가리킴.
-- 전역에서 this에 접근할경우 전역객체를 가리킴.
-- strict mode에서는 암묵적으로 this가 window 또는 global로 할당될경우 undefined가 된다.
+- 생성자 함수로 호출시 this는 새로 생성될 인스턴스 객체를 가리킴.
+- 전역에서 this에 접근할경우 전역 객체를 가리킴.
+- strict mode에서는 암묵적으로 this가 window 또는 global로 할당될경우 undefined가 할당됨.
 - arrow function에서 this를 호출할 경우 this는 상위 객체를 가리킴.
 
 ## 참조형 타입 vs 원시형 타입

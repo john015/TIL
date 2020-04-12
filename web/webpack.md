@@ -52,12 +52,17 @@ high level에서, `loaders`는 두 가지 프로퍼티를 가지고 있습니다
 - `test` 프로퍼티는 어느 파일이 변환(transform)되어야 하는지를 나타냅니다.
 - `use` 프로퍼티는 해당 파일을 변환하기 위해서 어떤 `loader`를 사용해야하는지 나타냅니다.
 
+`use` 프로퍼티의 값으로 배열을 넘겨줄 수 있는데, 배열을 넘겨줄 경우 배열의 로더들을 뒤에서 부터 순차적으로 적용시킵니다. 
+
+`Loaders`는 Node.js 런타임에서 동작하며 Node.js 환경에서 사용 가능한 모든 것을 할 수 있습니다.
+
 ```javascript
 // webpack.config.js
 module.exports = {
   module: {
     rules: [
-      { test: /\.css$/, use: 'css-loader' }
+      // css-loader를 먼저 적용한 뒤 style-loader 적용
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ]
   }
 };
@@ -69,7 +74,7 @@ module.exports = {
 
 ## Plugins
 
-`loaders` 는 특정 타입의 모듈을 변환하기 위해 사용되지만, `plugins`은 번들 최적화, asset 관리, 환경 변수 주입과 같은 광범위한 작업을 수행하기 위해 사용합니다.
+`loaders` 는 특정 타입의 모듈을 변환하기 위해 사용되지만, `plugins`은 번들 최적화, asset 관리, 환경 변수 주입과 같은 번들된 결과물에 대하여 광범위한 작업을 수행하기 위해 사용합니다.
 
 `plugin`을 사용하기 위해선, commonJs 방식(`require()`)으로 플러그인을 가져온 뒤 해당 플러그인을 `plugins` 배열에 추가하면 됩니다. 
 
