@@ -1,4 +1,4 @@
-## Webpack이란?
+# Webpack이란?
 
 `Webpack`은 모던 Javascript Application을 위한 Static Module Bundler입니다.
 
@@ -131,6 +131,45 @@ webpack --mode=development
 > Note. `NODE_ENV`를 설정해도 `mode`가 자동으로 설정되지 않습니다.
 
 각 모드를 설정할 경우, 웹팩이 정확히 어떤 옵션들을 켜주는지 궁금하면 [링크](https://webpack.js.org/configuration/mode/#mode-development)를 참고해주세요.
+
+## target
+
+- JavaScript 애플리케이션을 웹 환경에서만 사용하는게 아니라, `node.js`, `webworker`, `electron`등의  다양한 런타임 환경에서도 사용할 수 있습니다.
+- 그런경우에는 `webpack.config.js` 파일에 `target` 옵션을 지정해서 해당 런타임 환경에 맞게 컴파일하도록 `webpack`에게 알려줘야합니다.
+- `target` 옵션의 기본값은 `web`이며, 해당 옵션에 지정할 수 있는 값들의 상세 정보는 [링크](https://webpack.js.org/configuration/target/#target)를 참고해주세요.
+
+```javascript
+const path = require('path');
+const serverConfig = {
+  target: 'node',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'lib.node.js'
+  }
+  //…
+};
+
+const clientConfig = {
+  target: 'web',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'lib.js'
+  }
+  //…
+};
+
+// node.js용 lib.node.js파일과 web용 lib.js 파일을 /dist 폴더안에 생성
+module.exports = [ serverConfig, clientConfig ];
+```
+
+## 웹팩과 같은 번들러를 사용하는 이유
+
+- 번들러를 사용하면 여러개의 파일들을 한개 이상의 파일로 합칠 수 있기때문에 동시 연결 제한이 있는 http 1.1 프로토콜에서는 효율적이다.
+- 전역 스코프 오염 걱정 없이 모듈(파일) 단위 스코프를 사용해서 개발할 수 있게 해준다
+- minify, uglify, 변경된 파일만 filehash 변경 등 다양한 태스크들을 지정한 순서대로 빌드타임에 실행시켜준다.  
+
+## webpack vs gulp / grunt
+
 
 ## Reference
 
