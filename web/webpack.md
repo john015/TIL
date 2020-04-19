@@ -134,9 +134,11 @@ webpack --mode=development
 
 ## target
 
-- JavaScript 애플리케이션을 웹 환경에서만 사용하는게 아니라, `node.js`, `webworker`, `electron`등의  다양한 런타임 환경에서도 사용할 수 있습니다.
-- 그런경우에는 `webpack.config.js` 파일에 `target` 옵션을 지정해서 해당 런타임 환경에 맞게 컴파일하도록 `webpack`에게 알려줘야합니다.
-- `target` 옵션의 기본값은 `web`이며, 해당 옵션에 지정할 수 있는 값들의 상세 정보는 [링크](https://webpack.js.org/configuration/target/#target)를 참고해주세요.
+JavaScript 애플리케이션을 웹 환경에서만 사용하는게 아니라, `node.js`, `webworker`, `electron`등의  다양한 런타임 환경에서도 사용할 수 있습니다.
+
+그런경우에는 `webpack.config.js` 파일에 `target` 옵션을 지정해서 해당 런타임 환경에 맞게 컴파일하도록 `webpack`에게 알려줘야합니다.
+
+`target` 옵션의 기본값은 `web`이며, 해당 옵션에 지정할 수 있는 값들의 상세 정보는 [링크](https://webpack.js.org/configuration/target/#target)를 참고해주세요.
 
 ```javascript
 const path = require('path');
@@ -162,14 +164,23 @@ const clientConfig = {
 module.exports = [ serverConfig, clientConfig ];
 ```
 
-## 웹팩과 같은 번들러를 사용하는 이유
+## 웹팩를 사용하는 이유
 
-- 번들러를 사용하면 여러개의 파일들을 한개 이상의 파일로 합칠 수 있기때문에 동시 연결 제한이 있는 http 1.1 프로토콜에서는 효율적이다.
-- 전역 스코프 오염 걱정 없이 모듈(파일) 단위 스코프를 사용해서 개발할 수 있게 해준다
-- minify, uglify, 변경된 파일만 filehash 변경 등 다양한 태스크들을 지정한 순서대로 빌드타임에 실행시켜준다.  
+번들러를 사용하면 여러개의 파일들을 한개 이상의 파일로 합칠 수 있기때문에 동시 연결 제한이 있는 http 1.1 프로토콜에서는 효율적이다.
+
+전역 스코프 오염 걱정 없이 모듈(파일) 단위 스코프를 사용해서 개발할 수 있게 해준다
+
+minify, uglify, auto-prefix, 변경된 파일만 filehash 변경 등 다양한 태스크들을 지정한 순서대로 빌드타임에 실행시켜준다.(gulp, grunt등의 task runner등과 동일)
+
+webpack-dev-server를 이용해 손쉽게 hmr(hot module replacement) 환경에서 개발할 수 있게해준다
 
 ## webpack vs gulp / grunt
 
+`webpack`은 module bundler고, `gulp`는 task runner의 목적으로 개발되었습니다.
+
+`webpack`은 `gulp`의 task runner 기능 대부분을 다 수행가능하며, `browserify`처럼 모듈 의존성 관리도 해주기때문에 `tree shaking`과 같은 작업들도 가능하게 해줍니다.
+
+`webpack`은 `gulp / grunt` + `browserify` 의 기능들을 지원해줍니다.
 
 ## Reference
 
