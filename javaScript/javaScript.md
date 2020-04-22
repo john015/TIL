@@ -265,7 +265,7 @@ if ('localStorage' in window) {
 ## SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법
 
 - SPA프로젝트의 경우 싱글 페이지이기 때문에 SPA프로젝트 크롤링이 가능한 구글을 제외하고 네이버, 다음, 네이트등의 포털사이트에서 검색결과가 나타나지않는다.
-- SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(검색엔진 노출이 필요한 페이지들을 배포시점에서 렌더링해서 정적인 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수있다.
+- SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(빌드 시점에서 렌더링해서 정적 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수있다.
 
 ## Promise의 장단점
 

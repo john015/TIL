@@ -81,6 +81,7 @@
 - [Basic](https://github.com/john015/TIL/blob/master/web/Basic.md)
 - [NPM](https://github.com/john015/TIL/blob/master/web/npm.md)
 - [Webpack](https://github.com/john015/TIL/blob/master/web/webpack.md)
+- [렌더링 방식들의 장단점](https://github.com/john015/TIL/blob/master/web/rendering.md)
 - [브라우저 동작 원리](https://github.com/john015/TIL/blob/master/web/web-browser-working-flow.md)
 
 <hr />
@@ -143,15 +144,6 @@
 - [Intro](https://github.com/john015/TIL/blob/master/graphQL/Intro.md)
 - [Query](https://github.com/john015/TIL/blob/master/graphQL/Query.md)
 - [Mutation](https://github.com/john015/TIL/blob/master/graphQL/Mutation.md)
-
-## BackEnd
-
-### DB
-
-- [MySQL](https://github.com/john015/TIL/blob/master/db/mysql.md)
-- [PostgreSQL](https://github.com/john015/TIL/blob/master/db/postgreSQL.md)
-
-<hr />
 
 ## Other
 
