@@ -20,3 +20,4 @@
 
 - [Atomic design + BEM 정리](https://medium.com/@LaunchingDream/abem-5ceb36b8f027)
 - [Git 영어 커밋 메시지 사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)
+- [한글 폰트 경량화](https://blog.coderifleman.com/2015/04/04/using-korean-web-fonts/)
