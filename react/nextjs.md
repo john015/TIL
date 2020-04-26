@@ -1,4 +1,3 @@
-
 ## Next.js란?
 
 - `Next.js`는 react application에서 `Isomorphic Rendering`을 쉽게 해주는 React framwork입니다.
@@ -9,26 +8,29 @@
 ## getInitialProps(Next.js 9.3 버전이후 부터는 권장 하지않음)
 
 `getInitialProps` 함수는 `pages` 디렉토리 안에 있는 컴포넌트에서만 사용할 수 있는 스태틱 메소드입니다.
-`Next.js`는 컴포넌트가 `getInitialProps`나 `getServerProps` 함수를 사용하고 있으면 build타임에서 ssr이 적용되게 빌드합니다.
+
+`Next.js`는 `pages` 디렉토리안 파일에서 `getInitialProps`나 `getServerProps` 함수를 사용하고 있으면 빌드 타임에 ssr를 적용할 수 있게 `html`이 아니라 `js`로 빌드합니다.
+
+`getInitialProps` 함수는 해당 페이지가 초기 로딩 페이지면 서버에서 호출되며, 아닐경우 클라이언트에서 호출됩니다.
 
 `getInitialProps` 함수의 인자로는 `context`객체가 전달되는데 해당 객체는 `pathname`, `query`, `req(ssr only)`, `res(ssr only)`, `err` 등의 프로퍼티를 갖고 있습니다.
 
 `getInitialProps` 함수의 리턴 값은 해당 컴포넌트의 첫 번째 인자로 전달됩니다.
 
 ```javascript
-import fetch from 'isomorphic-unfetch'
+import fetch from "isomorphic-unfetch";
 
 function Page({ stars }) {
-  return <div>Next stars: {stars}</div>
+  return <div>Next stars: {stars}</div>;
 }
 
-Page.getInitialProps = async ctx => {
-  const res = await fetch('https://api.github.com/repos/zeit/next.js')
-  const json = await res.json()
-  return { stars: json.stargazers_count }
-}
+Page.getInitialProps = async (ctx) => {
+  const res = await fetch("https://api.github.com/repos/zeit/next.js");
+  const json = await res.json();
+  return { stars: json.stargazers_count };
+};
 
-export default Page
+export default Page;
 ```
 
 ## getStaticProps
@@ -40,30 +42,30 @@ export default Page
 `getServerSideProps, getInitialProps`와 달리 해당 함수를 사용해도 `Next.js`는 페이지를 ssr하지 않습니다.
 
 ```javascript
-import fetch from 'node-fetch'
+import fetch from "node-fetch";
 
 function Blog({ posts }) {
   return (
     <ul>
-      {posts.map(post => (
+      {posts.map((post) => (
         <li>{post.title}</li>
       ))}
     </ul>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://.../posts')
-  const posts = await res.json()
+  const res = await fetch("https://.../posts");
+  const posts = await res.json();
 
   return {
     props: {
-      posts
-    }
-  }
+      posts,
+    },
+  };
 }
 
-export default Blog
+export default Blog;
 ```
 
 ## getStaticPaths
@@ -144,13 +146,13 @@ export default Page
 `Link` 컴포넌트에서 다이나믹 라우팅을 사용할려면 `href` prop에 파일명을 넣고 `as` prop에 이동할 주소를 넣어야합니다. 굳이 `href`를 넘겨주는 이유는 `Next.js`가 사전에 컴포넌트를 `preload` 하기위해 넘겨줘야 합니다.
 
 ```javascript
-import Link from 'next/link'
+import Link from "next/link";
 
 const index = () => (
   <Link href="/blog/[id]" as="/blog/test-post">
     test-post link
   </Link>
-)
+);
 ```
 
 위 예시의 `pages/blog/first-post.js`와 `pages/blog/[id].js`처럼 미리 정의된 주소가 동적 라우팅 주소에도 해당 될 수 있을 경우, 미리 정의된 주소(`first-post.js`)가 우선 순위를 갖습니다.
@@ -158,11 +160,11 @@ const index = () => (
 또한 라우트 파라미터와 쿼리 파라미터가 동일하다면 라우트 파라미터가 우선 순위를 갖습니다.
 
 ```javascript
-import Router from 'next/router'
+import Router from "next/router";
 
 // query 파라미터의 프로퍼티로는 2가 아니라 "second-post"가 들어감
 // push메소드는 첫 번째 인자로 href를 받고 두 번째 인자로 as 마지막 세 번째 인자로 option를 받습니다
-Router.push('/blog/[id]', '/blog/second-post?id=2')
+Router.push("/blog/[id]", "/blog/second-post?id=2");
 ```
 
 ### Shallow Routing
@@ -170,9 +172,9 @@ Router.push('/blog/[id]', '/blog/second-post?id=2')
 동일한 `pathname`에서 리렌더링 하지않고 쿼리 스트링만 바꾸고 싶을 때는 `Router.push`메소드에 `shallow` 옵션을 `true`로 전달하면 `Shallow Routing`을 진행합니다.
 
 ```javascript
-import Router from 'next/router'
+import Router from "next/router";
 
-Router.push('/blog/first-post?id=5', null, { shallow: true })
+Router.push("/blog/first-post?id=5", null, { shallow: true });
 ```
 
 `Shallow Routing`을 할 경우 `getInitialProps` 함수는 실행되지 않습니다.
@@ -182,17 +184,17 @@ Router.push('/blog/first-post?id=5', null, { shallow: true })
 `Dynamic Import` 를 할려면 `next/dynamic` 모듈에서 `default export`된 `dynamic` 함수를 이용하면 됩니다.
 
 ```javascript
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
 // default export된 컴포넌트를 다이나믹 임포트
-const DynamicComponent = dynamic(() => import('../components/hello'), {
-  loading: <Loader />
-})
+const DynamicComponent = dynamic(() => import("../components/hello"), {
+  loading: <Loader />,
+});
 
 // Hello라는 이름으로 named default된 컴포넌트를 다이나믹 임포트
 const DynamicNamedComponent = dynamic(() =>
-  import('../components/hello').then(module => module.Hello)
-)
+  import("../components/hello").then((module) => module.Hello)
+);
 
 function Home() {
   return (
@@ -200,10 +202,10 @@ function Home() {
       <DynamicComponent />
       <DynamicNamedComponent />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
 ```
 
 ## Custom Error Page
@@ -215,7 +217,7 @@ export default Home
 ```javascript
 // pages/404.js
 export default function Custom404Page() {
-  return <h1>페이지를 찾을 수 없습니다.</h1>
+  return <h1>페이지를 찾을 수 없습니다.</h1>;
 }
 ```
 
@@ -231,17 +233,17 @@ function Error({ statusCode }) {
     <p>
       {statusCode
         ? `An error ${statusCode} occurred on server`
-        : 'An error occurred on client'}
+        : "An error occurred on client"}
     </p>
-  )
+  );
 }
 
 Error.getInitialProps = ({ res, err }) => {
-  const statusCode = res?.statusCode ?? err?.statusCode ?? 404
-  return { statusCode }
-}
+  const statusCode = res?.statusCode ?? err?.statusCode ?? 404;
+  return { statusCode };
+};
 
-export default Error
+export default Error;
 ```
 
 ## Custom Document
@@ -257,7 +259,7 @@ Custom Document는 `pages/_document.js`경로에 파일을 생성해서 만들 �
 주의할 점으로는 custom Document에서는 `<title>` 태그를 가질 수 없고, `Data Fetching`과 `Lifecycle`을 사용할 수 없습니다.
 
 ```javascript
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -275,16 +277,16 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;
 ```
 
 ### Custom App
 
-`Next.js`는 페이지를 초기화할 때 `App` 컴포넌트를 사용합니다. 
+`Next.js`는 페이지를 초기화할 때 `App` 컴포넌트를 사용합니다.
 
 그래서 `Document`와 달리 `App` 컴포넌트는 페이지가 이동될 때 마다 사용됩니다.
 
@@ -303,8 +305,8 @@ function MyApp({ Component, pageProps }) {
       hello world!
       <Component {...pageProps} />
     </div>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
 ```

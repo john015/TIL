@@ -100,6 +100,14 @@ ex) Gatsby, Next.js, Hugo, Jekyll
 - 사용자가 웹 페이지에 방문한다(request)
 - 미리 만들어 놓은 `html`파일을 제공해준다.
 
+## Static Rendering의 장점
+
+- 빌드 타임에 프리렌더링 해놓기 때문에 페이지 로딩/응답 속도가 빠르다.
+
+## Static Rendering의 단점
+
+- 빌드 타임에 프리렌더링 해놓기 때문에 빌드 타임 이후에 진행되는 데이터 변경을 페이지에 반영하지 못한다.
+
 ## Reference
 
 - https://dev.to/kefranabg/demystifying-ssr-csr-universal-and-static-rendering-with-animations-m7d
