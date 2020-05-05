@@ -1,9 +1,14 @@
+## Web
+
+- [Next.js와 Gatsby가 새로운 webpack 청크 전략을 도입해서 어떻게 페이지 로딩 속도를 향상 시켰는지 소개하는 글](https://web.dev/granular-chunking-nextjs/)
+
 ## React
 
 - [setState는 뭘 해야되는지 어떻게 알까요?](https://overreacted.io/ko/how-does-setstate-know-what-to-do/)
 - [UI 런타임으로서의 React](https://overreacted.io/ko/react-as-a-ui-runtime/)
 - [함수형 컴포넌트와 클래스, 어떤 차이가 존재할까?](https://overreacted.io/ko/how-are-function-components-different-from-classes/)
 - [useEffect 완벽 가이드](https://rinae.dev/posts/a-complete-guide-to-useeffect-ko)
+- [useEffect vs useLayoutEffect](https://blog.logrocket.com/useeffect-vs-uselayouteffect/)
 
 ## Browser rendering
 
