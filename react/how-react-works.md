@@ -89,7 +89,7 @@ ReactDOM.render(<p>Goodbye</p>, document.getElementById('container'))
 
 `key`는 React에 렌더링 할 때마다 아이템이 다른 위치에 있다는 것을 알려줍니다.
 
-React가 <form> 안쪽의 <p key="42">를 볼 때 이전 렌더링에서 <p key="42">가 같은 <form>에 있었는지 검사합니다. 이 방법은 <form>의 자식 순서가 바뀌더라도 작동합니다. React는 같은 key를 가지는 이전 호스트 객체를 재사용하고 시블링 순서를 다시 정렬합니다.
+React가 \<form\> 안쪽의 \<p key="42"\>를 볼 때 이전 렌더링에서 \<p key="42"\>가 같은 \<form\>에 있었는지 검사합니다. 이 방법은 \<form\>의 자식 순서가 바뀌더라도 작동합니다. React는 같은 key를 가지는 이전 호스트 객체를 재사용하고 시블링 순서를 다시 정렬합니다.
 
 ## Reference
 
