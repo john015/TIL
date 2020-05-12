@@ -30,7 +30,7 @@
 - [스택](https://github.com/john015/TIL/blob/master/data-structure/stack.md)
 - [큐](https://github.com/john015/TIL/blob/master/data-structure/queue.md)
 - [그래프](https://github.com/john015/TIL/blob/master/data-structure/graph.md)
-- [트리](https://github.com/john015/TIL/blob/master/data-structure/tree.md)
+- [트리](https://github.com/john015/TIL/blob/master/data-stru cture/tree.md)
 - [힙](https://github.com/john015/TIL/blob/master/data-structure/heap.md)
 - [트라이](https://github.com/john015/TIL/blob/master/data-structure/trie.md)
 - [기타](https://github.com/john015/TIL/blob/master/data-structure/etc.md)
@@ -41,6 +41,7 @@
 
 ### 프로그래밍 패러다임
 
+- [구조적 프로그래밍](https://github.com/john015/TIL/blob/master/programming-paradigm/sp.md)
 - [객체지향 프로그래밍](https://github.com/john015/TIL/blob/master/programming-paradigm/oop.md)
 - [함수형 프로그래밍](https://github.com/john015/TIL/blob/master/programming-paradigm/FP.md)
 - [OOP vs FP](https://github.com/john015/TIL/blob/master/programming-paradigm/oop%20vs%20fp.md)
