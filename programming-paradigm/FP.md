@@ -31,21 +31,21 @@ Javascript에서 함수는 1급 객체이다.
 ```javascript
 // Mutatable
 function changeRanking(user, ranking) {
-  user.ranking = ranking
-  return user
+  user.ranking = ranking;
+  return user;
 }
-const smith = { ranking: 10, name: 'smith' }
-changeRanking(smith, 5)
-console.log(smith.ranking) // 5
+const smith = { ranking: 10, name: "smith" };
+changeRanking(smith, 5);
+console.log(smith.ranking); // 5
 
 // Immutable
 function changeRanking(user, ranking) {
-  return { ...user, ranking }
+  return { ...user, ranking };
 }
-const john = { ranking: 2, name: 'john' }
-const changedJohn = changeRanking(john, 1)
-console.log(john.ranking) // 2 변하지 않음
-console.log(changedJohn.ranking) // 1
+const john = { ranking: 2, name: "john" };
+const changedJohn = changeRanking(john, 1);
+console.log(john.ranking); // 2 변하지 않음
+console.log(changedJohn.ranking); // 1
 ```
 
 ## 순수 함수
@@ -56,17 +56,17 @@ console.log(changedJohn.ranking) // 1
 ```javascript
 // 비 순수함수(c의 값에 따라 다른 값이 반환됨)
 function sum(a, b) {
-  return a + b + c
+  return a + b + c;
 }
 // 비 순수함수(sum이라는 외부 변수의 값을 수정함)
 function sum2(a, b) {
-  sum = a + b
-  return a + b
+  sum = a + b;
+  return a + b;
 }
 
 // 순수함수
 function sum3(a, b) {
-  return a + b
+  return a + b;
 }
 ```
 
@@ -83,29 +83,29 @@ Array.prototype의 map, filter, forEach등 다 고차 함수이다.
 
 ```javascript
 function sum(a, b) {
-  return a + b
+  return a + b;
 }
 
 // bind를 사용한 currying
-const addOne = sum.bind(null, 1)
-console.log(addOne(10)) // 11
+const addOne = sum.bind(null, 1);
+console.log(addOne(10)); // 11
 
 // 직접 커링 구현
 function curry(fn, ...args) {
   // 첫번째 인자가 함수가 아닐때
-  if (typeof fn !== 'function') {
-    console.error('첫번째 인자로 함수를 넣어주세요')
-    return
+  if (typeof fn !== "function") {
+    console.error("첫번째 인자로 함수를 넣어주세요");
+    return;
   }
   // 2번째 이후 인자로 받은 인자수가 첫번째 인자로 받은 함수의 인자수보다 크거나 같을때
   if (args.length >= fn.length) {
-    return fn(...args)
+    return fn(...args);
   }
   // 2번째 이후 인자로 받은 인자수가 첫번째 인자로 받은 함수의 인자수보다 적을때 재귀호출
-  return (...more) => curry(fn, ...args, ...more)
+  return (...more) => curry(fn, ...args, ...more);
 }
-const addOne2 = curry(sum, 1)
-console.log(addOne2(1)) // 2
+const addOne2 = curry(sum, 1);
+console.log(addOne2(1)); // 2
 ```
 
 ## 합성 함수
@@ -114,10 +114,10 @@ console.log(addOne2(1)) // 2
 
 ```javascript
 function sum(a, b) {
-  return a + b
+  return a + b;
 }
-const addTwo = sum.bind(null, 2) // 함수 커링
-console.log(addTwo(sum(2, 6))) // 10
+const addTwo = sum.bind(null, 2); // 함수 커링
+console.log(addTwo(sum(2, 6))); // 10
 ```
 
 ## 지연평가(Lazy evaluation)
@@ -126,37 +126,43 @@ console.log(addTwo(sum(2, 6))) // 10
 - 주로 몇개의 값만 필터링 해야하는 상황에서 성능 최적화를 하기 위해 사용한다.
 
   ```javascript
-  const arr = [1, 2, 5, 7, 8, 10]
+  const arr = [1, 2, 5, 7, 8, 10];
   arr
-    .map(val => val ** 2)
-    .filter(val => val % 2)
+    .map((val) => val ** 2)
+    .filter((val) => val % 2)
     .slice(0, 2)
-    .value() // [1, 25] 12번 평가
+    .value(); // [1, 25] 12번 평가
 
   // lodash를 활용한 지연 평가
 
   // case1
   // _의 아규먼트로 지연 평가를 하고싶은 값을 넣어주면 그이후는 알아서 처리해줌
-  const lazyArr = _(arr)
+  const lazyArr = _(arr);
   lazyArr
-    .map(val => val ** 2)
-    .filter(val => val % 2)
+    .map((val) => val ** 2)
+    .filter((val) => val % 2)
     .slice(0, 2)
-    .value() // [1, 25] 6번 평가
+    .value(); // [1, 25] 6번 평가
 
   // case2
   // _.flow를 쓰면 알아서 지연평가가 되는 상황이면 지연평가 시키고 안되는 상황이면 엄격한 평가로 처리함
   _.flow(
-    _.map(val => val ** 2),
-    _.filter(val => val % 2),
+    _.map((val) => val ** 2),
+    _.filter((val) => val % 2),
     _.take(2)
-  )(arr) // [1, 25] 6번 평가
+  )(arr); // [1, 25] 6번 평가
   ```
 
-## 모나드
+## 펑터(functor)
 
-- 함수형 프로그래밍에서 모나드란 함수를 안전하게 합성 해주는것이다.
-- JavaScript에서 Promise가 모나드이다. 왜냐하면 Promise는 비동기 상황에서 함수를 안전하게 합성하게 해주는 기능이기 때문이다.
+- 펑터는 Mappable (Mapping 함수를 갖는)한 데이터 구조이다.
+- 컬렉션의 각 원소에 대해 매핑 함수를 적용해서 T 타입의 원소들을 U 타입으로 변경시킬 수 있으면 펑터로 부를 수 있다.
+- JavaScript의 Array는 Array.map 메소드를 갖고있기 때문에 펑터이다.
+
+## 모나드(Monad)
+
+- 모나드는 비동기 연산 처리나 null 처리를 같은 것을 해야하는 상황에서 함수를 안전하게 합성 하기위해 사용된다.
+- JavaScript의 Promise는 비동기 상황에서 함수를 안전하게 합성하게 해주기 때문에 모나드이다
 - 또한 Promise는 Kleisli Composition(오류가 있을수 있는 상황에서 함수 합성을 안전하게 하는 규칙) 이기도 한다.
 
 ## 함수형 프로그래밍의 장점
