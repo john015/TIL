@@ -151,5 +151,6 @@
 
 - [비트 연산자](https://github.com/john015/TIL/blob/master/other/bitwise-operator.md)
 - [그레이 코드](https://github.com/john015/TIL/blob/master/other/gray-code.md)
+- [dao, dto, entity란](https://github.com/john015/TIL/blob/master/other/dao-dto-entity.md)
 - [useful sites](https://github.com/john015/TIL/blob/master/other/useful-sites.md)
 - [good articles](https://github.com/john015/TIL/blob/master/other/good-articles.md)
