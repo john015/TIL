@@ -4,30 +4,12 @@ sass와 동일
 
 ```javascript
 const Button = styled.button`
-  background-color: ${props => (props.danger ? 'red' : 'blue')};
+  background-color: ${(props) => (props.danger ? "red" : "blue")};
   border-radius: 50px;
   &:focus {
     outline: none;
   }
-`
-```
-
-## injectGlobal (styled-components v4에서 deprecated)
-
-전역 css 선언시 사용
-
-```javascript
-import { injectGlobal } from 'styled-components' //import
-
-injectGlobal`
-body{
-  margin: 0px;
-  padding: 0px;
-}
-* {
-  font-size: 30px;
-}
-`
+`;
 ```
 
 ## createGlobalStyle
@@ -35,45 +17,45 @@ body{
 v4 버전이후 전역 css 선언시 사용
 
 ```javascript
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   html {
     color: red;
   }
-`
+`;
 export default function App() {
   return (
     <div>
       <GlobalStyle />
       This is my app!
     </div>
-  )
+  );
 }
 ```
 
 ## mixin, extend, Extra Attribute
 
 ```javascript
-import { css } from 'styled-components' //import
+import { css } from "styled-components"; //import
 
 // mixin 값 설정
 const mixin = css`
-  background-color: ${props => (props.danger ? 'red' : 'blue')};
+  background-color: ${(props) => (props.danger ? "red" : "blue")};
   border-radius: 50px;
   &:focus {
     outline: none;
   }
-`
+`;
 
 // 속성 설정
 const Button = styled.button.attrs({
-  attrs: true
+  attrs: true,
 })`
   ${mixin};
-`
+`;
 
 // extend, html tag 변경
-const ExtendButton = Button.withComponent('a').extend`color: red;`
+const ExtendButton = Button.withComponent("a").extend`color: red;`;
 ```
 
 ### theme
@@ -92,9 +74,9 @@ export default theme;
 ```javascript
 // app.js
 
-import React, { Component, Fragment } from 'react'
-import styled, { injectGlobal, ThemeProvider } from 'styled-components'
-import theme from './theme'
+import React, { Component, Fragment } from "react";
+import styled, { injectGlobal, ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 class App extends Component {
   render() {
@@ -102,14 +84,14 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <Container />
       </ThemeProvider>
-    )
+    );
   }
 }
 
 const Container = styled.div`
   ${({ theme }) => theme.container}
-`
-export default App
+`;
+export default App;
 ```
 
 ## styled-components 동작 방식
@@ -124,7 +106,8 @@ export default App
 
 - 컴포넌트의 className에 componentId와 생성한 className을 넣어준 뒤 렌더링 한다.
 
-## typescript displayName 설정
+## CSS-in-JS(styled-components) 사용 시 장점
 
-- https://github.com/Igorbek/typescript-plugin-styled-components
-- https://github.com/AustinBrunkhorst/react-app-rewire-styled-components-typescript
+- css className 중복을 생각할 필요 없음
+- 스타일링을 할 때 JavaScript로 선언된 상수와 함수를 사용할 수 있음
+- CSS 모델을 문서 레벨이 아니라 컴포넌트 레벨로 추상화할 수 있음
