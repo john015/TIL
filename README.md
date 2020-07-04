@@ -135,6 +135,7 @@
 
 ### 웹 보안
 
+- [Tabnabbing](https://github.com/john015/TIL/blob/master/web-security/tabnabbing.md)
 - [XSS](https://github.com/john015/TIL/blob/master/web-security/xss.md)
 - [CRSF](https://github.com/john015/TIL/blob/master/web-security/csrf.md)
 
