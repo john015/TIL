@@ -1,4 +1,3 @@
-
 ## 5가지 다른 stylesheet가 있을때, 최적화 하는방법
 
 - css의 @import 문법을 사용해서 main stylesheet에 다른 4개의 스타일시트를 import하거나 webpack이나 gulp같은 번들러를 사용해서 5개의 스타일시트를 1개의 스타일시트로 변경
@@ -7,23 +6,24 @@
 
 ### 점진적 향상법(Progressive enhancement)
 
-- 구식 기술 환경에서 동작할 수 있는 기능을 구현하고, 최신 기술을 사용할 수 있는 환경에서는 더 나은 사용자 경험을 제공할 수 있는 최신 기술을 제공하는 방법이다
+- 구식 기술 환경에서 동작할 수 있는 기능을 구현하고, 최신 기술을 사용할 수 있는 환경에서는 더 나은 사용자 경험을 제공할 수 있는 최신 기술을 제공하는 방법
 
 ### 우아한 성능 저하법(graceful degradation)
 
-- 먼저 최신 브라우저에서 잘 동작하게 만들어 놓고, 오래된 브라우저 혹은 오래된 기기에서도 유사하게 동작하도록 개발하는것
+- 먼저 최신 브라우저에서 잘 동작하게 만들어 놓고, 오래된 브라우저 혹은 오래된 기기에서도 유사하게 동작하도록 개발하는 것
 - ex) img 태그에 alt 속성을 지정함으로써 이미지를 보여주지 못하는 환경에서 이미지를 텍스트로 대체하는 것
 
 ## 웹사이트에서 assets/resources를 최적화하는 방법
 
-- webpack이나 gulp같은 번들러를 사용해서 여러개의 css, js파일을 하나의 파일로 만들어 http요청의 횟수를 줄인다
+- webpack같은 번들러를 사용해서 여러개의 css, js파일을 하나의 파일로 만들어 네트워크 요청의 횟수를 줄인다
 - css, js파일을 minify해서 파일 크기를 줄인다
 - 서버 사이드 캐싱, 클라이언드 사이드 캐싱을 활용하여 통신횟수를 줄인다
 
-## 브라우저가 한 번에 1개의 도메인에서 내려받을수 있는 resource수
+## HTTP/1.0 프로토콜 기준 브라우저가 한 번에 1개의 도메인에서 내려받을수 있는 resource수
 
 - ie 8 ~ 9, chrome, firefox, opera: 6개
 - ie 10 ~ 11: 8개
+- HTTP/2.0 프로토콜 사용하면 제한 없음
 
 ## 페이지 로드 시간을 줄이는 방법
 
@@ -62,41 +62,13 @@
 |   Access-Control-Allow-Methods   | 접근 가능한 `http method` 설정 |
 
 ```javascript
-res.header('Access-Control-Allow-Origin', '*')
-res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, PATCH')
+res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, PATCH");
 res.header(
-  'Access-Control-Allow-Headers',
-  'Origin, X-Requested-With, Content-Type, Accept'
-)
-res.header('Access-Control-Allow-Credentials', true)
-```
-
-## i18n 지원하는 방법
-
-- 웹페이지를 언어별로 작성한다음 보여준다(비추천)
-- html tag의 커스텀 데이터 속성에 언어별 텍스트를 넣어놓고 보여준다.
-- JSON파일에 언어별 텍스트를 입력해놓고 해당 JSON파일 값을 읽어서 보여준다.
-- i18n 라이브러리를 사용해서 보여준다(react-intl, react-i18next, etc..)
-
-## 크로스 브라우징 지원하는법
-
-polyfill이나 babel을 사용하거나 ie8이하를 지원해야한다면 기능 검출(feature detection)를 해서 하위브라우저를 지원해준다.
-
-```javascript
-function addHandler(el, type, handler) {
-  // chrome
-  if (el.addEventListener) {
-    el.addEventListener(type, handler)
-    return
-  }
-  // ie
-  if (el.attachEvent) {
-    el.attachEvent('on' + type, handler)
-    return
-  }
-  // old broswer
-  element['on' + type] = handler
-}
+  "Access-Control-Allow-Headers",
+  "Origin, X-Requested-With, Content-Type, Accept"
+);
+res.header("Access-Control-Allow-Credentials", true);
 ```
 
 ## 브라우저의 layout, painting, compositing
