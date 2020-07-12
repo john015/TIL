@@ -57,15 +57,15 @@
 ```html
 <div class="my-class"></div>
 <script>
-  const myClassElement = document.querySelector('.my-class')
-  console.log(myClassElement.class) // undefined
-  console.log(myClassElement.className) // "my-class"
+  const myClassElement = document.querySelector(".my-class");
+  console.log(myClassElement.class); // undefined
+  console.log(myClassElement.className); // "my-class"
 </script>
 ```
 
 Attribute와 Property를 비교하면 Attributes는 HTML 문서에 있는 것이고 properties는 HTML DOM 트리에 있는 것이다.
 
-## <section> vs <article> vs <div>
+## <section> vs <article> vs <div> vs <aside>
 
 ### Section
 
@@ -78,6 +78,10 @@ Attribute와 Property를 비교하면 Attributes는 HTML 문서에 있는 것이
 ### Div
 
 `<div>` 태그는 아무 관계 없는 내용들을 그룹핑 할 때 사용한다.
+
+### Aside
+
+`<div>` 태그는 문서의 주요 내용과 간접적으로 연관된 부분을 나타낼 때 사용합니다.
 
 ## IE 조건부 주석
 
