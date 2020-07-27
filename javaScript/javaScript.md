@@ -1,4 +1,3 @@
-
 ## this
 
 - this는 함수 선언 시점에 정해지는게 아니라 호출 시점에 정해짐.
@@ -10,7 +9,7 @@
 
 ## 참조형 타입 vs 원시형 타입
 
-- 원시형 타입은 숫자(Number), 불리언(Boolean), null, undefined, 문자열(String), Symbol이 있고,
+- 원시형 타입은 Number, Boolean, null, undefined, String, Symbol, BigInt(ES11에서 추가)가 있고,
 
 - 참조형 타입은 객체(Object), 배열(Array), 함수(function), 정규 표현식(regExp)등이 있다.
 
@@ -106,7 +105,7 @@ const obj = {
   val2: 90,
   sum(a, b) {
     return this.val1 + this.val2 + a + b
-  }
+  },
 }
 console.log(obj.sum(0, 100)) //230
 console.log(obj.sum.call(window, 0, 100)) //180
@@ -251,7 +250,7 @@ if ('localStorage' in window) {
 
 ## ==(동등 연산자) vs ===(일치 연산자)
 
-- 동등 연산자은 비교하는 두 변수의 type이 다르면 형변환을 한뒤 비교한다.
+- 동등 연산자은 비교하는 두 변수의 type이 다르면 형변환을 한 뒤 비교한다.
 - 일치 연산자는 비교하는 두 변수의 type이 달라도 무시하고 비교한다.
 
 ## Strict Mode란?
@@ -265,7 +264,7 @@ if ('localStorage' in window) {
 ## SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법
 
 - SPA프로젝트의 경우 싱글 페이지이기 때문에 SPA프로젝트 크롤링이 가능한 구글을 제외하고 네이버, 다음, 네이트등의 포털사이트에서 검색결과가 나타나지않는다.
-- SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(빌드 시점에서 렌더링해서 정적 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수있다.
+- SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(빌드 시점에서 렌더링해서 정적 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수 있다.
 
 ## Promise의 장단점
 
@@ -313,7 +312,7 @@ fn1() // throw Error
 fn2() // 2
 
 // 함수 표현식
-const fn1 = function() {
+const fn1 = function () {
   return 1
 }
 
@@ -359,10 +358,10 @@ function fn2() {
 
 - Array의 내장 prototype 메소드인 `sort`는 실행되는 엔진에 따라 다르지만, `v8` 엔진에서는 `Timsort`를 사용하고 있기 때문에 시간 복잡도는 `O(nlog(n))` 공간 복잡도는 `O(n)` 입니다.
 - `sort`메소드는 인자로 아무것도 안 넘겨줄 경우 오름차순으로 정렬하며, 정렬 순서를 정의하고 싶으면 해당 메소드의 첫 번째 인자로 `compareFunction`를 넘겨주면 됩니다.
-- `compareFunction(a, b)`의 인자로는 비교할 배열의 원소 값 2개가 제공됩니다. 
+- `compareFunction(a, b)`의 인자로는 비교할 배열의 원소 값 2개가 제공됩니다.
 - 해당 함수의 리턴 값이 음수면 `a`를 `b`보다 낮은 인덱스로 정렬하고
 - `0` 이면 두 원소의 순서를 변경하지 않고 유지합니다.
-- 양수면 `b`를 `a`보다 낮은 인덱스로 정렬합니다. 
+- 양수면 `b`를 `a`보다 낮은 인덱스로 정렬합니다.
 
 ## Element.getBoundingClientRect란?
 

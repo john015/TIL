@@ -1,7 +1,3 @@
-## 5가지 다른 stylesheet가 있을때, 최적화 하는방법
-
-- css의 @import 문법을 사용해서 main stylesheet에 다른 4개의 스타일시트를 import하거나 webpack이나 gulp같은 번들러를 사용해서 5개의 스타일시트를 1개의 스타일시트로 변경
-
 ## Progressive enhancement vs graceful degradation
 
 ### 점진적 향상법(Progressive enhancement)
@@ -21,6 +17,7 @@
 
 ## HTTP/1.0 프로토콜 기준 브라우저가 한 번에 1개의 도메인에서 내려받을수 있는 resource수
 
+- http/1.0 기준
 - ie 8 ~ 9, chrome, firefox, opera: 6개
 - ie 10 ~ 11: 8개
 - HTTP/2.0 프로토콜 사용하면 제한 없음
@@ -62,13 +59,13 @@
 |   Access-Control-Allow-Methods   | 접근 가능한 `http method` 설정 |
 
 ```javascript
-res.header("Access-Control-Allow-Origin", "*");
-res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, PATCH");
+res.header('Access-Control-Allow-Origin', '*')
+res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, PATCH')
 res.header(
-  "Access-Control-Allow-Headers",
-  "Origin, X-Requested-With, Content-Type, Accept"
-);
-res.header("Access-Control-Allow-Credentials", true);
+  'Access-Control-Allow-Headers',
+  'Origin, X-Requested-With, Content-Type, Accept'
+)
+res.header('Access-Control-Allow-Credentials', true)
 ```
 
 ## 브라우저의 layout, painting, compositing
