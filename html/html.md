@@ -65,7 +65,7 @@
 
 Attribute와 Property를 비교하면 Attributes는 HTML 문서에 있는 것이고 properties는 HTML DOM 트리에 있는 것이다.
 
-## <section> vs <article> vs <div> vs <aside>
+## \<section\> vs \<article\> vs \<div\> vs \<aside\>
 
 ### Section
 
