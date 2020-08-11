@@ -113,7 +113,7 @@
 
 ### React
 
-- [함수형 컴포넌트 vs 클래스 컴포넌트](https://github.com/john015/TIL/blob/master/react/functional-component-vs-class-component.md)
+- [함수형 컴포넌트 vs 클래스 컴포넌트](https://github.com/john015/TIL/blob/master/react/functional%20component%20vs%20class%20component.md)
 - [react는 어떻게 동작할까](https://github.com/john015/TIL/blob/master/react/how-react-works.md)
 - [React의 장점](https://github.com/john015/TIL/blob/master/react/benefits-of-using-react.md)
 - [life cycle](https://github.com/john015/TIL/blob/master/react/life-cycle.md)
