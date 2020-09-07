@@ -11,8 +11,7 @@
 
 - Event Loop는 Call Stack 내에 현재 실행중인 task가 있는지 그리고 각각의 Queue들에 task가 있는지 반복적으로 확인한다.
 - 만약 Call Stack이 비어있다면 Queue 내의 task를 Call Stack으로 이동시키고 실행한다.
-- Chrome기준으로 Microtask Queue => Animation Frame => Event Queue 순서로 queue안에 들어있는 task들을 확인하고 만약 큐에 task가 있다면 Call Stack에 추가한다.
-
+- Chrome기준으로 Microtask Queue => Animation Frame => Event Queue 순서로 queue안에 들어있는 task들을 확인하고 만약 큐에 task가 있다면 dequeue 한 뒤 Call Stack에 추가한다.
 
 ### Call Stack(호출 스택)
 
@@ -21,7 +20,7 @@
 
 ### Task Queue(Event Queue)
 
-Timer 함수(`setTimeout`, `setInterval`), DOM 이벤트 리스너(addEventListener) 등등의 콜백 함수가 보관되는 영역
+Timer 함수(`setTimeout`, `setInterval`), DOM 이벤트 리스너(`addEventListener`) 등등의 콜백 함수가 보관되는 영역
 
 ### Microtask Queue
 
