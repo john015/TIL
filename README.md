@@ -37,6 +37,10 @@
 
 <hr />
 
+### CS
+
+- [프로세스 vs 스레드](https://github.com/john015/TIL/blob/master/computer-science/process-vs-thread.md)
+
 ## Common
 
 ### 프로그래밍 패러다임
@@ -54,12 +58,6 @@
 - [MVVM](https://github.com/john015/TIL/blob/master/design-pattern/mvvm.md)
 - [Flux](https://github.com/john015/TIL/blob/master/design-pattern/flux.md)
 - [Atomic-design](https://github.com/john015/TIL/blob/master/design-pattern/atomic-design.md)
-
-<hr />
-
-### restfulApi
-
-- [restful-api](https://github.com/john015/TIL/blob/master/restfulApi/restfulApi.md)
 
 <hr />
 
