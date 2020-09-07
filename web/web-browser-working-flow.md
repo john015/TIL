@@ -40,6 +40,8 @@
 
 ### DOM(Document Object Model) 생성
 
+html파일을 서버로부터 불러오면, html파일을 파싱해서 DOM을 생성한다, html 파일을 파싱하는 도중 script 태그나, stylesheet link를 만나면 잠시 html 파싱을 멈추고 js나 css를 파싱한다.
+
 다음 네 단계를 거쳐서, 트리 구조 모양의 DOM이 생성된다.
 
 - Conversion(변환) : HTML의 raw bytes(원시 바이트)형태로 서버에서 받아온다. 해당 파일의 인코딩(예:UTF-8)에 따라 문자로 변환한다.
@@ -53,7 +55,7 @@ DOM 트리는 문서 마크업의 속성과 관계를 포함하지만, 렌더링
 
 ### CSSOM(CSS Object Model) 생성
 
-- DOM을 생성할 때 거쳤던 과정을 그대로 CSS에 반복한다. 그 결과로 브라우저가 이해하고 처리할 수 있는 형식(Style Rules)으로 변환된다.
+- html 파일을 파싱하던 도중 stylesheet link를 만나면 DOM을 생성할 때 거쳤던 과정을 그대로 CSS에 반복한다. 그 결과로 브라우저가 이해하고 처리할 수 있는 형식(Style Rules)으로 변환된다.
 
 - CSSOM 역시 트리 구조를 가지는데, 그 이유는, ‘하향식’으로 규칙을 적용하기 때문이다. 루트(body)부터 시작해서, 트리를 만들어 가는 방식이다. 모든 요소의 최종 스타일을 확정할 때 브라우저는 해당 노드에 적용 가능한 가장 일반적인 규칙으로 시작한 후에 더욱 구체적인 규칙을 적용한다.
 
@@ -81,7 +83,7 @@ DOM 트리는 문서 마크업의 속성과 관계를 포함하지만, 렌더링
 5. canvas나 video 태그 엘리먼트다.
 6. will-change 프로퍼티를 가지고있다.
 
-### Render Tree 배치 - reflow
+### Render Tree 배치 - layout(reflow)
 
 - 지금까지의 과정을 요약하면, 브라우저가 화면에 표시할 노드와 해당 노드의 스타일을 계산하면서, 하나의 그룹으로 묶어서 렌더링 트리를 만든 것이다.
 
@@ -96,8 +98,10 @@ DOM 트리는 문서 마크업의 속성과 관계를 포함하지만, 렌더링
 - Compositing은 레이어들을 합성하여 1개의 bitmap으로 만드는 과정이다.
 - 각 layer 별로 paint를 한다.
 
-ps. 브라우저는 동기(Synchronous)적으로 HTML, CSS, Javascript을 처리한다.
+ps. 브라우저는 동기(Synchronous)적으로 HTML, CSS, Javascript을 파싱한다.
 
-따라서 script 태그나 link 태그를 만나면 HTML파싱이 중단되고 CSS나 JS파싱이 진행된다.
+따라서 script 태그나 link 태그를 만나면 HTML파싱이 잠시 중단되고 CSS나 JS파싱이 진행된다.
+
+만약 JS를 비동기적으로 불러오고싶을 때 defer나 async 어트리뷰트를 사용하면 비동기적으로 불러올 수 있다.
 
 위치에 따라 블로킹이 발생하여 DOM의 생성이 지연될 수 있다.
