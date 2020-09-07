@@ -62,7 +62,6 @@ Simentic Versioning은 주(Major), 부(Minor), 수(Patch) 세 가지 숫자를 �
 
 ### peerDependencies
 
-내 패키지가 특정 다른 패키지와 함께 사용되도록 개발된 경우 해당 패키지를 `peerDependencies`에 추가해야합니다.(ex. react에 의존하는 라이브러리일 경우 react를 peerDependencies에 추가)
+내 패키지가 특정 다른 패키지와 함께 사용되도록 개발된 경우 해당 다른 패키지의 버저닝을 사용하는 쪽에서 지정하도록 하고싶을 때 피어 디펜더시에 추가할 수 있습니다.(ex. react에 의존하는 라이브러리일 경우 react를 peerDependencies에 추가)
 
-`peerDependencies`에 해당하는 패키지들은 `npm install (my package naem)`시 `node_modules` 디렉토리에 설치되지 않고 해당 패키지가 디펜던시에 없을 때만 에러를 cli상에 표시해줍니다.(npm v3 이전 버전에서는 디펜던시와 같이 설치됩니다)
-
+`peerDependencies`에 해당하는 패키지들은 `npm install (my package naem)`시 `node_modules` 디렉토리에 설치되지 않고 해당 패키지가 사용 하는 쪽의 디펜던시에 없을 때만 에러를 cli상에 표시해줍니다.(npm v3 이전 버전에서는 디펜던시와 같이 설치됩니다)
