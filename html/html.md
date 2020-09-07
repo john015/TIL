@@ -2,12 +2,6 @@
 
 - HTML의 버전을 명시하는 tag
 
-## 표준모드(standards mode) vs 호환모드(quirks mode)
-
-- 일반적으로 브라우저는 표준모드로 웹페이지를 렌더링하며, 오래된 웹페이지의 경우 최신 버전의 브라우저에서 깨지지 않도록 렌더링하는 것이 호환 모드입니다.
-- 브라우저가 html의 doctype을 읽고 해당 페이지가 최신 버전이라고 판단하면 표준 모드(standard mode)로 웹페이지를 렌더링합니다.
-- 반면 브라우저가 해당 페이지를 구 버전 이라고 판단을 하면 호환 모드(quirks mode)로 렌더링을 하게 되며 이 모드에서는 해당 버전에 맞는 비표준 문법을 적용합니다.
-
 ## 커스텀 데이터 속성(data-\*)이란?
 
 - HTML에서 기본적으로 제공되는 속성이 아닌, 개발자가 임의의 속성을 추가하고자 할 때 사용된다.
@@ -16,16 +10,16 @@
 ## 쿠키(Cookies) vs 세션저장소(sessionStorage) vs 로컬저장소(localStorage)
 
 - 셋 다 브라우저에 데이터를 저장하기 위한 기능들이다.
-- 쿠키는 4kb까지만 데이터를 저장할 수 있고, 유효기간을 지정할 수 있다.
+- 쿠키는 4kb까지만 데이터를 저장할 수 있고, 유효기간을 지정할 수 있다 또한 cookie에 데이터를 저장하면 무조건 서버에 request를 보낼 때 쿠키 정보도 같이 전달된다.
 - localStorage는 5mb까지의 데이터를 저장할 수 있고. 데이터에 유효기간이 없고, localStorage를 설정한 도메인에서만 설정한 값을 읽을 수 있고 다른 도메인에서는 못 읽는다.
 - sessionStorage는 localStorage와 동일하지만 sessionStorage에 저장된 데이터는 세션이 종료되면(해당탭이 종료되면)지워진다.
 
 ## script vs script async vs script defer
 
-- 일반적으로 브라우저는 \<script\> tag를 만나면 웹 페이지 렌더링을 잠시 중단하고 script를 파싱한뒤 실행한다.
+- 일반적으로 브라우저는 \<script\> tag를 만나면 웹 페이지 렌더링을 잠시 중단하고 js를 불러온 뒤 실행한다.
 - 따라서 크기가 큰 script를 head에서 불러올 경우 렌더 블로킹이 발생한다.
-- async와 defer 속성을 사용하게 되면 브라우저는 렌더링을 중단 하지않고 렌더링을 하면서 스크립트를 파싱한다.
-- async와 defer의 차이점은 async의 경우 script를 다 파싱하는 즉시 실행하며 defer는 렌더링이 모두 완료된 뒤 script를 실행한다.
+- async와 defer 속성을 사용하게 되면 브라우저는 html 파싱을 중단하지 않고 비동기적으로 js파일을 불러온다.
+- async와 defer의 차이점은 async의 경우 js 파일을 다 불러오는 즉시 실행하며 defer는 렌더링이 모두 완료된 뒤 script를 실행한다.
 
 ## img tag의 srcset 속성이란?
 
