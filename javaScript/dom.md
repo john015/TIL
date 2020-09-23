@@ -1,3 +1,19 @@
+# DOM Event 전파 흐름
+
+![flow](https://user-images.githubusercontent.com/32455422/94040253-ad0eb280-fe03-11ea-82cd-6af22cbd1921.png)
+
+어떤 DOM 엘리먼트에 이벤트가 발생하면, `Capture Phase` => `Target Phase` => `Bubbling Phase` 순서로 실행된다
+
+이벤트에 따라서 일부 지원되지 않는 phase들은 스킵될 수 있다.
+
+`event` 객체의 `target` 프로퍼티를 통해 이벤트가 발생한 엘리먼트를 확인할 수 있으며, `currentTarget`를 통해 이벤트가 등록된 엘리먼트를 확인할 수 있다
+
+`event.stopPropagation()` 메소드를 통해 이벤트 전파를 막을 수 있다. 만약 `Capture Phase`에서 이벤트 전파를 막으면 `Bubbling Phase`에 트리거될 예정인 콜백 함수들은 호출되지 않는다.
+
+만약 어떤 엘리먼트의 이벤트를 처리하는 핸들러가 여러개인 상황에서 해당 엘리먼트에 등록된 다른 핸들러들의 동작도 막고싶으면 `event.stopImmediatePropagation()` 메소드를 사용하면 된다.(어떤 엘리먼트에 핸들러가 여러개 등록되어 있을경우 핸들러가 등록된 순서대로 콜백함수가 호출된다)
+
+`event.preventDefault()` 메소드를 호출하면 이벤트를 취소할 수는 있지만, 이벤트의 전파는 막지 못한다.
+
 # DOM 조회
 
 ## Node.parentNode: HTMLElement
@@ -88,26 +104,26 @@ innerHTML 프로퍼티를 사용하지 않고 새로운 콘텐츠를 추가할 �
 
 ```javascript
 // 태그이름을 인자로 전달하여 요소를 생성
-const newElem = document.createElement('li')
+const newElem = document.createElement("li");
 
 // 텍스트 노드를 생성
-const newText = document.createTextNode('Beijing')
+const newText = document.createTextNode("Beijing");
 
 // 텍스트 노드를 newElem 자식으로 DOM 트리에 추가
-newElem.appendChild(newText)
+newElem.appendChild(newText);
 
-const container = document.querySelector('ul')
+const container = document.querySelector("ul");
 
 // newElem을 container의 자식으로 container 맨밑에 추가.
-container.appendChild(newElem)
+container.appendChild(newElem);
 
 // newElem을 container의 자식으로 target Element 앞에 삽입
-container.insertBefore(newElem, target)
+container.insertBefore(newElem, target);
 
-const removeElem = document.getElementById('one')
+const removeElem = document.getElementById("one");
 
 // container의 자식인 removeElem 요소를 DOM 트리에 제거한다.
-container.removeChild(removeElem)
+container.removeChild(removeElem);
 ```
 
 ## Node.insertAdjacentHTML(position, string)
@@ -120,8 +136,8 @@ container.removeChild(removeElem)
 - ‘afterend’: Node의 뒤에 삽입한다.
 
 ```javascript
-const one = document.getElementById('one')
+const one = document.getElementById("one");
 
 // 마크업이 포함된 요소 추가
-one.insertAdjacentHTML('beforeend', '<em class="blue">, Korea</em>')
+one.insertAdjacentHTML("beforeend", '<em class="blue">, Korea</em>');
 ```
