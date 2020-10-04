@@ -1,5 +1,9 @@
 # react 16.3 이후 라이프 싸이클
 
+## Flow Diagram
+
+![react-lifecycle-flow-chart-states](https://user-images.githubusercontent.com/32455422/95023614-fccd6380-06b8-11eb-866f-ada7421da2cc.png)
+
 ## componentDidMount
 
 ```javascript
