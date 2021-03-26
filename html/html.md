@@ -63,7 +63,7 @@ Attribute와 Property를 비교하면 Attributes는 HTML 문서에 있는 것이
 
 ### Section
 
-`<section>` 태그는 서로 관계가 있는 내용들을 그룹핑 하기위해 사용된다.
+`<section>` 태그는 서로 관계가 있는 내용들을 그룹핑 하기위해 사용한다.
 
 ### Article
 
@@ -75,7 +75,7 @@ Attribute와 Property를 비교하면 Attributes는 HTML 문서에 있는 것이
 
 ### Aside
 
-`<div>` 태그는 문서의 주요 내용과 간접적으로 연관된 부분을 나타낼 때 사용합니다.
+`<div>` 태그는 문서의 주요 내용과 간접적으로 연관된 부분을 나타낼 때 사용한다.
 
 ## IE 조건부 주석
 
@@ -121,3 +121,48 @@ Attribute와 Property를 비교하면 Attributes는 HTML 문서에 있는 것이
 
 - 또는(or)
 - 예) [if (ie 7)|(ie 8)] ie7 이거나 ie8 이라면
+
+## 시맨틱한 html tag
+
+### address
+
+- 연락처 정보를 나타낼 때 사용
+```html
+<address>
+  <a href="mailto:lsw0150305@gmail.com">lsw0150305@gmail.com</a>
+  <br>
+  <a href="tel:010-0000-0000">010-0000-0000</a>
+</address>
+```
+
+### q
+- 짧은 인용문을 나타낼 때 사용
+```html
+<q cite="https://en.wikipedia.org/wiki/HTML">HTML(HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.</q>
+```
+
+### blockquote
+
+- 긴 인용문을 나타낼 때 사용
+```html
+<blockquote cite="https://en.wikipedia.org/wiki/HTML">
+   <p>HTML(HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.</p>
+</blockquote>
+```
+
+### cite
+
+- 저작물의 출처를 나타낼 때 사용
+```html
+<p>More information can be found in <cite>My blog</cite>.</p>
+```
+
+### figure
+
+- 부연설명을 포함한 독립적인 콘텐츠를 나타낼 때 사용
+```html
+<figure>
+    <img src="https://avatars.githubusercontent.com/u/32455422?v=4">
+    <figcaption>My avatar photo</figcaption>
+</figure>
+```
