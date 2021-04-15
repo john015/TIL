@@ -11,9 +11,8 @@
 
 ## 웹사이트에서 assets/resources를 최적화하는 방법
 
-- webpack같은 번들러를 사용해서 여러개의 css, js파일을 하나의 파일로 만들어 네트워크 요청의 횟수를 줄인다
+- webpack같은 번들러를 사용해서 여러개의 css, js파일을 하나의 파일로 만들어 네트워크 요청의 횟수를 줄인다(< http/1.1 기준)
 - css, js파일을 minify해서 파일 크기를 줄인다
-- 서버 사이드 캐싱, 클라이언드 사이드 캐싱을 활용하여 통신횟수를 줄인다
 
 ## HTTP/1.0 프로토콜 기준 브라우저가 한 번에 1개의 도메인에서 내려받을수 있는 resource수
 
@@ -26,7 +25,8 @@
 
 - gzip
 - Resource prefetching
-- 이미지 스프라이트
+- render blocking 최소화
+- 이미지 스프라이트(< http/1.1 기준)
 
 ## Flash of Unstyled Content(FOUC)이란? FOUC를 피하기 위한 방법
 
@@ -38,11 +38,6 @@
 - ARIA(Accessible Rich Internet Applications)이란 웹페이지를 작성할 때 장애인이 웹페이지를 잘 식별할 수 있도록 하는 접근성 명세 이다.
 - ARIA 속성들은 [링크](https://github.com/lezhin/accessibility/blob/master/aria/README.md#html)를 참고
 - screenreader란 시각장애인이 컴퓨터를 사용할 때 나타나는 정보들을 음성으로 출력해주는 프로그램이다.
-
-## CSS 애니메이션과 JavaScript 애니메이션의 차이점
-
-- 자바스크립트는 메인 쓰레드가 무거운 작업을 하고 있을 때 애니메이션 처리의 우선순위를 미뤄두는 반면 CSS는 독립적인 쓰레드가 애니메이션을 처리해준다. 때문에 CSS 애니메이션은 최적화가 쉽다.
-- 하지만 복잡한 에니메이션의 경우 CSS 애니메이션으로는 구현하기 어렵고 JS 애니메이션을 사용 해야한다.
 
 ## CORS란?
 
