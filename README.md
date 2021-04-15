@@ -63,7 +63,6 @@
 
 ### Git
 
-- [Git-command](https://github.com/john015/TIL/blob/master/git/git.md)
 - [Git-flow](https://github.com/john015/TIL/blob/master/git/git-flow.md)
 
 <hr />
