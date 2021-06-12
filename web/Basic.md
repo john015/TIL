@@ -13,6 +13,8 @@
 
 - webpack같은 번들러를 사용해서 여러개의 css, js파일을 하나의 파일로 만들어 네트워크 요청의 횟수를 줄인다(< http/1.1 기준)
 - css, js파일을 minify해서 파일 크기를 줄인다
+- webp, avif 확장자의 이미지를 사용해 용량을 줄인다
+- gzip, brotli 압축 방법을 사용 해 파일을 전송한다 
 
 ## HTTP/1.0 프로토콜 기준 브라우저가 한 번에 1개의 도메인에서 내려받을수 있는 resource수
 
@@ -23,21 +25,20 @@
 
 ## 페이지 로드 시간을 줄이는 방법
 
-- gzip
+- [Domain preconnect](https://web.dev/preconnect-and-dns-prefetch/)
 - Resource prefetching
-- render blocking 최소화
-- 이미지 스프라이트(< http/1.1 기준)
+- Render blocking 최소화
+- 이미지 스프라이트
 
 ## Flash of Unstyled Content(FOUC)이란? FOUC를 피하기 위한 방법
 
 - FOUC란 CSS 코드를 불러오기 전 스타일이 적용되지 않은 페이지가 잠시 나타나는 현상이다. 특히 IE에서 자주 발생하는 현상으로, UX을 저하시킨다.
 - FOUC를 피하기 위해선 head tag 안에 CSS를 link하고 @import의 사용을 자제해야 한다. 또한 JavaScript로 styling을 한다면 head tag 안에서 js를 load할수도있다.
 
-## ARIA와 screenreader이란?
+## WAI-ARIA란?
 
-- ARIA(Accessible Rich Internet Applications)이란 웹페이지를 작성할 때 장애인이 웹페이지를 잘 식별할 수 있도록 하는 접근성 명세 이다.
+- WAI-ARIA란 웹페이지의 접근성 문제를 보완해 누구나 불편함 없이 서비스를 이용할 수 있도록 권고하는 명세이다.
 - ARIA 속성들은 [링크](https://github.com/lezhin/accessibility/blob/master/aria/README.md#html)를 참고
-- screenreader란 시각장애인이 컴퓨터를 사용할 때 나타나는 정보들을 음성으로 출력해주는 프로그램이다.
 
 ## CORS란?
 
@@ -48,7 +49,7 @@
 
 |           HTTP Header            |          Description           |
 | :------------------------------: | :----------------------------: |
-|   Access-Control-Allow-Origin    |     접근 가능한 `url` 설정     |
+|   Access-Control-Allow-Origin    |     접근 가능한 `호스트` 설정     |
 | Access-Control-Allow-Credentials |    접근 가능한 `쿠키` 설정     |
 |   Access-Control-Allow-Headers   |    접근 가능한 `헤더` 설정     |
 |   Access-Control-Allow-Methods   | 접근 가능한 `http method` 설정 |
@@ -79,7 +80,7 @@ transform, opacity등의 속성을 변경하면 composite작업만 수행합니�
 
 각 painting된 레이어들을 병합한후 화면을 출력합니다.
 
-ps. 주어진 CSS 속성을 변경하는 위의 세 가지 버전 중 어느 버전이 트리거될지 알고 싶은 경우 [CSS 트리거](https://csstriggers.com/)를 참조하세요.
+ps. 어떤 CSS 속성 값을 변경 했을 때 어떤 페이즈가 트리거 될지 알고 싶은 경우 [CSS 트리거](https://csstriggers.com/)를 참고, JS의 경우 [What forces layout / reflow](https://gist.github.com/paulirish/5d52fb081b3570c81e3a) 참고
 
 ## Synchronous vs Asynchronous vs Blocking vs NonBlocking
 
