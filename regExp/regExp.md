@@ -15,9 +15,9 @@
 
 ```javascript
 // 'http'로 시작하는지 검사
-const regexp = /^http/
-console.log(regexp.test('http://test.com')) // true
-console.log(regexp.test('010-1234-5678')) // false
+const regex = /^http/
+console.log(regex.test('http://test.com')) // true
+console.log(regex.test('010-1234-5678')) // false
 ```
 
 ## \$
@@ -26,9 +26,9 @@ console.log(regexp.test('010-1234-5678')) // false
 
 ```javascript
 // 'html'로 시작하는지 검사
-const regexp = /html$/
-console.log(regexp.test('index.html')) // true
-console.log(regexp.test(test.mp4)) // false
+const regex = /html$/
+console.log(regex.test('index.html')) // true
+console.log(regex.test(test.mp4)) // false
 ```
 
 ## \*
@@ -36,10 +36,10 @@ console.log(regexp.test(test.mp4)) // false
 앞의 표현식이 0회 이상 연속으로 반복되는 부분과 대응
 
 ```javascript
-const regexp = /hi*/
-console.log(regexp.test('h')) // true
-console.log(regexp.test('hiiiii')) // true
-console.log(regexp.test('good bye')) // false
+const regex = /hi*/
+console.log(regex.test('h')) // true
+console.log(regex.test('hiiiii')) // true
+console.log(regex.test('good bye')) // false
 ```
 
 ## +
@@ -47,10 +47,10 @@ console.log(regexp.test('good bye')) // false
 앞의 표현식이 1회 이상 연속으로 반복되는 부분과 대응
 
 ```javascript
-const regexp = /hi+/
-console.log(regexp.test('h')) // false
-console.log(regexp.test('hiiiii')) // true
-console.log(regexp.test('good bye')) // false
+const regex = /hi+/
+console.log(regex.test('h')) // false
+console.log(regex.test('hiiiii')) // true
+console.log(regex.test('good bye')) // false
 ```
 
 ## ?
@@ -58,10 +58,10 @@ console.log(regexp.test('good bye')) // false
 앞의 표현식이 0 또는 1회 등장하는 부분과 대응
 
 ```javascript
-const regexp = /hi?/
-console.log(regexp.test('h')) // true
-console.log(regexp.test('hi')) // true
-console.log(regexp.test('good bye')) // false
+const regex = /hi?/
+console.log(regex.test('h')) // true
+console.log(regex.test('hi')) // true
+console.log(regex.test('good bye')) // false
 ```
 
 ## .
@@ -69,10 +69,10 @@ console.log(regexp.test('good bye')) // false
 개행 문자를 제외한 모든 단일 문자와 대응
 
 ```javascript
-const regexp = /.oy/
-console.log(regexp.test('boy')) // true
-console.log(regexp.test('qo')) // false
-console.log(regexp.test('oysho')) // false
+const regex = /.oy/
+console.log(regex.test('boy')) // true
+console.log(regex.test('qo')) // false
+console.log(regex.test('oysho')) // false
 ```
 
 ## (x)
@@ -80,9 +80,9 @@ console.log(regexp.test('oysho')) // false
 'x'에 대응되는것을 capture, capture된값은 exec나 match methods가 return하는 배열에 포함됨
 
 ```javascript
-const regexp = /^(good).+/
-console.log(regexp.exec('goodbye')) // ["goodbye", "good"]
-console.log(regexp.exec('goo')) // null
+const regex = /^(good).+/
+console.log(regex.exec('goodbye')) // ["goodbye", "good"]
+console.log(regex.exec('goo')) // null
 ```
 
 ## x(?=y)
@@ -90,10 +90,10 @@ console.log(regexp.exec('goo')) // null
 오직 'y'가 뒤따라오는 'x'에만 대응
 
 ```javascript
-const regexp = /good(?=bye)/
-console.log(regexp.test('goodbye')) // true
-console.log(regexp.test('good')) // false
-console.log(regexp.test('bye')) // false
+const regex = /good(?=bye)/
+console.log(regex.test('goodbye')) // true
+console.log(regex.test('good')) // false
+console.log(regex.test('bye')) // false
 ```
 
 ## x(?!y)
@@ -101,10 +101,10 @@ console.log(regexp.test('bye')) // false
 오직 'y'가 뒤따라오지 않는 'x'에만 대응
 
 ```javascript
-const regexp = /good(?!bye)/
-console.log(regexp.test('goodbye')) // false
-console.log(regexp.test('good')) // true
-console.log(regexp.test('bye')) // false
+const regex = /good(?!bye)/
+console.log(regex.test('goodbye')) // false
+console.log(regex.test('good')) // true
+console.log(regex.test('bye')) // false
 ```
 
 ## x|y
@@ -112,10 +112,10 @@ console.log(regexp.test('bye')) // false
 'x' 또는 'y'에 대응
 
 ```javascript
-const regexp = /bye|hello/
-console.log(regexp.test('bye')) // true
-console.log(regexp.test('hello')) // true
-console.log(regexp.test('good night')) // false
+const regex = /bye|hello/
+console.log(regex.test('bye')) // true
+console.log(regex.test('hello')) // true
+console.log(regex.test('good night')) // false
 ```
 
 ## {n}
@@ -123,9 +123,9 @@ console.log(regexp.test('good night')) // false
 앞 표현식이 n번 나타나는 부분에 대응, n은 반드시 양의 정수여야함
 
 ```javascript
-const regexp = /hello{2}/
-console.log(regexp.test('hellohello')) // true
-console.log(regexp.test('hello')) // false
+const regex = /hello{2}/
+console.log(regex.test('hellohello')) // true
+console.log(regex.test('hello')) // false
 ```
 
 ## {n,m}
@@ -133,9 +133,9 @@ console.log(regexp.test('hello')) // false
 앞 표현식이 n번 이상 나타나고 m번 이하 나타나는 부분에 대응, n, m은 반드시 양의 정수여야함
 
 ```javascript
-const regexp = /hello{1,2}/
-console.log(regexp.test('hellohello')) // true
-console.log(regexp.test('hello')) // ture
+const regex = /hello{1,2}/
+console.log(regex.test('hellohello')) // true
+console.log(regex.test('hello')) // ture
 ```
 
 ## [xyz]
@@ -143,10 +143,10 @@ console.log(regexp.test('hello')) // ture
 괄호 안의 문자셋과 대응
 
 ```javascript
-const regexp = /^[a-c]/ // /^[abc]/와 동일
-console.log(regexp.test('apple')) // true
-console.log(regexp.test('banana')) // ture
-console.log(regexp.test('melon')) // false
+const regex = /^[a-c]/ // /^[abc]/와 동일
+console.log(regex.test('apple')) // true
+console.log(regex.test('banana')) // ture
+console.log(regex.test('melon')) // false
 ```
 
 ## [^xyz]
@@ -154,10 +154,10 @@ console.log(regexp.test('melon')) // false
 괄호 내부에 등장하지 않는 문자와 대응
 
 ```javascript
-const regexp = /^[^a-c]/ // /^[^abc]/와 동일
-console.log(regexp.test('apple')) // false
-console.log(regexp.test('banana')) // false
-console.log(regexp.test('melon')) // true
+const regex = /^[^a-c]/ // /^[^abc]/와 동일
+console.log(regex.test('apple')) // false
+console.log(regex.test('banana')) // false
+console.log(regex.test('melon')) // true
 ```
 
 ## [^xyz]
@@ -165,10 +165,10 @@ console.log(regexp.test('melon')) // true
 괄호 내부에 등장하지 않는 문자와 대응
 
 ```javascript
-const regexp = /^[^a-c]/ // /^[^abc]/와 동일
-console.log(regexp.test('apple')) // false
-console.log(regexp.test('banana')) // false
-console.log(regexp.test('melon')) // true
+const regex = /^[^a-c]/ // /^[^abc]/와 동일
+console.log(regex.test('apple')) // false
+console.log(regex.test('banana')) // false
+console.log(regex.test('melon')) // true
 ```
 
 ## \b
@@ -176,10 +176,10 @@ console.log(regexp.test('melon')) // true
 다른 '단어 문자'(\w와 동일)가 앞이나 뒤에 등장하지 않는 위치에 대응
 
 ```javascript
-const regexp = /moon\b/
-console.log(regexp.test('honeymoon')) // true
-console.log(regexp.test('moonster')) // false
-console.log(regexp.test('moon star')) // true
+const regex = /moon\b/
+console.log(regex.test('honeymoon')) // true
+console.log(regex.test('moonster')) // false
+console.log(regex.test('moon star')) // true
 ```
 
 ## \d
@@ -187,10 +187,10 @@ console.log(regexp.test('moon star')) // true
 숫자 문자에 대응. [0-9]와 동일
 
 ```javascript
-const regexp = /\d/
-console.log(regexp.test('1')) // true
-console.log(regexp.test('1st')) // true
-console.log(regexp.test('first')) // false
+const regex = /\d/
+console.log(regex.test('1')) // true
+console.log(regex.test('1st')) // true
+console.log(regex.test('first')) // false
 ```
 
 ## \D
@@ -198,10 +198,10 @@ console.log(regexp.test('first')) // false
 숫자 문자가 아닌 문자에 대응. [^0-9]와 동일
 
 ```javascript
-const regexp = /\d/
-console.log(regexp.test('1')) // false
-console.log(regexp.test('1st')) // true
-console.log(regexp.test('first')) // true
+const regex = /\d/
+console.log(regex.test('1')) // false
+console.log(regex.test('1st')) // true
+console.log(regex.test('first')) // true
 ```
 
 ## \s
@@ -209,9 +209,9 @@ console.log(regexp.test('first')) // true
 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 포함한 문자에 대응
 
 ```javascript
-const regexp = /\s/
-console.log(regexp.test('firstGoal')) // false
-console.log(regexp.test('first goal')) // true
+const regex = /\s/
+console.log(regex.test('firstGoal')) // false
+console.log(regex.test('first goal')) // true
 ```
 
 ## \S
@@ -219,9 +219,9 @@ console.log(regexp.test('first goal')) // true
 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 제외한 하나의 공백 문자에 대응
 
 ```javascript
-const regexp = /\S/
-console.log(regexp.test(' ')) // false
-console.log(regexp.test('first goal')) // true
+const regex = /\S/
+console.log(regex.test(' ')) // false
+console.log(regex.test('first goal')) // true
 ```
 
 ## \w
@@ -229,9 +229,9 @@ console.log(regexp.test('first goal')) // true
 밑줄 문자를 포함한 영숫자 문자에 대응. [A-Za-z0-9_] 와 동일
 
 ```javascript
-const regexp = /\w/
-console.log(regexp.test('안녕하세요')) // false
-console.log(regexp.test('first')) // true
+const regex = /\w/
+console.log(regex.test('안녕하세요')) // false
+console.log(regex.test('first')) // true
 ```
 
 ## \W
@@ -239,9 +239,9 @@ console.log(regexp.test('first')) // true
 단어 문자가 아닌 문자에 대응. [^a-za-z0-9_] 와 동일합니다.
 
 ```javascript
-const regexp = /\W/
-console.log(regexp.test('안녕하세요')) // true
-console.log(regexp.test('first')) // false
+const regex = /\W/
+console.log(regex.test('안녕하세요')) // true
+console.log(regex.test('first')) // false
 ```
 
 # Reference
