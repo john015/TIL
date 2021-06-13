@@ -180,9 +180,13 @@ webpack-dev-server를 이용해 손쉽게 hmr(hot module replacement) 환경에�
 
 ## sideEffect option
 
-webpack 4버전에서는 esm으로 빌드된 모듈의 경우 트리쉐이킹을 해주는데, 이때 해당 모듈의 package.json에 있는 sideEffects 설정을 보고 sideEffect 여부를 판단합니다.
+[terser](https://github.com/terser/terser)를 사용해 모든 구문에서의 sideEffect 여부를 정확하게 파악하기는 어렵기 때문에
 
-package.json에 있는 sideEffects값이 true일 경우 트리쉐이킹 시에 sideEffects가 발생할 수 있다고 생각하여 해당 모듈에 트리쉐이킹을 적용 하지 않는다.
+package.json 파일의 sideEffects 프로퍼티 값을 통해 webpack 컴파일러에게 어떤 모듈의 sideEffect 포함 여부를 전달할 수 있습니다.
+
+package.json에 명시되어 있는 sideEffects 프로퍼티 값에 어떤 모듈의 경로가 포함되어 있을 경우 해당 모듈에 대해 트리쉐이킹을 적용 하지 않습니다.
+
+sideEffects 프로퍼티 값을 false로 넘기게 되면 모든 모듈들을 side-effect-free로 여기며 사용되지 않은 코드들을 지우는 트리쉐이킹 작업을 수행하게 됩니다.
 
 ## Reference
 

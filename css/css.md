@@ -37,8 +37,8 @@ li:hover{color:red}
 
 ## BFC(Block Formatting contexts) vs IFC(Inline Formatting contexts)
 
-- BFC는 context의 width값 만큼 페이지의 width를 다 차지하고 수직으로 쌓인다.
-- IFC는 context의 width만큼 페이지의 width를 차지하고 수평으로 쌓인다.
+- BFC는 context의 width값 만큼 페이지의 width를 다 차지하고 수직으로 쌓인다.(ex, display: block, flex)
+- IFC는 context의 width만큼 페이지의 width를 차지하고 수평으로 쌓인다.(ex, display: inline, inline-block, inline-flex)
 
 ## NTH-CHILD(N)과 NTH-OF-TYPE(N)의 차이점
 
