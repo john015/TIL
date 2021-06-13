@@ -40,6 +40,8 @@
 ### CS
 
 - [프로세스 vs 스레드](https://github.com/john015/TIL/blob/master/computer-science/process-vs-thread.md)
+- [비트 연산자](https://github.com/john015/TIL/blob/master/computer-science/bitwise-operator.md)
+- [그레이 코드](https://github.com/john015/TIL/blob/master/computer-science/gray-code.md)
 
 ## Common
 
@@ -141,11 +143,3 @@
 - [Intro](https://github.com/john015/TIL/blob/master/graphQL/Intro.md)
 - [Query](https://github.com/john015/TIL/blob/master/graphQL/Query.md)
 - [Mutation](https://github.com/john015/TIL/blob/master/graphQL/Mutation.md)
-
-## Other
-
-- [비트 연산자](https://github.com/john015/TIL/blob/master/other/bitwise-operator.md)
-- [그레이 코드](https://github.com/john015/TIL/blob/master/other/gray-code.md)
-- [dao, dto, entity란](https://github.com/john015/TIL/blob/master/other/dao-dto-entity.md)
-- [useful sites](https://github.com/john015/TIL/blob/master/other/useful-sites.md)
-- [good articles](https://github.com/john015/TIL/blob/master/other/good-articles.md)
