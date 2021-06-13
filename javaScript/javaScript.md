@@ -4,12 +4,12 @@
 - 일반적으로 함수실행 시점에서 객체의 method이면 부모객체를 가리킴 아니면 전역객체를 가리킴.
 - 생성자 함수로 호출시 this는 새로 생성될 인스턴스 객체를 가리킴.
 - 전역에서 this에 접근할경우 전역 객체를 가리킴.
+- arrow function 안에서 this에 접근할 경우 this는 함수 선언 시점의 상위 컨텍스트(부모 함수) this를 가리킴.
 - strict mode에서는 암묵적으로 this가 window 또는 global로 할당될경우 undefined가 할당됨.
-- arrow function에서 this를 호출할 경우 this는 상위 객체를 가리킴.
 
 ## 참조형 타입 vs 원시형 타입
 
-- 원시형 타입은 Number, Boolean, null, undefined, String, Symbol, BigInt(ES11에서 추가)가 있고,
+- 원시형 타입은 Number, Boolean, null, undefined, String, Symbol(ES6), BigInt(ES11)가 있고,
 
 - 참조형 타입은 객체(Object), 배열(Array), 함수(function), 정규 표현식(regExp)등이 있다.
 
@@ -127,11 +127,6 @@ throttle은 스크롤 이벤트 처리시 주로 사용하고 debounce는 ajax �
 - 이벤트 위임(Event Delegation)이란 다수의 자식 엘리먼트에 각각 이벤트 핸들러를 바인딩하는 대신 부모 요소에 이벤트 핸들러를 바인딩하는 방법이다.
 - 부모 Element에 이벤트 리스너를 바인딩 한 후 이벤트 버블링을 통해 전달받은 event 인자를 통해 event가 트리거된 Element를 확인한다.
 
-## AMD와 CommonJS란?
-
-- 둘다 모두 ES2015 module system이 등장하기 전까지 JavaScript에 기본적으로 존재하지 않는 module system을 구현하는 방법이다.
-- CommonJS는 동기식으로 모듈을 로드하지만 AMD(Asynchronous Module Definition 비동기식 모듈 정의)는 비동기식으로 모듈을 로드한다.
-
 ## null vs undefined vs undeclared
 
 ### null
@@ -158,9 +153,9 @@ throttle은 스크롤 이벤트 처리시 주로 사용하고 debounce는 ajax �
 
 ## 클로저(Closure)란?
 
-- 클로저란 내부함수가 외부함수의 context에 접근하는것을 말한다.
-- 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 내부함수의 지역변수에 접근할 수 없으며, 외부함수의 지역변수는 외부함수의 호출이 끝나도 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는 특성이있다.
-- 클로저는 반환된 내부함수가 자신이 선언됐을 때의 환경(Lexical environment)인 스코프를 기억하여 자신이 선언됐을 때의 환경(스코프) 밖에서 호출되어도 자신이 선언됐을 때의 환경(스코프)에 접근할 수 있는 함수이다.
+- 클로저란 실행이 종료된 외부 함수의 context에 접근하는 내부함수를 말한다.
+- 내부함수는 외부함수의 context에 접근할 수 있고, 외부함수는 내부함수의 context에 접근할 수 없으며, 외부함수의 context는 외부함수의 실행이 종료돼도 context에 접근하는 내부함수가 소멸될 때까지 같이 소멸되지 않는 특성이있다.
+- 클로저는 JavaScript 함수의 렉시컬 스코프 성질을 활용한 패턴이다.
 
 ```javascript
 function generateCounter() {
@@ -203,35 +198,13 @@ if ('localStorage' in window) {
 - AJAX는 페이지 전체를 새로고침 하지 않고서도 수행 되는 비동기식 통신이다.
 - 이러한 비동기성을 통해 사용자의 Event가 있으면 전체 페이지가 아닌 일부분만을 업데이트할 수 있게 해준다.
 
-### 장점
-
-- 웹페이지 전체를 다시 로딩하지 않아도 된다.
-- 서버의 응답을 기다리지 않는 비동기 요청이 가능하다.
-- 일부 데이터만 수신하기때문에 수신하는 데이터의 양을 줄일 수 있다.
-
-### 단점
-
-- 지원하는 Charset이 한정되어 있다.
-- http요청을 남발하면 서버의 부하가 늘어날 수 있다.
-- 동일 출처 정책(CORS issue)로 인해 다른 도메인과 통신이 불가능하다.
-
-## JSONP란?
-
-- JSONP는 AJAX와는 다르게 데이터를 요청하는 것이 아닌 \<script\>의 src로 호출하는 방식이다.
-- AJAX은 Same Origin Policy에 의해 동일한 도메인에서만 호출이 가능하지만, JSONP는 \<script\>태그의 경우 동일 출처 원칙을 따르지 않아도 되기 때문에 이 원리를 바탕으로 통신이 가능하다.
-- 주의 할 점은 JSONP 방식의 경우 GET 메서드만 호출 가능하다. 또한 현재(2019년) JSONP는 여러 보안상 이슈로 인하여 W3C에서는 2009년 채택된 CORS 방식의 HTTP 통신을 권장하고 있으며 JSONP방식은 거의 사용하지않는다.
-
-```html
-<!-- 서버에서 params로 받은 콜백함수명으로 반환할 데이터를 감싸서 반환해주면 해당 콜백함수의 인자로 데이터가 들어간다. -->
-<script src="http://example.com/post/1?callback=콜백함수명"></script>
-```
-
 ## “호이스팅(Hoisting)”이란?
 
 - 호이스팅이란 함수나 변수가 해당 scope의 맨위로 올라가는 현상이다.
-- 변수 호이스팅의 경우, var 키워드로 변수를 선언했을경우 변수 호이스팅이 일어나며 해당 변수의 선언이 scope의 맨위로 올라간다.
-- let, const 키워드로 변수를 선언했을경우 변수 호이스팅이 일어나지않는다.
-- 함수 호이스팅의 경우 "함수 선언식"으로 호출했을경우 일어나며 선언 및 할당되기 이전에 호출해도 호이스팅으로 인해 에러가 일어나지않는다.
+- 변수 호이스팅의 경우, var 키워드로 변수를 선언했을 때 변수 호이스팅이 일어나며 해당 변수의 선언이 context scope의 최상위로 올라간다(변수 할당은 호이스팅 x).
+- let, const 키워드로 선언한 변수의 경우 내부적으로 호이스팅이 일어나지만 TDZ(temporal dead zone)으로 호이스팅이 일어나 사실상 프로그래머 입장에서는 호이스팅이 일어나지 않는 것 처럼 작동한다.
+- 함수 호이스팅의 경우 함수를 "함수 선언식(function)"으로 선언 했을 경우 일어나며 함수의 선언 및 할당 모두 context scope의 최상위로 올라간다.
+- 함수를 const 키워드 등을 활용해 "함수 표현식"으로 선언 했을 경우 변수 호이스팅과 동일하게 처리된다.
 
 ## 이벤트 버블링(Event Bubbling)이란?
 
@@ -250,38 +223,38 @@ if ('localStorage' in window) {
 
 ## ==(동등 연산자) vs ===(일치 연산자)
 
-- 동등 연산자은 비교하는 두 변수의 type이 다르면 형변환을 한 뒤 비교한다.
-- 일치 연산자는 비교하는 두 변수의 type이 달라도 무시하고 비교한다.
+- 동등 연산자은 비교하는 두 변수의 타입이 다르면 형변환을 한 뒤 비교한다.
+- 일치 연산자는 비교하는 두 변수의 타입이 달라도 무시하고 비교한다.(타입이 다를 경우 무조건 false 반환)
 
 ## Strict Mode란?
 
-- Strict Mode는 ECMAScript 버전 5에서 새로 추가되었으며 "use strict;" 을 입력하면 해당 스코프의 다음 구문들부터 적용된다.
+- Strict Mode는 ES5에서 추가 되었으며 "use strict;" 을 입력하면 해당 스코프의 다음 구문들부터 적용된다.
 - 이전 버전의 JavaScript 인터프리터들은 use strict구문을 무시한다.
 - Strict Mode에서는 암묵적 전역 변수 선언, 변수 함수 매개변수의 삭제, 매개변수 이름의 중복, with 문을 사용 하면 에러가 발생한다.
 - 또한 일반 함수안에서 this를 호출하면 global객체가 return되는 대신, undefined가 return 된다.
-- Strict Mode는 IE10이상부터 지원한다.
+- Strict Mode는 IE10 이상부터 지원한다.
 
 ## SPA프로젝트에서 SEO(Search Engine Optimization)를 하는법
 
 - SPA프로젝트의 경우 싱글 페이지이기 때문에 SPA프로젝트 크롤링이 가능한 구글을 제외하고 네이버, 다음, 네이트등의 포털사이트에서 검색결과가 나타나지않는다.
-- SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(빌드 시점에서 렌더링해서 정적 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수 있다.
+- SEO를 하기위해선 react기준으로 Next.js나 react-server를 사용하여 ssr을 하거나 prerender(빌드 시점에서 렌더링해서 정적 파일(.html)을 생성해 둔뒤 http 요청이 올때 미리 생성해둔 정적 파일을 전송)을 할 수 있습니다.
+- 또한 lambda@Edge를 활용해 서버리스 함수를 실행시켜 크롤러일 경우 알맞는 open graph 태그를 삽입 시킬 수도 있습니다.
 
 ## Promise의 장단점
 
 ### 장점
 
-- 콜백 헬을 벗어날 수 있다.
+- 비동기 처리 시 콜백 헬을 벗어날 수 있다.
 - 메소드 체이닝을 통한 연속적인 코드 작성이 가능하다.
-- Promise.all을 사용해서 동시에 여러개의 비동기 코드를 처리할 수 있다.
 
 ### 단점
 
-- ES2015를 지원하지 않는 이전 브라우저(ie)에서 사용하기 위해서는 polyfill을 로드해야한다.
+- Promise의 취소가 불가능하다
 
 ## immutable value vs mutable value
 
 - 원시(primitive) 타입 값들은 변경 불가능한 값(immutable value)이며 원시 타입 이외의 모든 값들은 객체(Object) 타입이다. 객체 타입은 변경 가능한 값(mutable value)이다.
-- 원시 타입 값들은 메모리에 저장되면 프로그래머가 의도적으로 값을 삭제하거나 재할당 하지않는이상 않는이상 메모리에 저장된 값이 변경되지않는다.
+- 원시 타입 값들은 메모리에 저장되면 프로그래머가 의도적으로 값을 삭제하거나 재할당 하지않는이상 메모리에 저장된 값이 변경되지않는다.
 
 ```javascript
 const statement = 'I am an immutable value' // string은 immutable value
@@ -291,7 +264,7 @@ console.log(otherStr) // 'immutable'
 console.log(statement) // 'I am an immutable value' 원본값은 변경되지 않음
 ```
 
-- 하지만 객체 타입값들은 메모리에 저장된 값이 변경될수있다.
+- 하지만 참조 타입 값들은 메모리에 저장된 값이 변경될수있다.
 
 ```javascript
 const arr = []
@@ -301,27 +274,6 @@ const arr2 = arr.push(2) // Array.prototype.push 메소드는 실행 후 arr의 
 console.log(arr) // [1] 원본 arr이 변경됌
 ```
 
-## 함수 선언식 vs 함수 표현식
-
-- 함수 선언식은 함수 호이스팅이 되지만 함수 표현식은 변수 호이스팅이된다.
-- 함수 선언식은 브라우저가 자바스크립트를 해석할 때 스코프의 맨 위로 끌어 올려져 해석된다.
-- 함수 표현식은 var 키워드를 사용하여 선언하면 선언만 스코프의 맨 위로 끌어올려지고 할당은 나중에되고, let이나 const 키워드로 선언하면 호이스팅이 일어나지않는다.
-
-```javascript
-fn1() // throw Error
-fn2() // 2
-
-// 함수 표현식
-const fn1 = function () {
-  return 1
-}
-
-// 함수 선언식
-function fn2() {
-  return 2
-}
-```
-
 ## var vs let vs const
 
 - var로 선언된 변수는 함수 레벨 스코프를 가지고 let, const로 선언된 변수는 블록 레벨 스코프를 가진다.
@@ -329,10 +281,6 @@ function fn2() {
 - var 변수가 선언되기 전에 읽어도 에러가 발생하지 않지만, let과 const로 선언한 변수를 읽으면 에러가 발생한다.
 - var를 사용하여 선언한 변수는 다시 선언해도 에러가 발생하지 않지만 ‘let’과 ‘const’는 에러가 발생합니다.
 - var와 let로 선언된 변수는 값을 재할당할 수 있지만 const로 선언된 변수는 재할당 될수없다.
-
-## Set, Map이란?
-
-- 둘다 ES6에 추가됐으며, set은 array와 비슷하고 map은 object와 비슷하다.
 
 ### Map vs Object
 
@@ -346,6 +294,7 @@ function fn2() {
 ### Set vs Array
 
 - Array는 중복된 값을 가질 수 있지만, Set은 중복된 값을 가질 수 없습니다.
+- Set에 중복된 값을 추가할 경우 자동으로 추가되지 않습니다.
 
 ## for of vs for in
 
